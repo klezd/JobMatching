@@ -3,6 +3,9 @@ ion-header {
     ion-icon {
         font-size: 35px;
     }
+    i {
+        color: color($colors, icon);
+    }
     button {
         margin: auto
     }
@@ -11,5 +14,29 @@ ion-header {
     }
     ion-grid, ion-col {
         padding: 0 !important;
+    }
+    ion-searchbar {
+        box-shadow: 1px 1px 1px color($colors, light);       
+    }
+}
+
+//change color for tab when changing tab 
+.tabbar {
+	a.tab-button[aria-selected=true]{
+        color: color($colors, icon);
+        background-color: color($colors, theme-active);
+        box-shadow: 1px 1px 1px color($colors, light);
+        border-top: solid 1px color($colors, dark);                
+		.tab-button-icon {
+			color: color($colors, icon);
+		}
+    }
+}
+.tabbar {
+    a.tab-button {
+        border-right: solid 1px color($colors, dark);        
+    }
+    a.tab-button:nth-of-type(5) {
+        border-right: 0;    
     }
 }
