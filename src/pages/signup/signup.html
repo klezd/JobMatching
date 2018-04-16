@@ -1,0 +1,43 @@
+<ion-content padding>
+  <h1 text-center>SIGN UP</h1>
+  
+  <form #f="ngForm" (ngSubmit)="signup()">
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input required type="text" name="username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input required type="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input required type="password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Confirm Password</ion-label>
+      <ion-input required type="password" name="cfpassword"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines text-wrap>
+      <ion-label>
+        By checking this box, you agree with our 
+        <span class="link">Term</span> and read our 
+        <span class="link">Data Policy</span>
+      </ion-label>
+      <ion-checkbox required></ion-checkbox>    
+    </ion-item>
+
+    <button ion-button block type="submit" (disabled)="!f.valid">Sign up</button>
+
+  </form>
+  
+  <div padding style="font-size: 18px">
+    Already had an account? <span (click)="login()">Login here</span>
+  </div>
+</ion-content>
+    

@@ -1,0 +1,24 @@
+<ion-content padding>
+  <h1 text-center>LOGIN </h1>
+
+  <form #f="ngForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input required type="text" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input required type="password" name="password"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>Remember me</ion-label>
+      <ion-checkbox></ion-checkbox>    
+    </ion-item>
+    <button ion-button block type="submit" (disabled)="!f.valid">Login</button>
+  </form>
+
+  <div padding style="font-size: 18px">
+    Forgot you password? <span (click)="forgotpass()">Reset here</span> <br><br>
+    Not have an account yet? <span (click)="signup()">Signup here</span>
+  </div>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-content padding>
+  <h1 text-center>RESET YOUR PASSWORD</h1>
+  <ion-item no-lines text-wrap>
+    Fill in this form below with your username and email to reset your password
+  </ion-item>
+  <form #f="ngForm" (ngSubmit)="resetpass()">
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input required type="text" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input required type="email" name="email"></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" (disabled)="!f.valid">Reset password</button>
+  </form>
+  <div padding style="font-size: 10px; font-style:italic">
+    <span (click)="login()">Back to login </span> <br><br>
+  </div>
+</ion-content>
+  
