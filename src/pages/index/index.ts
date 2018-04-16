@@ -27,6 +27,10 @@ export class IndexPage {
     this.modalCtrl.create('ActivityDetailPage', {activity: activity}).present();
   }
 
+  showAll(p) {
+    this.navCtrl.push('AllActivitiesPage', {pageName: p.toString()});
+  }
+
   activitiesTopSearch: Activity[] = [
     {
       title: 'Title 1',

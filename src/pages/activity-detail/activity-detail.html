@@ -7,7 +7,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>activity-detail</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <ion-title>
+            {{activity.title}}
+          </ion-title>
+        </ion-col>
+
+        <ion-col col-8 text-right>
+          <span class="link" (click)="apply()">Apply to this</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
   </ion-navbar>
 
 </ion-header>

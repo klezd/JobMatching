@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the ActivityDetailPage page.
@@ -15,11 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ActivityDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  activity: any;
+  constructor(public viewCtrl:ViewController, 
+    public navParams: NavParams) {
+    this.activity = this.navParams.get('activity');
+    console.log(this.activity);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ActivityDetailPage');
+  }
+
+  apply() {
+    
   }
 
 }

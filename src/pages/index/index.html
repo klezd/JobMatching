@@ -25,7 +25,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-8>
-          <ion-title>{{activity.title}}</ion-title>
+          <p class="activity-title">{{activity.title}}</p>
           <p>{{activity.location}}</p>
           <p>{{activity.time}}</p>
         </ion-col>
@@ -36,34 +36,17 @@
     </ion-grid>
   </ion-card>
   <div float-right>
-    <span>Show All</span>
+    <span (click)="showAll('Top search')" >Show All</span>
   </div>
+
   <br>
-  <div class="title">Near Me</div>
-  <ion-card *ngFor="let activity of activitiesNearMe" (click)="openDetails(activity)">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-8>
-          <ion-title>{{activity.title}}</ion-title>
-          <p>{{activity.location}}</p>
-          <p>{{activity.time}}</p>
-        </ion-col>
-        <ion-col col-4>
-          <img src="{{activity.img}}">
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div float-right>
-    <span>Show All</span>
-  </div>
-  <br>
+
   <div class="title">Newest Post</div>
   <ion-card *ngFor="let activity of activitiesNewest" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
         <ion-col col-8>
-          <ion-title>{{activity.title}}</ion-title>
+          <p class="activity-title">{{activity.title}}</p>
           <p>{{activity.location}}</p>
           <p>{{activity.time}}</p>
         </ion-col>
@@ -74,6 +57,27 @@
     </ion-grid>
   </ion-card>
   <div float-right>
-    <span>Show All</span>
+    <span (click)="showAll('Newest posts')">Show All</span>
   </div>
+  <br>
+
+  <div class="title">Near Me</div>
+  <ion-card *ngFor="let activity of activitiesNearMe" (click)="openDetails(activity)">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8>
+          <p class="activity-title">{{activity.title}}</p>
+          <p>{{activity.location}}</p>
+          <p>{{activity.time}}</p>
+        </ion-col>
+        <ion-col col-4>
+          <img src="{{activity.img}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <div float-right>
+    <span (click)="showAll('Near me')">Show All</span>
+  </div>
+  
 </ion-content>
