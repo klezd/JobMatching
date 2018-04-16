@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,7 +21,8 @@ export class LoginPage {
     public navCtrl: NavController, 
     public toastCtrl: ToastController,
     public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +45,7 @@ export class LoginPage {
       duration: 3000,
       position: 'top'
     }).present();
+    this.storage.set('login', true);
   }
 
 }

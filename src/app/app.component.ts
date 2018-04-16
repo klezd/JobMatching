@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +16,8 @@ export class MyApp {
   constructor(platform: Platform,
      statusBar: StatusBar,
      splashScreen: SplashScreen,
-     public loadingCtrl: LoadingController) {
+     public loadingCtrl: LoadingController,
+     public storage: Storage) {
        
     this.presentLoading();
 
@@ -25,6 +27,9 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.loader.dismiss();
+      if(this.storage.get('login')) {
+        this.rootPage = 'Tabs';
+      }
     });
   }
 
