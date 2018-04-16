@@ -22,4 +22,7 @@ export class ResetpassPage {
     console.log('ionViewDidLoad ResetpassPage');
   }
 
+  resetpass() {
+    this.navCtrl.push('LoginPage');
+  }
 }

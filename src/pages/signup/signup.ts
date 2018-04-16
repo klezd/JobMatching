@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SignupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -14,8 +7,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  
+  user: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -23,7 +20,13 @@ export class SignupPage {
   }
 
   signup() {
-    this.navCtrl.setRoot('Tabs');    
+    this.navCtrl.setRoot('Tabs', {user: this.user});
+    console.log(this.user);
+    this.toastCtrl.create({
+      message: 'Welcome to OmegaJob, ' + this.user.username,
+      duration: 3000,
+      position: 'top'
+    }).present();
   }
 
   login() {

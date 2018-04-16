@@ -12,7 +12,7 @@
       <ion-label floating>Email</ion-label>
       <ion-input required type="email" name="email"></ion-input>
     </ion-item>
-    <button ion-button block type="submit" (disabled)="!f.valid">Reset password</button>
+    <button ion-button block type="submit" [disabled]="!f.valid">Reset password</button>
   </form>
   <div padding style="font-size: 10px; font-style:italic">
     <span (click)="login()">Back to login </span> <br><br>

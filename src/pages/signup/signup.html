@@ -5,22 +5,22 @@
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input required type="text" name="username"></ion-input>
+      <ion-input required type="text" name="username" [(ngModel)]="user.username"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input required type="email" name="email"></ion-input>
+      <ion-input required type="email" name="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input required type="password" name="password"></ion-input>
+      <ion-input required type="password" name="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Confirm Password</ion-label>
-      <ion-input required type="password" name="cfpassword"></ion-input>
+      <ion-input required type="password" name="cfpassword" [(ngModel)]="user.cfpassword"></ion-input>
     </ion-item>
 
     <ion-item no-lines text-wrap>
@@ -32,7 +32,7 @@
       <ion-checkbox required></ion-checkbox>    
     </ion-item>
 
-    <button ion-button block type="submit" (disabled)="!f.valid">Sign up</button>
+    <button ion-button block type="submit" [disabled]="!f.valid">Sign up</button>
 
   </form>
   
