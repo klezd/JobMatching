@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
+import { User } from '../../model/user.model';
+
 
 @IonicPage()
 @Component({
@@ -8,11 +12,12 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 })
 export class SignupPage {
   
-  user: any = {};
+  user: User;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -20,13 +25,15 @@ export class SignupPage {
   }
 
   signup() {
-    this.navCtrl.setRoot('Tabs', {user: this.user});
+    this.navCtrl.setRoot('Tabs');
     console.log(this.user);
     this.toastCtrl.create({
       message: 'Welcome to OmegaJob, ' + this.user.username,
-      duration: 3000,
+      duration: 1500,
       position: 'top'
     }).present();
+    this.storage.set('login', true);
+    this.storage.set('userlog', this.user.username);    
   }
 
   login() {

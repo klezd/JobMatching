@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { User } from '../../model/user.model';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,7 +10,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: any = {};
+  user: User;
 
   constructor(
     public navCtrl: NavController, 
@@ -38,7 +33,7 @@ export class LoginPage {
   }
 
   login() {
-    this.navCtrl.setRoot('Tabs', {user: this.user});
+    this.navCtrl.setRoot('Tabs');
     console.log(this.user);
     this.toastCtrl.create({
       message: 'Welcome to OmegaJob, ' + this.user.username,
@@ -46,6 +41,7 @@ export class LoginPage {
       position: 'top'
     }).present();
     this.storage.set('login', true);
+    this.storage.set('userlog', this.user.username);
   }
 
 }

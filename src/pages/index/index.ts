@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Activity } from '../../model/activity.model';
+import { User } from '../../model/user.model';
 
 @IonicPage()
 @Component({
@@ -31,6 +32,13 @@ export class IndexPage {
     this.navCtrl.push('AllActivitiesPage', {pageName: p.toString()});
   }
 
+
+  // fake info 
+
+  userA: User = {username: 'aaa', name: 'userA', phone: '01234567', email: 'aaa@mail.com', password:'123'};
+  userB: User = {username: 'bbb', name: 'userB', phone: '01234567', email: 'bbb@mail.com', password:'123'};
+  
+
   activitiesTopSearch: Activity[] = [
     {
       title: 'Title 1',
@@ -39,7 +47,9 @@ export class IndexPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userA
     },
     {
       title: 'Title 2',
@@ -48,7 +58,9 @@ export class IndexPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userB
     }
   ]
 
@@ -60,7 +72,9 @@ export class IndexPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userA
     },
     {
       title: 'Title 2',
@@ -69,7 +83,9 @@ export class IndexPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userA
     }
   ]
 
@@ -81,7 +97,9 @@ export class IndexPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userB
     },
     {
       title: 'Title 2',
@@ -90,7 +108,9 @@ export class IndexPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userB
     }
   ]
 

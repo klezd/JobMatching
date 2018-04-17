@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Activity } from '../../model/activity.model';
-/**
- * Generated class for the AllActivitiesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { User } from '../../model/user.model';
 
 @IonicPage()
 @Component({
@@ -25,7 +20,14 @@ export class AllActivitiesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AllActivitiesPage');
     this.pageName = this.navParams.get('pageName');    
+  } 
+
+  openDetails(activity: Activity) {
+    this.modalCtrl.create('ActivityDetailPage', {activity: activity}).present();
   }
+
+  userA: User = {username: 'aaa', name: 'userA', phone: '01234567', email: 'aaa@mail.com', password:'123'};
+  userB: User = {username: 'bbb', name: 'userB', phone: '01234567', email: 'bbb@mail.com', password:'123'};
 
   activities: Activity[] = [
     {
@@ -35,7 +37,9 @@ export class AllActivitiesPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userB
     },
     {
       title: 'Title 1',
@@ -44,7 +48,9 @@ export class AllActivitiesPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userB
     },
     {
       title: 'Title 1',
@@ -53,7 +59,9 @@ export class AllActivitiesPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userB
     },
     {
       title: 'Title 2',
@@ -62,12 +70,10 @@ export class AllActivitiesPage {
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
-      requirement: 'requirement'
+      number_of_applies: 2,
+      requirement: 'requirement',
+      belong_to: this.userA
     }
   ];
-
-  openDetails(activity: Activity) {
-    this.modalCtrl.create('ActivityDetailPage', {activity: activity}).present();
-  }
 
 }
