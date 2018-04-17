@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import { Activity } from '../../model/activity.model';
 import { User } from '../../model/user.model';
+import { UserProvider } from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -10,14 +13,24 @@ import { User } from '../../model/user.model';
 })
 export class IndexPage {
 
+  userLog: any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
-    private modalCtrl: ModalController) {
+    private modalCtrl: ModalController,
+    public storage: Storage,
+    private userProvider: UserProvider) {     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndexPage');
+  }
+
+  ionViewWillEnter() {
+    this.userLog = this.userProvider.getLogUser();
+    console.log(Array.isArray(this.userLog));
+    console.log(Object.values(this.userLog));
+    
   }
 
   public addnewActivity() {
@@ -49,7 +62,7 @@ export class IndexPage {
       number_of_workers: 1,
       number_of_applies: 2,
       requirement: 'requirement',
-      belong_to: this.userA
+      belong_to: this.userLog
     },
     {
       title: 'Title 2',

@@ -33,7 +33,7 @@ export class SignupPage {
       position: 'top'
     }).present();
     this.storage.set('login', true);
-    this.storage.set('userlog', this.user.username);    
+    this.storage.set('userlogin', this.user.username);    
   }
 
   login() {

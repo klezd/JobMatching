@@ -14,7 +14,6 @@ export class AllActivitiesPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private modalCtrl: ModalController) {
-
   }
 
   ionViewDidLoad() {

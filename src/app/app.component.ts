@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 export class MyApp {
   rootPage:any = 'Introduction';
   loader: any;
+  
 
   constructor(platform: Platform,
      statusBar: StatusBar,
@@ -27,11 +28,16 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.loader.dismiss();
-      if(this.storage.get('login')) {
-        this.rootPage = 'Tabs';
-      }
+      /*console.log(this.storage.get('login'));
+      if(!this.storage.get('login')) {
+        this.rootPage = 'Introduction';
+      } else { 
+        this.rootPage = 'Tabs';        
+      }*/
+
     });
   }
+  
 
   presentLoading() {
 
