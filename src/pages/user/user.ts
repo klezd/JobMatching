@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, App } from 'ionic-angular';
 import { UserProvider} from '../../providers/user/user';
 import { User } from '../../model/user.model';
 /**
@@ -20,7 +20,9 @@ export class UserPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public viewCtrl: ViewController,
     public modalCtrl: ModalController,
+    public app: App,
     private userProvider: UserProvider) {
   }
   
@@ -37,8 +39,7 @@ export class UserPage {
   }
 
   logout() {
-   // this.navCtrl.setRoot('Introduction');
-   // this.userProvider.userLogout();
+   this.app.getRootNav().setRoot('Introduction');
   }
  
 

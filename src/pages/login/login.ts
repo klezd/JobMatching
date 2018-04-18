@@ -41,9 +41,8 @@ export class LoginPage {
       duration: 3000,
       position: 'top'
     }).present();
-    this.userProvider.userLogin(this.user);
+    // this.userProvider.userLogin(this.user);
     this.storage.set('login', true);
-
   }
 
 }

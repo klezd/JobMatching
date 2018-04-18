@@ -12,7 +12,7 @@ import { User } from '../../model/user.model';
 })
 export class SignupPage {
   
-  user: User;
+  user: User = {username: '', password: '', name: '', phone: '', email: '' };
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,

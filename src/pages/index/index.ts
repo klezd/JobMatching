@@ -29,7 +29,7 @@ export class IndexPage {
   ionViewWillEnter() {
     this.userLog = this.userProvider.getLogUser();
     console.log(Array.isArray(this.userLog));
-    console.log(Object.values(this.userLog));
+    console.log(this.userLog);
     
   }
 
@@ -47,16 +47,14 @@ export class IndexPage {
 
 
   // fake info 
-
   userA: User = {username: 'aaa', name: 'userA', phone: '01234567', email: 'aaa@mail.com', password:'123'};
-  userB: User = {username: 'bbb', name: 'userB', phone: '01234567', email: 'bbb@mail.com', password:'123'};
-  
+  userB: User = {username: 'bbb', name: 'userB', phone: '01234567', email: 'bbb@mail.com', password:'123'};  
 
   activitiesTopSearch: Activity[] = [
     {
       title: 'Title 1',
       location: 'Oulu',
-      time: 'April 19, 2017',
+      time: 'April 17, 2018',
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
@@ -67,7 +65,7 @@ export class IndexPage {
     {
       title: 'Title 2',
       location: 'Oulu',
-      time: 'April 19, 2017',
+      time: 'April 20, 2018',
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
@@ -81,7 +79,7 @@ export class IndexPage {
     {
       title: 'Title 1',
       location: 'Oulu',
-      time: 'April 19, 2017',
+      time: 'April 19, 2018',
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
@@ -92,7 +90,7 @@ export class IndexPage {
     {
       title: 'Title 2',
       location: 'Helsinki',
-      time: 'April 24, 2017',
+      time: 'April 24, 2018',
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
@@ -106,7 +104,7 @@ export class IndexPage {
     {
       title: 'Title 1',
       location: 'Oulu',
-      time: 'April 19, 2017',
+      time: 'April 25, 2018',
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,
@@ -117,7 +115,7 @@ export class IndexPage {
     {
       title: 'Title 2',
       location: 'Helsinki',
-      time: 'April 24, 2017',
+      time: 'April 25, 2018',
       img: 'https://picsum.photos/200',
       details: 'blah blah',
       number_of_workers: 1,

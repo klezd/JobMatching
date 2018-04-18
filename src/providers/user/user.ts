@@ -7,7 +7,6 @@ import { User } from '../../model/user.model';
 export class UserProvider {
   private userLogged: User[] = [];
   constructor(private storage: Storage) {
-    
   }
 
   userLogin(user: User) {
@@ -21,7 +20,7 @@ export class UserProvider {
     
     return this.storage.get('userlogin').then((user) => {
         this.userLogged = user == null ? [] : user;
-        return this.userLogged.slice();
+        return Promise.resolve(this.userLogged);               
       }
     );
     //return this.storage.get('userlogin');

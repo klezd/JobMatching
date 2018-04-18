@@ -16,7 +16,11 @@
         </ion-col>
 
         <ion-col col-8 text-right>
-          <span class="link" (click)="apply()">Apply to this</span>
+          <span *ngIf="!owner">
+            <span class="link" (click)="apply()"> Apply to this </span>
+            <span class="fa fa-lg fa-heart-o favourite" (click)="addtoFavourite()" #favourite></span>
+          </span>
+          <span *ngIf="owner" class="link" (click)="edit()">Edit</span>
         </ion-col>
       </ion-row>
     </ion-grid>
