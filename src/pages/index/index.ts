@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { Activity } from '../../model/activity.model';
@@ -19,6 +19,7 @@ export class IndexPage {
     public navParams: NavParams, 
     private modalCtrl: ModalController,
     public storage: Storage,
+    public event: Events,
     private userProvider: UserProvider) {     
   }
 
@@ -30,9 +31,9 @@ export class IndexPage {
     this.userLog = this.userProvider.getLogUser();
   }
 
-  public addnewActivity() {
+  /*public addnewActivity() {
     this.modalCtrl.create('AddnewactivityPage').present();
-  }
+  }*/
 
   openDetails(activity: Activity) {
     this.modalCtrl.create('ActivityDetailPage', {activity: activity}).present();

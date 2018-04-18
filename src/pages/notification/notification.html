@@ -1,24 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-2 style="padding-top:10px !important;">
-            <ion-buttons>
-              <button ion-button (click)="addnewActivity()">
-                  <ion-icon><i class="fa fa-pencil-square-o"></i></ion-icon>
-              </button>
-            </ion-buttons>
-        </ion-col>
-        <ion-col col-10>
-          <ion-searchbar [(ngModel)]="search" showCancelButton="true" cancelButtonText="Cancel" placeholder="search..." class="search-bar" name="search">
-          </ion-searchbar>        
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-navbar>
-</ion-header>
-
-
-<ion-content padding>
+    <ion-navbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2 style="padding-top:10px !important;">
+            <add-activity></add-activity>
+          </ion-col>
+          <ion-col col-10>
+            <ion-searchbar [(ngModel)]="search" showCancelButton="true" cancelButtonText="Cancel" placeholder="search..." class="search-bar" name="search">
+            </ion-searchbar>        
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-navbar>
+  </ion-header>
   
-</ion-content>
+  <ion-content padding>
+    
+  </ion-content>

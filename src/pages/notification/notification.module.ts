@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { NotificationPage } from './notification';
+import { ComponentsModule } from '../../components/components.module';
+
 
 @NgModule({
   declarations: [
@@ -8,6 +10,10 @@ import { NotificationPage } from './notification';
   ],
   imports: [
     IonicPageModule.forChild(NotificationPage),
+    ComponentsModule
   ],
+  exports: [
+    NotificationPage
+  ]
 })
 export class NotificationPageModule {}

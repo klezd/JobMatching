@@ -6,17 +6,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { UserProvider } from '../providers/user/user';
-import { AddActivityComponent } from '../components/add-activity/add-activity';
+
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    AddActivityComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

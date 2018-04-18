@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { AddActivityComponent } from './add-activity/add-activity';
+import { IonicModule } from 'ionic-angular'
+import { AddactivityComponent } from './addactivity/addactivity';
+
 @NgModule({
-	declarations: [AddActivityComponent],
-	imports: [],
-	exports: [AddActivityComponent]
+	declarations: [AddactivityComponent],
+	imports: [IonicModule],
+	exports: [AddactivityComponent]
 })
 export class ComponentsModule {}
