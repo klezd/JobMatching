@@ -24,18 +24,15 @@ export class MyApp {
     this.presentLoading();
 
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
       this.loader.dismiss();
-      /*console.log(this.storage.get('login'));
-      if(!this.storage.get('login')) {
+      //set root page
+      /*if(!this.storage.get('login')) {
         this.rootPage = 'Introduction';
       } else { 
         this.rootPage = 'Tabs';        
       }*/
-
     });
   }
   

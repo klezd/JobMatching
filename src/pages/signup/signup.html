@@ -1,27 +1,48 @@
 <ion-content padding>
   <h1 text-center>SIGN UP</h1>
   
-  <form #f="ngForm" (ngSubmit)="signup()">
+  <form [formGroup]="credentialsForm" (ngSubmit)="signup()">
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input required type="text" name="username" [(ngModel)]="user.username"></ion-input>
+      <ion-input required type="text" name="username"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input required type="email" name="email" [(ngModel)]="user.email"></ion-input>
+      <ion-input required type="email" name="email" 
+                  [formControl]="credentialsForm.controls['email']">
+      </ion-input>
     </ion-item>
+    <div *ngIf="!credentialsForm.controls.email.valid &&
+        (credentialsForm.controls.email.dirty || submitted)" class="validator-error">
+      Please enter a valid email.
+    </div>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input required type="password" name="password" [(ngModel)]="user.password"></ion-input>
+      <ion-input required type="password" name="password"
+                  [formControl]="credentialsForm.controls['password']" >
+      </ion-input>
     </ion-item>
+    <div *ngIf="credentialsForm.controls.password.hasError('pattern') &&
+        (credentialsForm.controls.password.dirty || submitted)"
+        class="validator-error">
+      Passwords should be at least 8 characters long and contain one number, one character and one special character.
+    </div>
+    
+    
 
     <ion-item>
       <ion-label floating>Confirm Password</ion-label>
-      <ion-input required type="password" name="cfpassword" [(ngModel)]="user.cfpassword"></ion-input>
+      <ion-input required type="password" name="cfpassword" 
+                [formControl]="credentialsForm.controls['cfpassword']"
+                >
+      </ion-input>
     </ion-item>
+    <div *ngIf="credentialsForm.controls.cfpassword.errors?.equalTo" class="validator-error">
+        You must to type the same password
+    </div>
 
     <ion-item no-lines text-wrap>
       <ion-label>
@@ -29,10 +50,11 @@
         <span class="link">Term</span> and read our 
         <span class="link">Data Policy</span>
       </ion-label>
-      <ion-checkbox required></ion-checkbox>    
+      <ion-checkbox [formControl]="credentialsForm.controls['checkbox']"></ion-checkbox>    
     </ion-item>
+   
 
-    <button ion-button block color="theme" type="submit" [disabled]="!f.valid">Sign up</button>
+    <button ion-button block color="theme" type="submit" [disabled]="!credentialsForm.valid">Sign up</button>
 
   </form>
   
