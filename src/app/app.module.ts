@@ -6,11 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { UserProvider } from '../providers/user/user';
-import { AddActivityProvider } from '../providers/add-activity/add-activity';
+import { AddActivityComponent } from '../components/add-activity/add-activity';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    AddActivityComponent
   ],
   imports: [
     BrowserModule,
@@ -19,14 +20,13 @@ import { AddActivityProvider } from '../providers/add-activity/add-activity';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,    
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    AddActivityProvider
   ]
 })
 export class AppModule {}

@@ -3,7 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -18,6 +18,7 @@ export class MyApp {
      statusBar: StatusBar,
      splashScreen: SplashScreen,
      public loadingCtrl: LoadingController,
+     public event: Events,
      public storage: Storage) {
        
     this.presentLoading();
@@ -48,4 +49,6 @@ export class MyApp {
     this.loader.present();
 
   }
+
+
 }
