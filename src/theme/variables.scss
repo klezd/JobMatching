@@ -7,21 +7,19 @@ $app-direction: ltr;
 
 @import "ionic.globals";
 
-
-
 $colors: (
-  primary:      #488aff,
-  secondary:    #32db64,
-  danger:       #f53d3d,
-  light:        #f4f4f4,
-  dark:         #222,
-  theme-active: rgb(235, 179, 163),
-  theme:        rgb(236, 114, 76),
-  icon:         rgb(38, 12, 134),
-  button-theme:       rgb(27, 9, 100),
+  primary:        #000000,
+  divide-line:    #f0b6e5,
+  theme-active:   rgb(235, 179, 163),
+  theme:          #f27847,
+  icon:           #1a0480,
+  button-yellow:  #f6c278,
+  button-special: #8373d1,
+  button-index:   #120358,
+  button-aqua:    aqua,
+  button-blue:    #9dc3f6,
+  button-red:     #f68a78
 );
-
-
 
 @import "ionic.theme.default";
 
@@ -40,3 +38,9 @@ $tabs-md-tab-icon-size: 35px;
 
 //navbar
 $toolbar-background: color($colors, theme);
+
+//font family for app
+$font-family-base: "Geogia, Serif";
+
+//divider line ion-item in ion-list
+$list-md-border-color: color($colors, divide-line);

@@ -28,9 +28,6 @@ export class IndexPage {
 
   ionViewWillEnter() {
     this.userLog = this.userProvider.getLogUser();
-    console.log(Array.isArray(this.userLog));
-    console.log(this.userLog);
-    
   }
 
   public addnewActivity() {

@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { UserProvider } from '../providers/user/user';
+import { AddActivityProvider } from '../providers/add-activity/add-activity';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    AddActivityProvider
   ]
 })
 export class AppModule {}

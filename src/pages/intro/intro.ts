@@ -28,7 +28,4 @@ export class Introduction {
   signup(){
     this.navCtrl.push('SignupPage');
   }
-
-
-
 }
