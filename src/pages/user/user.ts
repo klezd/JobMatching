@@ -41,6 +41,10 @@ export class UserPage {
   logout() {
    this.app.getRootNav().setRoot('Introduction');
   }
+
+  settings() {
+    this.navCtrl.push('SettingsPage');
+  }
  
 
 }
