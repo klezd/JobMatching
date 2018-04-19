@@ -11,6 +11,8 @@ import { UserProvider} from '../../providers/user/user';
 })
 export class LoginPage {
   user: User = {username: '', password: '', name: '', phone: '', email: '' };
+  rememberme = false;
+  var: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -33,9 +35,21 @@ export class LoginPage {
     this.modalCtrl.create('ForgotpassPage').present();
   }
 
+  isRemember(rememberme) {
+    this.rememberme = rememberme;
+    if(rememberme) {
+      this.storage.set('rememberLogin', true);
+      console.log("remember login");
+    } else {
+      this.storage.remove('rememberLogin');
+      console.log("don't remember login");
+    }
+  }
+  remember : any;
   login() {
     this.navCtrl.setRoot('Tabs');
-    console.log(this.user);
+    this.isRemember(this.rememberme);
+    
     this.toastCtrl.create({
       message: 'Welcome to OmegaJob, ' + this.user.username,
       duration: 3000,

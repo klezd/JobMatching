@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 export class MyApp {
   rootPage:any = 'Introduction';
   loader: any;
+  remember: any;
   
 
   constructor(platform: Platform,
@@ -27,12 +28,20 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.loader.dismiss();
-      //set root page
-      /*if(!this.storage.get('login')) {
-        this.rootPage = 'Introduction';
+
+      Promise.resolve(this.storage.get('rememberLogin')).then(
+        (result) => {
+          this.remember = result;
+          console.log(this.remember)
+        }
+      );
+
+      /*set root page*/
+      if(this.storage.get('login') && this.remember) {
+        this.rootPage = 'Tabs';
       } else { 
-        this.rootPage = 'Tabs';        
-      }*/
+        this.rootPage = 'Introduction';        
+      }
     });
   }
   

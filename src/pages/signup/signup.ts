@@ -19,17 +19,6 @@ export class SignupPage {
               public toastCtrl: ToastController,
               private formBuilder: FormBuilder,
               public storage: Storage) {
-      console.log(this.credentialsForm);     
-      let username = new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required
-      ]));
-
-      let email = new FormControl('', Validators.compose([
-        Validators.pattern(regexValidators.email),
-        Validators.required
-      ]));
-
       let password = new FormControl('', Validators.compose([
         Validators.pattern(regexValidators.password),
         Validators.required
@@ -40,14 +29,18 @@ export class SignupPage {
         CustomValidators.equalTo(password)
       ]));
 
-      let checkbox = new FormControl(false, this.termAgree);
-
       this.credentialsForm = new FormGroup({
-          username: username,
-          email:email,
+          username: new FormControl('', Validators.compose([
+            Validators.required,
+            Validators.minLength(5)
+          ])),
+          email:new FormControl('', Validators.compose([
+            Validators.pattern(regexValidators.email),
+            Validators.required
+          ])),
           password: password,
           cfpassword: cfpassword,
-          checkbox: checkbox,
+          checkbox: new FormControl(false, this.termAgree),
         }); 
   }  
   
@@ -60,15 +53,13 @@ export class SignupPage {
   }
   
   signup() {  
-    console.log(this.credentialsForm);
     let user: User = {
-      username: this.credentialsForm.controls.username == null ? '' : this.credentialsForm.controls.username.value, 
-      password: this.credentialsForm.controls.password == null ? '' : this.credentialsForm.controls.password.value,
+      username: this.credentialsForm.controls.username.value, 
+      password: this.credentialsForm.controls.password.value,
       name: '', 
       phone: '', 
-      email: this.credentialsForm.controls.email == null ? '' : this.credentialsForm.controls.email.value,
+      email: this.credentialsForm.controls.email.value,
     };
-    console.log(user.username);
     this.navCtrl.setRoot('Tabs');
   
     this.toastCtrl.create({

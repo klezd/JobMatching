@@ -12,7 +12,10 @@
     </ion-item>
     <ion-item no-lines>
       <ion-label>Remember me</ion-label>
-      <ion-checkbox></ion-checkbox>    
+      <ion-checkbox #rememberMe [(ngModel)]="rememberme" name="rememberme" 
+                    (ionChange)="isRemember(rememberme)"
+                    checked="rememberme">
+      </ion-checkbox>    
     </ion-item>
     <button ion-button block  color="theme" type="submit" [disabled]="!f.valid">Login</button>
   </form>
