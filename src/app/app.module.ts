@@ -7,7 +7,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { UserProvider } from '../providers/user/user';
 import { FormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { ReactiveFormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ComponentsModule } from '../components/components.module';
     IonicStorageModule.forRoot(),
     ComponentsModule,
     FormsModule, 
-    CustomFormsModule
+    CustomFormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

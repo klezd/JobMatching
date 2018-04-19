@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { SignupPage } from './signup';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { CustomFormsModule } from 'ng2-validation';
   imports: [
     IonicPageModule.forChild(SignupPage),
     FormsModule, 
-    CustomFormsModule
+    CustomFormsModule,
+    ReactiveFormsModule
   ],
 })
 export class SignupPageModule {}
