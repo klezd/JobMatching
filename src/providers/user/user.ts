@@ -2,33 +2,42 @@ import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 
 import { User } from '../../model/user.model';
+import { Users } from '../../mocks/providers/users';
 
 @Injectable()
 export class UserProvider {
+  private userLog: string;
   private userLogged: User[] = [];
-  constructor(private storage: Storage) {
+
+  constructor(private storage: Storage,
+              private users: Users) {
   }
 
   userLogin(user: User) {
-    this.userLogged.length != 0 ? this.userLogged.pop() : this.userLogged;
+    this.storage.set('userlogin', user);
+    this.storage.set('login', true);
+    this.userLogged.push(user);    
+  }
+
+  userSignup(user: User) {
+    this.users.newUser(user);
     this.userLogged.push(user);
-    this.storage.set('userlogin', this.userLogged);
+    this.storage.set('login', true);
+    this.storage.set('userlogin', user); 
   }
 
   getLogUser() {
-    console.log(Array.isArray(this.userLogged));
-    
-    return this.storage.get('userlogin').then((user) => {
-        this.userLogged = user == null ? [] : user;
-        return Promise.resolve(this.userLogged);               
+    return Promise.resolve(this.storage.get('userlogin').then(
+      (res) => {
+        this.userLog = res;
+        return this.userLog;
       }
-    );
-    //return this.storage.get('userlogin');
+    ));    
   }
 
   userLogout(user:User) {
-    if (this.userLogged.length != 0) {
-      this.userLogged.pop();
-    }
+    this.storage.remove('userlogin');
+    this.storage.clear();
+    this.userLogged.splice(this.userLogged.indexOf(user), 1);
   }
 }

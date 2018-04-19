@@ -11,6 +11,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { ComponentsModule } from '../components/components.module';
 
+//fake data
+import { Users } from '../mocks/providers/users';
+import { Activities } from '../mocks/providers/activities';
+// end fake
+
 @NgModule({
   declarations: [
     MyApp,
@@ -33,6 +38,9 @@ import { ComponentsModule } from '../components/components.module';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    //fake data
+    Users,
+    Activities
   ]
 })
 export class AppModule {}

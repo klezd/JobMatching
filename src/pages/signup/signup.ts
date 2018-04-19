@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from
 import { regexValidators } from '../validators/validators';
 import { CustomValidators } from 'ng2-validation';
 
+import { Users } from '../../mocks/providers/users';
+import { UserProvider } from '../../providers/user/user';
+
 @IonicPage()
 @Component({
   selector: 'page-signup',
@@ -18,6 +21,7 @@ export class SignupPage {
               public navParams: NavParams,
               public toastCtrl: ToastController,
               private formBuilder: FormBuilder,
+              private userProvider: UserProvider,
               public storage: Storage) {
       let password = new FormControl('', Validators.compose([
         Validators.pattern(regexValidators.password),
@@ -55,20 +59,24 @@ export class SignupPage {
   signup() {  
     let user: User = {
       username: this.credentialsForm.controls.username.value, 
-      password: this.credentialsForm.controls.password.value,
-      name: '', 
-      phone: '', 
-      email: this.credentialsForm.controls.email.value,
+      password: this.credentialsForm.controls.password.value, 
+      user_info: {
+        email: this.credentialsForm.controls.email.value, 
+      }
     };
-    this.navCtrl.setRoot('Tabs');
+    
+    this.userProvider.userSignup(user);
   
     this.toastCtrl.create({
       message: 'Welcome to OmegaJob, ' + user.username,
       duration: 1500,
       position: 'top'
     }).present();
+    //set root page
+    this.navCtrl.setRoot('Tabs', {user: user});
+    // in order to keep sign in
+    this.storage.set('rememberLogin', true);
     this.storage.set('login', true);
-    this.storage.set('userlogin', user.username);    
   }
 
   login() {

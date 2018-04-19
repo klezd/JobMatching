@@ -6,6 +6,9 @@ import { Activity } from '../../model/activity.model';
 import { User } from '../../model/user.model';
 import { UserProvider } from '../../providers/user/user';
 
+import { Users } from '../../mocks/providers/users';
+import { Activities } from '../../mocks/providers/activities';
+
 @IonicPage()
 @Component({
   selector: 'page-index',
@@ -13,27 +16,33 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class IndexPage {
 
-  userLog: any;
-
+  userLogin : User;
+  
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private modalCtrl: ModalController,
     public storage: Storage,
     public event: Events,
-    private userProvider: UserProvider) {     
+    private userProvider: UserProvider,
+    private activities: Activities) {       
+      this.userLogin = navParams.data;    
+      console.log(this.activitiesInd);
+      console.log(this.activitiesInd[0]);
+      console.log(this.activitiesInd[0].activity_info);
+      console.log(this.activitiesInd[0].belong_to);
+      console.log(this.activitiesInd[0].period);
+      console.log(this.activitiesInd[0].worker_info);      
   }
-
+  activitiesInd: Activity[] = this.activities.activities;
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndexPage');
+    console.log(this.userLogin);
   }
 
   ionViewWillEnter() {
-    this.userLog = this.userProvider.getLogUser();
+    //this.userLogin = this.navParams.get('userLogin');
+    
   }
-
-  /*public addnewActivity() {
-    this.modalCtrl.create('AddnewactivityPage').present();
-  }*/
 
   openDetails(activity: Activity) {
     this.modalCtrl.create('ActivityDetailPage', {activity: activity}).present();
@@ -44,84 +53,7 @@ export class IndexPage {
   }
 
 
-  // fake info 
-  userA: User = {username: 'aaa', name: 'userA', phone: '01234567', email: 'aaa@mail.com', password:'123'};
-  userB: User = {username: 'bbb', name: 'userB', phone: '01234567', email: 'bbb@mail.com', password:'123'};  
+  
 
-  activitiesTopSearch: Activity[] = [
-    {
-      title: 'Title 1',
-      location: 'Oulu',
-      time: 'April 17, 2018',
-      img: 'https://picsum.photos/200',
-      details: 'blah blah',
-      number_of_workers: 1,
-      number_of_applies: 2,
-      requirement: 'requirement',
-      belong_to: this.userLog
-    },
-    {
-      title: 'Title 2',
-      location: 'Oulu',
-      time: 'April 20, 2018',
-      img: 'https://picsum.photos/200',
-      details: 'blah blah',
-      number_of_workers: 1,
-      number_of_applies: 2,
-      requirement: 'requirement',
-      belong_to: this.userB
-    }
-  ]
-
-  activitiesNearMe: Activity[] = [
-    {
-      title: 'Title 1',
-      location: 'Oulu',
-      time: 'April 19, 2018',
-      img: 'https://picsum.photos/200',
-      details: 'blah blah',
-      number_of_workers: 1,
-      number_of_applies: 2,
-      requirement: 'requirement',
-      belong_to: this.userA
-    },
-    {
-      title: 'Title 2',
-      location: 'Helsinki',
-      time: 'April 24, 2018',
-      img: 'https://picsum.photos/200',
-      details: 'blah blah',
-      number_of_workers: 1,
-      number_of_applies: 2,
-      requirement: 'requirement',
-      belong_to: this.userA
-    }
-  ]
-
-  activitiesNewest:Activity[] = [
-    {
-      title: 'Title 1',
-      location: 'Oulu',
-      time: 'April 25, 2018',
-      img: 'https://picsum.photos/200',
-      details: 'blah blah',
-      number_of_workers: 1,
-      number_of_applies: 2,
-      requirement: 'requirement',
-      belong_to: this.userB
-    },
-    {
-      title: 'Title 2',
-      location: 'Helsinki',
-      time: 'April 25, 2018',
-      img: 'https://picsum.photos/200',
-      details: 'blah blah',
-      number_of_workers: 1,
-      number_of_applies: 2,
-      requirement: 'requirement',
-      belong_to: this.userB
-    }
-  ]
-
-
+ 
 }

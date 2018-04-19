@@ -8,6 +8,7 @@ import { IonicPage, NavParams } from 'ionic-angular';
   templateUrl: 'tabs.html',
 })
 export class Tabs {
+  user: any;
   tab1Root = 'IndexPage';
   tab2Root = 'MessagePage';
   tab3Root = 'ActivityPage';
@@ -16,8 +17,6 @@ export class Tabs {
   myIndex: number;
 
   constructor(public navParams: NavParams) {
-    this.myIndex = navParams.data.tabIndex || 0;
-    console.log(this.myIndex);
+    this.user = navParams.data.user;
   }
-
 }

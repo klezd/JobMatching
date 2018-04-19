@@ -1,9 +1,4 @@
-<!--
-  Generated template for the ActivityDetailPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -11,7 +6,7 @@
       <ion-row>
         <ion-col col-4>
           <ion-title>
-            {{activity.title}}
+            {{activity.activity_info.title}}
           </ion-title>
         </ion-col>
 
@@ -32,9 +27,11 @@
 
 <ion-content padding>
   <p class="sub-title">DESCRIPTION</p>
-  <p>{{activity.details}}</p>
+  <p>{{activity.activity_info.details}}</p>
   <p class="sub-title">LOCATION</p>
-  <p>{{activity.location}}</p>
+  <p>{{activity.activity_info.location}}</p>
+  <p class="sub-title">REQUIREMENT</p>
+  <p>{{activity.activity_info.requirement}}</p>
 
 
 </ion-content>

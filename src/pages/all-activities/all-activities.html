@@ -14,16 +14,17 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let activity of activities" (click)="openDetails(activity)">
+  <ion-card *ngFor="let activity of activitiesList" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
         <ion-col col-8>
-            <p class="activity-title">{{activity.title}}</p>
-          <p>{{activity.location}}</p>
-          <p>{{activity.time}}</p>
+            <p class="activity-title">{{activity.activity_info.title}}</p>
+          <p>{{activity.activity_info.location}}</p>
+          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
+          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
         </ion-col>
         <ion-col col-4>
-          <img src="{{activity.img}}">
+          <img src="{{activity.activity_info.img}}">
         </ion-col>
       </ion-row>
     </ion-grid>

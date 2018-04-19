@@ -10,9 +10,8 @@ import { UserProvider} from '../../providers/user/user';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: User = {username: '', password: '', name: '', phone: '', email: '' };
+  user: User = {username: '', password: '', user_info:{email: ''}  };
   rememberme = false;
-  var: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -45,9 +44,11 @@ export class LoginPage {
       console.log("don't remember login");
     }
   }
+  
   remember : any;
   login() {
-    this.navCtrl.setRoot('Tabs');
+    this.navCtrl.setRoot('Tabs', {user: this.user});
+    console.log(this.user.username);
     this.isRemember(this.rememberme);
     
     this.toastCtrl.create({
@@ -55,7 +56,8 @@ export class LoginPage {
       duration: 3000,
       position: 'top'
     }).present();
-    // this.userProvider.userLogin(this.user);
+
+    this.userProvider.userLogin(this.user);
     this.storage.set('login', true);
   }
 
