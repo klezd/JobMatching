@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 style="padding-top:10px !important;">
+          <add-activity></add-activity>
+        </ion-col>
+        <ion-col col-10>
+          <ion-searchbar [(ngModel)]="search" showCancelButton="true" cancelButtonText="Cancel" placeholder="search..." class="search-bar" name="search">
+          </ion-searchbar>        
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+  
+
+<ion-content padding>
+  <div class="title">Top Search</div>
+  <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8>
+          <p class="activity-title">{{activity.activity_info.title}}</p>
+          <p>{{activity.activity_info.location}}</p>
+          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
+          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
+        </ion-col>
+        <ion-col col-4>
+          <img src="{{activity.activity_info.img}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <div float-right>
+    <span (click)="showAll('Top search')" >Show All</span>
+  </div>
+
+  <br>
+
+  <div class="title">Newest Post</div>
+  <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8>
+          <p class="activity-title">{{activity.activity_info.title}}</p>
+          <p>{{activity.activity_info.location}}</p>
+          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
+          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
+        </ion-col>
+        <ion-col col-4>
+          <img src="{{activity.activity_info.img}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <div float-right>
+    <span (click)="showAll('Newest posts')">Show All</span>
+  </div>
+  <br>
+
+  <div class="title">Near Me</div>
+  <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8>
+          <p class="activity-title">{{activity.activity_info.title}}</p>
+          <p>{{activity.activity_info.location}}</p>
+          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
+          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
+        </ion-col>
+        <ion-col col-4>
+          <img src="{{activity.activity_info.img}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <div float-right>
+    <span (click)="showAll('Near me')">Show All</span>
+  </div>
+  
+</ion-content>
