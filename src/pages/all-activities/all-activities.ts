@@ -83,7 +83,4 @@ export class AllActivitiesPage {
   openDetails(activity) {
     this.modalCtrl.create('ActivityDetailPage', {activity: activity}).present();
   }
-
- 
-
 }

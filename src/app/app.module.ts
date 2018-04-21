@@ -5,10 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
-import { UserProvider } from '../providers/user/user';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation';
 import { ComponentsModule } from '../components/components.module';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 
@@ -21,9 +17,6 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ComponentsModule,
-    FormsModule, 
-    CustomFormsModule,
-    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +26,6 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider,
     WheelSelector,
   ]
 })

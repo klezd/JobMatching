@@ -21,26 +21,22 @@ export class AddnewactivityPage {
   @ViewChild('datestart') start: ElementRef;
   @ViewChild('dateend') end: ElementRef;
   alert: any;
+  dateStart: any;
+  dateEnd: any;
   //modify type for newActivity //
   newActivity: {
-    activity_info: {
-      title: string,
-      location: string,
-      img?: string,
-      details: string,
-      requirement?: string,
-    },
-    worker_info: {
-      number_of_workers: number,
-      number_of_applies?: number
-    },
+    activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
+    worker_info: {number_of_workers: number, number_of_applies?: number},
     belong_to?: any,
-    period?: { 
-      from? : any,
-      end? : any
-    },
+    period?: {from? : any, end? : any},
     tags?: Array<string>,
-  }
+  } = {
+    activity_info: {title: '', location: '', img: '', details: '', requirement: ''},
+    worker_info: {number_of_workers: 0,number_of_applies:0},
+    belong_to: null,
+    period: {from : this.dateStart, end : this.dateEnd},
+    tags: [],
+  };
     //for date picker
  
   months:string[] = ['January', 'Febuary', 'March',
@@ -55,7 +51,7 @@ export class AddnewactivityPage {
   monthNow = this.now.getMonth();
   monthString = this.months[this.monthNow];
   dayNow = this.now.getDate();
-
+ 
   constructor(  public navCtrl: NavController,
                 private alertCtrl: AlertController,
                 private modalCtrl: ModalController,
@@ -63,13 +59,7 @@ export class AddnewactivityPage {
                 private platform: Platform,
                 private viewCtrl: ViewController,) {
 
-    this.addnewWorkform = new FormGroup({
-      title: new FormControl('', Validators.required),
-      location: new FormControl('', Validators.required),
-      requirement: new FormControl(),
-      details: new FormControl(),      
-      numOfWork: new FormControl('', Validators.compose([Validators.required, Validators.min(1)]) ),
-    });
+    
     let i = 0;
     let years:number[] = [];
     let days:number[] = [];
@@ -85,11 +75,12 @@ export class AddnewactivityPage {
     this.years = years;
     this.days = days;    
   } 
-
-  addnewWorkform : FormGroup;
-
+  touchForm =false;
+  touch() {
+    this.touchForm = true
+  }
   close() {
-    if(this.addnewWorkform.dirty){
+    if(this.touchForm){
       this.alertCtrl.create({
         title: 'DISCARD CHANGES',
         message: 'Do you want to continue or discard changes?',
@@ -112,8 +103,7 @@ export class AddnewactivityPage {
     }    
   }
 
-  dateStart: any;
-  dateEnd: any;
+  
   //pick date for start and return value
   dateSPicker() {
     if (this.platform.is('cordova')) {
