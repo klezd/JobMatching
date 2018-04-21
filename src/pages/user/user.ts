@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, App } from 'ionic-angular';
-import { UserProvider} from '../../providers/user/user';
-import { User } from '../../model/user.model';
-/**
- * Generated class for the UserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -22,8 +15,7 @@ export class UserPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public modalCtrl: ModalController,
-    public app: App,
-    private userProvider: UserProvider) {
+    public app: App) {
   }
   
   ionViewWillEnter() {

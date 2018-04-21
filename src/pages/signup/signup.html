@@ -1,51 +1,41 @@
 <ion-content padding>
   <h1 text-center>SIGN UP</h1>
   
-  <form [formGroup]="credentialsForm" (ngSubmit)="signup()">
+  <form #f="ngForm" (ngSubmit)="signup(f)">
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input required type="text" name="username"
-                 [formControl]="credentialsForm.controls['username']">
+      <ion-input required minlength="5" type="text" name="username" [(ngModel)]="user.username" #username="ngModel" >
       </ion-input>
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.username.valid && submitted" class="validator-error">
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="validator-error">
     Please enter username with at least 5 characters.
     </div>
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input required type="email" name="email" 
-                 [formControl]="credentialsForm.controls['email']">
+      <ion-input required minlength="4" type="email" name="email" [(ngModel)]="user.user_info.email" #email="ngModel">
       </ion-input>
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.email.valid &&
-        (credentialsForm.controls.email.dirty || submitted)" class="validator-error">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validator-error">
       Please enter a valid email.
     </div>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input required type="password" name="password"
-                  [formControl]="credentialsForm.controls['password']" >
+      <ion-input required minlength="8" type="password" name="password" [(ngModel)]="user.password" #password="ngModel">
       </ion-input>
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.password.valid &&
-                (credentialsForm.controls.password.dirty || submitted)"
-        class="validator-error">
-      Passwords should be at least 8 characters long and contain one number, one character and one special character.
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="validator-error">
+      Passwords should be at least 8 characters long.
     </div>
-    
-    
 
     <ion-item>
       <ion-label floating>Confirm Password</ion-label>
-      <ion-input required type="password" name="cfpassword" 
-                [formControl]="credentialsForm.controls['cfpassword']"
-                >
+      <ion-input required minlength="8" type="password" name="cfpassword" [(ngModel)]="user.cfpassword" #cfpassword="ngModel">
       </ion-input>
     </ion-item>
-    <div *ngIf="credentialsForm.controls.cfpassword.errors?.equalTo" class="validator-error">
+    <div *ngIf="cfpassword.invalid && (cfpassword.dirty || cfpassword.touched)" class="validator-error">
         You must to type the same password
     </div>
 
@@ -55,13 +45,13 @@
         <span class="link">Term</span> and read our 
         <span class="link">Data Policy</span>
       </ion-label>
-      <ion-checkbox [formControl]="credentialsForm.controls['checkbox']"></ion-checkbox>    
+      <ion-checkbox [(ngModel)]="agreeTerm" [ngModelOptions]="{standalone: true}" ></ion-checkbox>    
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.checkbox.valid" class="validator-error">
+    <!--<div *ngIf="!f" class="validator-error">
     You must agree to term to continue
-    </div>
+    </div>-->
 
-    <button ion-button block color="theme" type="submit" [disabled]="!credentialsForm.valid">Sign up</button>
+    <button ion-button block color="theme" type="submit" [disabled]="!f.valid">Sign up</button>
 
   </form>
   

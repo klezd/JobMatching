@@ -20,13 +20,13 @@
   <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
-        <ion-col col-8>
+        <ion-col col-7>
           <p class="activity-title">{{activity.activity_info.title}}</p>
           <p>{{activity.activity_info.location}}</p>
-          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
-          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
+          <p>From: {{activity.period.from}}</p>
+          <p>To: {{activity.period.end}}</p>
         </ion-col>
-        <ion-col col-4>
+        <ion-col offset-1 col-4>
           <img src="{{activity.activity_info.img}}">
         </ion-col>
       </ion-row>
@@ -42,13 +42,13 @@
   <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
-        <ion-col col-8>
+        <ion-col col-7 >
           <p class="activity-title">{{activity.activity_info.title}}</p>
           <p>{{activity.activity_info.location}}</p>
-          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
-          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
+          <p>From: {{activity.period.from}}</p>
+          <p>To: {{activity.period.end}}</p>
         </ion-col>
-        <ion-col col-4>
+        <ion-col offset-1 col-4>
           <img src="{{activity.activity_info.img}}">
         </ion-col>
       </ion-row>
@@ -63,13 +63,13 @@
   <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
-        <ion-col col-8>
+        <ion-col col-7>
           <p class="activity-title">{{activity.activity_info.title}}</p>
           <p>{{activity.activity_info.location}}</p>
-          <p>From: {{activity.period.from.day}} {{activity.period.from.month}} {{activity.period.from.year}}</p>
-          <p>To: {{activity.period.end.day}} {{activity.period.end.month}} {{activity.period.end.year}}</p>
+          <p>From: {{activity.period.from}}</p>
+          <p>To: {{activity.period.end}}</p>
         </ion-col>
-        <ion-col col-4>
+        <ion-col offset-1 col-4>
           <img src="{{activity.activity_info.img}}">
         </ion-col>
       </ion-row>

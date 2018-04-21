@@ -5,16 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
-import { UserProvider } from '../providers/user/user';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation';
 import { ComponentsModule } from '../components/components.module';
-
-//fake data
-import { Users } from '../mocks/providers/users';
-import { Activities } from '../mocks/providers/activities';
-// end fake
+import { WheelSelector } from '@ionic-native/wheel-selector';
 
 @NgModule({
   declarations: [
@@ -25,9 +17,6 @@ import { Activities } from '../mocks/providers/activities';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ComponentsModule,
-    FormsModule, 
-    CustomFormsModule,
-    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,10 +26,7 @@ import { Activities } from '../mocks/providers/activities';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider,
-    //fake data
-    Users,
-    Activities
+    WheelSelector,
   ]
 })
 export class AppModule {}

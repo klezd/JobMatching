@@ -1,18 +1,104 @@
-<!--
-  Generated template for the AddnewactivityPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
+  
+    <ion-navbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col  col-5>
+            <ion-title text-left style="padding: 10px">
+                New post
+            </ion-title>           
+          </ion-col>
+          <ion-col  col-3 offset-4 class="right-nav-content">
+            <ion-buttons style="height: 100%">
+              <button ion-button (click)="close()" style="height: 100%">
+                <ion-icon class="fa fa-2x fa-times-circle"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </ion-navbar>
+  
+  </ion-header>
 
-  <ion-navbar>
-    <ion-title>addnewactivity</ion-title>
-  </ion-navbar>
+  <ion-content padding>
+    <form #f="ngForm" (ngSubmit)="addNew()" >
+      <ion-item>
+        <ion-label stacked>Title <span class="requiredStar">(*)</span></ion-label>
+        <ion-input required (change)="touch()" [(ngModel)]="newActivity.activity_info.title" type="text" name="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Description <span class="requiredStar">(*)</span> </ion-label>
+        <ion-textarea required (change)="touch()" type="text" name="details" [(ngModel)]="newActivity.activity_info.details"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Location <span class="requiredStar">(*)</span> </ion-label>
+        <ion-input required (change)="touch()" [(ngModel)]="newActivity.activity_info.location" type="text" name="location"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Requirement <span class="requiredStar">(*)</span></ion-label>
+        <ion-input required (change)="touch()" [(ngModel)]="newActivity.activity_info.requirement" type="text" name="requirement"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label text-wrap fixed style="color: #000">Number of workers needed <span class="requiredStar">(*)</span></ion-label>
+        <ion-input required (change)="touch()" [(ngModel)]="newActivity.worker_info.number_of_workers" type="number" pattern="[0-9]*" name="numOfWork"></ion-input>
+      </ion-item>
+      <ion-item no-lines><ion-label>Working period <span class="requiredStar">(*)</span> </ion-label> </ion-item>
+     <!-- <ion-item no-lines>
+          <ion-label fixed>From</ion-label>
+      </ion-item>
+      <ion-item no-lines>
+        <!--<ion-datetime required [(ngModel)]="workFrom" [ngModelOptions]="{standalone: true}" 
+                      type="text" name="workFrom" displayFormat="DD/MM/YYYY" (ionChange)="data(workFrom)">
+        </ion-datetime>
+        <ion-select name="dayF" interface="popover" [(ngModel)]="dayF" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Day">
+          <ion-option *ngFor = "let day of days" [value]="day">{{day}}</ion-option>
+        </ion-select>
+        <ion-select name="monthF" interface="popover" [(ngModel)]="monthF" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Month">
+          <ion-option *ngFor = "let month of months" [value]="month">{{month}}</ion-option>
+        </ion-select>
+        <ion-select name="yearF" interface="popover" [(ngModel)]="yearF" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Year">
+          <ion-option *ngFor = "let year of years" [value]="year">{{year}}</ion-option>
+        </ion-select>       
 
-</ion-header>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label fixed>To</ion-label>
+      </ion-item>
+      <ion-item no-lines>
+          <!--<ion-select name="dayT" interface="popover" [(ngModel)]="dayT" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Day">
+            <ion-option *ngFor = "let day of days" [value]="day">{{day}}</ion-option>
+          </ion-select>
+          <ion-select name="monthT" interface="popover" [(ngModel)]="monthT" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Month">
+            <ion-option *ngFor = "let month of months" [value]="month">{{month}}</ion-option>
+          </ion-select>
+          <ion-select name="yearT" interface="popover" [(ngModel)]="yearT" 
+                    [ngModelOptions]="{standalone: true}" placeholder="Year">
+            <ion-option *ngFor = "let year of years" [value]="year">{{year}}</ion-option>
+          </ion-select>
 
-
-<ion-content padding>
-
-</ion-content>
+      </ion-item>-->
+      <ion-item>
+        <ion-label>
+          From
+        </ion-label>
+        <ion-input required (change)="touch()" (click)="dateSPicker()" [(ngModel)]="newActivity.period.from" name="dateStart" #datestart [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          To
+        </ion-label>
+        <ion-input required (change)="touch()" (click)="dateEPicker()" [(ngModel)]="newActivity.period.end" name="dateEnd" #dateend [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+        
+      <div padding>
+        <button ion-button block color="theme" type="submit" [disabled]="!f.valid">POST</button>
+      </div>
+    </form>
+  </ion-content>

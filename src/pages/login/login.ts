@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { User } from '../../model/user.model';
-import { UserProvider} from '../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -10,7 +8,9 @@ import { UserProvider} from '../../providers/user/user';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: User = {username: '', password: '', user_info:{email: ''}  };
+  user: {username: string, password: string, user_info: { name?: string, phone?: string, email?: string}} 
+      = {username : '', password : '', user_info: { name : '', phone : '', email : ''}};
+
   rememberme = false;
 
   constructor(
@@ -18,8 +18,7 @@ export class LoginPage {
     public toastCtrl: ToastController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public storage: Storage,
-    private userProvider: UserProvider) {
+    public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -44,7 +43,7 @@ export class LoginPage {
       console.log("don't remember login");
     }
   }
-  
+  //for form
   remember : any;
   login() {
     this.navCtrl.setRoot('Tabs', {user: this.user});
@@ -57,7 +56,6 @@ export class LoginPage {
       position: 'top'
     }).present();
 
-    this.userProvider.userLogin(this.user);
     this.storage.set('login', true);
   }
 
