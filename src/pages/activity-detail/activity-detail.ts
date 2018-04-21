@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { IonicPage, NavParams, NavController, ViewController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { Activity } from '../../model/activity.model';
+
 @IonicPage()
 @Component({
   selector: 'page-activity-detail',
@@ -10,22 +10,22 @@ import { Activity } from '../../model/activity.model';
 export class ActivityDetailPage {
   @ViewChild('favourite') favourite: ElementRef;
   user: any;
-  activity: Activity;
+  activity;
   owner = false;
 
-  constructor(
-      public viewCtrl:ViewController, 
-      public navCtrl: NavController,
-      public toastCtrl: ToastController,
-      public navParams: NavParams,
-      public storage: Storage) {
+  constructor(  public viewCtrl:ViewController, 
+                public navCtrl: NavController,
+                public toastCtrl: ToastController,
+                public navParams: NavParams,
+                public storage: Storage) {
+    
+    //get parsed data
     this.activity = this.navParams.get('activity');
-    console.log(this.activity);
-    this.user = this.storage.get('userlogin');
+
+    /*this.user = this.storage.get('userlogin');
     console.log(this.activity.belong_to);
     console.log("storage userlogin");
     console.log(this.storage.get('userlogin'));
-
     /*this.activity.belong_to == this.user? this.owner=true: this.owner=false;*/
   }
 
@@ -69,7 +69,4 @@ export class ActivityDetailPage {
       }).present(); 
     }    
   }
-
-
-
 }

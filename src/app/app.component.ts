@@ -3,7 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoadingController, Events } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -12,16 +12,14 @@ import { Storage } from '@ionic/storage';
 export class MyApp {
   rootPage:any = 'Introduction';
   loader: any;
-  public remember: any;
-  public login: any;
   
+  remember=true;
+  login=true;
 
   constructor(platform: Platform,
      statusBar: StatusBar,
      splashScreen: SplashScreen,
-     public loadingCtrl: LoadingController,
-     public event: Events,
-     public storage: Storage) {
+     public loadingCtrl: LoadingController,) {
        
     this.presentLoading();
 
@@ -29,19 +27,15 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.loader.dismiss();
-
-      /*set root page*/
-      Promise.resolve(this.storage.get('rememberLogin')).then(
-        (result) => {
-          this.remember = result;
-          Promise.resolve(this.storage.get('login')).then(
-            (result) => {
-              this.login = result;
-              this.rootPage = (this.login)&&(this.remember)?   'Tabs' : 'Introduction';
-            }
-          );
-        }
-      ); 
+      
+      //code for set root page (here I am set the root page is Tabs which can be
+      // understood as user already logged in).
+    
+      if(this.remember && this.login) {
+        this.rootPage = 'Tabs';
+      } else {
+        this.rootPage = 'Introduction';        
+      }
     });
   }
   

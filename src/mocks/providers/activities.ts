@@ -28,8 +28,8 @@ export class Activities {
                     number_of_applies: 3,
                 },                
                 period: { 
-                    from : {day: 12, month: 'October', year: 2017},
-                    end : {day: 26, month: 'October', year: 2017}
+                    from : '12 October 2017',
+                    end : '26 October 2017'
                 }, 
                 belong_to: this.userA,
                 tags: ['keeper', 'cleaning']  
@@ -47,8 +47,8 @@ export class Activities {
                     number_of_applies: 3,
                 },
                 period: { 
-                    from : {day: 12, month: 'October', year: 2017},
-                    end : {day: 26, month: 'October', year: 2017}
+                    from : '12 October 2017',
+                    end : '26 October 2017'
                 },
                 belong_to: this.userA, 
                 tags: ['garage', 'cleaning']  
@@ -67,8 +67,8 @@ export class Activities {
                 },
                 belong_to: this.userB,
                 period: { 
-                    from : {day: 20, month: 'April', year: 2018},
-                    end : {day: 1, month: 'May', year: 2018}
+                    from : '20 April 2018',
+                    end : '1 May 2018'
                 }, 
                 tags: ['design', 'logo', 'startup']  
             },    

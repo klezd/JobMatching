@@ -10,11 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { ComponentsModule } from '../components/components.module';
-
-//fake data
-import { Users } from '../mocks/providers/users';
-import { Activities } from '../mocks/providers/activities';
-// end fake
+import { WheelSelector } from '@ionic-native/wheel-selector';
 
 @NgModule({
   declarations: [
@@ -38,9 +34,7 @@ import { Activities } from '../mocks/providers/activities';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    //fake data
-    Users,
-    Activities
+    WheelSelector,
   ]
 })
 export class AppModule {}
