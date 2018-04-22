@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController } from 'ionic-angular';
+import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 
 /**
@@ -19,6 +19,8 @@ export class AddnewactivityPage {
   @ViewChild('dateend') end: ElementRef;
   //show alert to confirm
   alert: any;
+  //set edit mode to parse data if true
+  editMode = false;
   //set to open the page detail with owner ---- *** remove when get data with owner from backend.
   owner = true;
   dateStart: any;
@@ -34,13 +36,27 @@ export class AddnewactivityPage {
   monthString = this.months[this.monthNow];
   dayNow = this.now.getDate();
   date: any;
+  //modify type for newActivity //belong_to is set for the current user **backend set this.
+  newActivity: {
+    activity_info: {title: string, location: string, img?: any, details: string, requirement?: string},
+    worker_info: {number_of_workers: number, number_of_applies?: number},
+    belong_to?: any,
+    period?: {from? : any, end? : any},
+    tags?: Array<string>,
+  } = {
+    activity_info: {title: '', location: '', img: null, details: '', requirement: ''},
+    worker_info: {number_of_workers: 0,number_of_applies:0},
+    belong_to: null,
+    period: {from : this.dateStart, end : this.dateEnd},
+    tags: [],
+  };
   constructor(  public navCtrl: NavController,
                 private alertCtrl: AlertController,
                 private modalCtrl: ModalController,
                 private picker: WheelSelector,
+                public navParams: NavParams,
                 private platform: Platform,
                 private viewCtrl: ViewController,) {
-
     
     let i = 0;
     let years:any[] = [];
@@ -59,7 +75,14 @@ export class AddnewactivityPage {
     let date = {days: days, months: this.months, years: years};
     this.date = date;
     console.log(this.date);
+    if(this.navParams.get('activity')!=null){
+      //if != null, so this is in edit mode
+      this.editMode = true;
+      this.newActivity = this.navParams.get('activity');
+    }
   } 
+  
+  //set to cannot leave without confirm if any changes.
   touchForm =false;
   touch() {
     this.touchForm = true
@@ -87,21 +110,7 @@ export class AddnewactivityPage {
       this.viewCtrl.dismiss();
     }    
   }
-
-  //modify type for newActivity //belong_to is set for the current user **backend set this.
-  newActivity: {
-    activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
-    worker_info: {number_of_workers: number, number_of_applies?: number},
-    belong_to?: any,
-    period?: {from? : any, end? : any},
-    tags?: Array<string>,
-  } = {
-    activity_info: {title: '', location: '', img: '', details: '', requirement: ''},
-    worker_info: {number_of_workers: 0,number_of_applies:0},
-    belong_to: null,
-    period: {from : this.dateStart, end : this.dateEnd},
-    tags: [],
-  };
+  
   //pick date for start and return value
   dateSPicker() {
     if (this.platform.is('cordova')) {
@@ -139,8 +148,15 @@ export class AddnewactivityPage {
     } else {
       // You're testing in a browser so you may want to use another method or run your code on a emulator
       this.newActivity.period.end = "10 April 2018";
-    }
-   
+    }   
+  }
+
+  uploadPic() {
+    let picture = this.modalCtrl.create("choose-pic"); //is the choose-job-pic page
+    picture.onDidDismiss((data)=>{
+      this.newActivity.activity_info.img = data;
+    });
+    picture.present();
   }
 
   // resize textarea
@@ -152,7 +168,8 @@ export class AddnewactivityPage {
 
   post() {
     console.log("Add new activity");
+    console.log(this.newActivity.activity_info.img);
     this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner}).present(); 
     //remove owner: this.owner when set with **backend**
-  }
+  }  
 }

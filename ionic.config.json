@@ -1,6 +1,6 @@
 {
   "name": "omega_job",
-  "app_id": "",
+  "app_id": "110661de",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

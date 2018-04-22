@@ -9,6 +9,8 @@ import { ComponentsModule } from '../components/components.module';
 //ionic native
 import { WheelSelector } from '@ionic-native/wheel-selector';
 import { FileTransfer} from '@ionic-native/file-transfer';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 
@@ -33,6 +35,8 @@ import { Camera } from '@ionic-native/camera';
     WheelSelector,
     FileTransfer,
     File,
+    Transfer,
+    FilePath,
     Camera
   ]
 })

@@ -29,7 +29,7 @@ export class ActivityDetailPage {
   }
 
   edit() {
-    this.navCtrl.push('EditActivityPage', {activity: this.activity});
+    this.navCtrl.push('AddnewactivityPage', {activity: this.activity});
   }
 
   addtoFavourite() {
