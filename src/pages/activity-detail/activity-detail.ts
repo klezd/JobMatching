@@ -22,12 +22,6 @@ export class ActivityDetailPage {
     //get parsed data
     this.activity = this.navParams.get('activity');
     this.owner = this.navParams.get('owner'); // remove when set by dtb **backend**
-
-    /*this.user = this.storage.get('userlogin');
-    console.log(this.activity.belong_to);
-    console.log("storage userlogin");
-    console.log(this.storage.get('userlogin'));
-    /*this.activity.belong_to == this.user? this.owner=true: this.owner=false;*/
   }
 
   ionViewDidLoad() {

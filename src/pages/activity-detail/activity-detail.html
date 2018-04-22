@@ -1,15 +1,12 @@
-
 <ion-header>
-
   <ion-navbar>
     <ion-grid>
       <ion-row>
-        <ion-col col-6>
+        <ion-col col-6 text-left>
           <ion-title>
             {{activity.activity_info.title}}
           </ion-title>
         </ion-col>
-
         <ion-col col-6 text-right>
           <span *ngIf="!owner">
             <span class="link" (click)="apply()"> Apply </span>
@@ -18,14 +15,13 @@
           <span *ngIf="owner" class="link" (click)="edit()">Edit</span>
         </ion-col>
       </ion-row>
-    </ion-grid>
-    
+    </ion-grid>    
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+  <p class="title" text-center>{{activity.activity_info.title}}</p>
+  <img class="img-detail" src="{{activity.activity_info.img}}">
   <p class="sub-title">DESCRIPTION</p>
   <p>{{activity.activity_info.details}}</p>
   <p class="sub-title">LOCATION</p>
@@ -34,6 +30,5 @@
   <p>{{activity.activity_info.requirement}}</p>
   <p class="sub-title">PERIOD</p>
   <p>{{activity.period.from}} - {{activity.period.end}}</p>
-
 
 </ion-content>

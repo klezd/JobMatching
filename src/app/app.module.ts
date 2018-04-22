@@ -6,7 +6,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { ComponentsModule } from '../components/components.module';
+//ionic native
 import { WheelSelector } from '@ionic-native/wheel-selector';
+import { FileTransfer} from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,9 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WheelSelector,
+    FileTransfer,
+    File,
+    Camera
   ]
 })
 export class AppModule {}
