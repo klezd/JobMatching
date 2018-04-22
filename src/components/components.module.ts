@@ -4,10 +4,14 @@ import { AddactivityComponent } from './addactivity/addactivity';
 import { SearchBarComponent } from './search-bar/search-bar';
 
 @NgModule({
-	declarations: [AddactivityComponent,
-    SearchBarComponent],
+	declarations: [
+		AddactivityComponent,
+		SearchBarComponent
+	],
 	imports: [IonicModule],
-	exports: [AddactivityComponent,
-    SearchBarComponent]
+	exports: [
+		AddactivityComponent,
+		SearchBarComponent
+	]		
 })
 export class ComponentsModule {}

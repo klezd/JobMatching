@@ -5,11 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: 'search-bar.html'
 })
 export class SearchBarComponent {
-
-
-
   constructor() {
-    console.log('Hello SearchBarComponent Component');
   }
 
 }
