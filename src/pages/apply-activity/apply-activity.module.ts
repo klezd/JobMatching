@@ -9,5 +9,8 @@ import { ApplyActivityPage } from './apply-activity';
   imports: [
     IonicPageModule.forChild(ApplyActivityPage),
   ],
+  exports: [
+    ApplyActivityPage
+  ]
 })
 export class ApplyActivityPageModule {}

@@ -23,35 +23,17 @@ export class AddnewactivityPage {
   owner = true;
   dateStart: any;
   dateEnd: any;
-  //modify type for newActivity //belong_to is set for the current user **backend set this.
-  newActivity: {
-    activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
-    worker_info: {number_of_workers: number, number_of_applies?: number},
-    belong_to?: any,
-    period?: {from? : any, end? : any},
-    tags?: Array<string>,
-  } = {
-    activity_info: {title: '', location: '', img: '', details: '', requirement: ''},
-    worker_info: {number_of_workers: 0,number_of_applies:0},
-    belong_to: null,
-    period: {from : this.dateStart, end : this.dateEnd},
-    tags: [],
-  };
- //for date picker
- 
-  months:string[] = ['January', 'Febuary', 'March',
-                    'April', 'May', 'June',
-                    'July', 'August', 'September',
-                    'October', 'November', 'December'];
-  days:number[] = [];
-  years: any[] = [];
-  date: string;
+ //for date picker 
+  months:any[] = [{month:'January'}, {month:'Febuary'}, {month:'March'},
+                  {month:'April'}, {month:'May'}, {month:'June'},
+                  {month:'July'}, {month:'August'}, {month:'September'},
+                  {month:'October'}, {month:'November'}, {month:'December'}];
   now = new Date();
   yearCal = this.now.getFullYear();
   monthNow = this.now.getMonth();
   monthString = this.months[this.monthNow];
   dayNow = this.now.getDate();
- 
+  date: any;
   constructor(  public navCtrl: NavController,
                 private alertCtrl: AlertController,
                 private modalCtrl: ModalController,
@@ -61,19 +43,22 @@ export class AddnewactivityPage {
 
     
     let i = 0;
-    let years:number[] = [];
-    let days:number[] = [];
+    let years:any[] = [];
+    let days:any[] = [];
+
     while (i<20) {
-      years.push(this.yearCal);
+      years.push({"year": this.yearCal.toString()});
       this.yearCal ++;
       i ++;
     }
     this.yearCal = this.now.getFullYear();
     for(i = 1; i<31; i++) {
-     days.push(i);
+     days.push({"day": i.toString()});
     }
-    this.years = years;
-    this.days = days;    
+     
+    let date = {days: days, months: this.months, years: years};
+    this.date = date;
+    console.log(this.date);
   } 
   touchForm =false;
   touch() {
@@ -103,7 +88,20 @@ export class AddnewactivityPage {
     }    
   }
 
-  
+  //modify type for newActivity //belong_to is set for the current user **backend set this.
+  newActivity: {
+    activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
+    worker_info: {number_of_workers: number, number_of_applies?: number},
+    belong_to?: any,
+    period?: {from? : any, end? : any},
+    tags?: Array<string>,
+  } = {
+    activity_info: {title: '', location: '', img: '', details: '', requirement: ''},
+    worker_info: {number_of_workers: 0,number_of_applies:0},
+    belong_to: null,
+    period: {from : this.dateStart, end : this.dateEnd},
+    tags: [],
+  };
   //pick date for start and return value
   dateSPicker() {
     if (this.platform.is('cordova')) {
@@ -111,9 +109,11 @@ export class AddnewactivityPage {
       console.log("click");
       this.picker.show({
         title: "Set date start",
-        items: [this.days, this.months, this.years],
+        items: [this.date.day, this.date.months, this.date.years],
+        positiveButtonText: "Ok",
+        negativeButtonText: "Cancel",
       }).then(result => {
-        this.newActivity.period.from = result[0] + " " + result[1] + " " + result[2];
+        this.newActivity.period.from = result[0].day + " " + result[1].month + " " + result[2].year;
         console.log(this.start); 
       });
 
@@ -129,10 +129,12 @@ export class AddnewactivityPage {
       // now you can call your native plugins
       console.log("click");
       this.picker.show({
-        title: "Set date",
-        items: [this.days, this.months, this.years],
+        title: "Set date end",
+        items: [this.date.days, this.date.months,this.date.years],
+        positiveButtonText: "Ok",
+        negativeButtonText: "Cancel"
       }).then(result => {
-        this.newActivity.period.end = result[0] + " " + result[1] + " " + result[2];
+        this.newActivity.period.end = result[0].day + " " + result[1].month + " " + result[2].year;
       });
     } else {
       // You're testing in a browser so you may want to use another method or run your code on a emulator
@@ -141,7 +143,14 @@ export class AddnewactivityPage {
    
   }
 
-  addNew() {
+  // resize textarea
+  @ViewChild('textarea') textarea: ElementRef;
+  
+  resize() {
+      this.textarea.nativeElement.style.height = this.textarea.nativeElement.scrollHeight + 'px';
+  }
+
+  post() {
     console.log("Add new activity");
     this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner}).present(); 
     //remove owner: this.owner when set with **backend**

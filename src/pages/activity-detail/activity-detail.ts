@@ -12,31 +12,20 @@ export class ActivityDetailPage {
   user: any;
   activity;
   owner = false;
+  tags;
 
   constructor(  public viewCtrl:ViewController, 
                 public navCtrl: NavController,
                 public toastCtrl: ToastController,
                 public navParams: NavParams,
                 public storage: Storage) {
-    
-    //get parsed data
     this.activity = this.navParams.get('activity');
-    this.owner = this.navParams.get('owner'); // remove when set by dtb **backend**
-
-    /*this.user = this.storage.get('userlogin');
-    console.log(this.activity.belong_to);
-    console.log("storage userlogin");
-    console.log(this.storage.get('userlogin'));
-    /*this.activity.belong_to == this.user? this.owner=true: this.owner=false;*/
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ActivityDetailPage');
-  }   
+    this.tags = this.activity.tags;
+    this.owner = this.navParams.get('owner'); // remove when set by dtb **backend** TODO
+  }  
   
   apply() {
-    console.log("apply");
-    //code
+    this.navCtrl.push('ApplyActivityPage', {activity: this.activity});
   }
 
   edit() {
@@ -47,7 +36,7 @@ export class ActivityDetailPage {
     console.log(this.favourite.nativeElement.classList);
     var fav = this.favourite.nativeElement.classList;
     if (fav.contains('fa-heart-o')) {
-      // code to add to favourite list
+      //TODO code to add to favourite list
       // some code goes here
       //UI code
       fav.remove('fa-heart-o');
@@ -58,7 +47,7 @@ export class ActivityDetailPage {
         position: 'top'
       }).present();
     } else {
-      // code to remove from favourite list
+      //TODO code to remove from favourite list
       // some code goes here
       //UI code
       fav.remove('fa-heart');
@@ -69,5 +58,9 @@ export class ActivityDetailPage {
         position: 'top'
       }).present(); 
     }    
+  }
+
+  viewApplications() {
+    this.navCtrl.push("AppliedInfoPage", {activity: this.activity});
   }
 }

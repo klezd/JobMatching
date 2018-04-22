@@ -1,39 +1,53 @@
-
 <ion-header>
-
   <ion-navbar>
     <ion-grid>
       <ion-row>
-        <ion-col col-6>
+        <ion-col col-6 text-left>
           <ion-title>
             {{activity.activity_info.title}}
           </ion-title>
         </ion-col>
-
         <ion-col col-6 text-right>
           <span *ngIf="!owner">
-            <span class="link" (click)="apply()"> Apply </span>
             <span class="fa fa-lg fa-heart-o favourite" (click)="addtoFavourite()" #favourite></span>
+            <span class="link" (click)="apply()"> Apply </span>
           </span>
           <span *ngIf="owner" class="link" (click)="edit()">Edit</span>
         </ion-col>
       </ion-row>
-    </ion-grid>
-    
+    </ion-grid>    
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-  <p class="sub-title">DESCRIPTION</p>
-  <p>{{activity.activity_info.details}}</p>
-  <p class="sub-title">LOCATION</p>
-  <p>{{activity.activity_info.location}}</p>
-  <p class="sub-title">REQUIREMENT</p>
-  <p>{{activity.activity_info.requirement}}</p>
-  <p class="sub-title">PERIOD</p>
-  <p>{{activity.period.from}} - {{activity.period.end}}</p>
+  <p class="title" text-center>{{activity.activity_info.title}}</p>
+  <img class="img-detail" src="{{activity.activity_info.img}}">
+  <div>
+    <p class="sub-title">DESCRIPTION</p>
+    <p>{{activity.activity_info.details}}</p>
+    <p class="sub-title">LOCATION</p>
+    <p>{{activity.activity_info.location}}</p>
+    <!--TODO code add to view on map-->
+    <p class="sub-title">REQUIREMENT</p>
+    <p>{{activity.activity_info.requirement}}</p>
+    <p class="sub-title">PERIOD</p>
+    <p>{{activity.period.from}} - {{activity.period.end}}</p>
+    <p class="sub-title">Number of workers needed</p>
+    <p>{{activity.worker_info.number_of_workers}}</p>
+  </div>
+  <div *ngIf="owner">
+    <p class="sub-title">Number of workers needed</p>
+    <p>{{activity.worker_info.number_of_applies}}</p>
+    <button ion-button color="button-special" (click)="viewApplications()">View applications</button>
+  </div>
+  <div>
+    <p class="sub-title">Tags</p>
+
+    <span *ngFor="let tag of tags"> 
+      <ion-badge color="icon">{{tag}}</ion-badge>
+      <span> &nbsp; </span>
+    </span>
+  </div>
 
 
 </ion-content>

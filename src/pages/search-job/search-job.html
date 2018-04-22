@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>SEARCH FOR JOBS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <form (ngSubmit)="searchJob()">
+    <ion-item no-lines>
+      <ion-label stacked>Enter keyword</ion-label>
+      <ion-input type="text" [(ngModel)]="keyword" name="keyword"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label stacked>Location</ion-label>
+      <ion-input type="text" [(ngModel)]="location" name="location"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label stacked>Period</ion-label>
+      <ion-input type="text" [(ngModel)]="period" name="period"></ion-input>
+    </ion-item>  
+    <button ion-button block color="button-theme" type="submit">Search</button>
+  </form>
+  <div padding *ngIf="result">
+    <!--display result here-->
+  </div>
+</ion-content>

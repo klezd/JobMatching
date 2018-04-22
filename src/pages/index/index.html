@@ -6,8 +6,7 @@
           <add-activity></add-activity>
         </ion-col>
         <ion-col col-10>
-          <ion-searchbar [(ngModel)]="search" showCancelButton="true" cancelButtonText="Cancel" placeholder="search..." class="search-bar" name="search">
-          </ion-searchbar>        
+          <search-bar></search-bar>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -77,6 +76,10 @@
   </ion-card>
   <div float-right>
     <span (click)="showAll('Near me')">Show All</span>
+  </div>
+
+  <div padding>
+    <button ion-button block color="button-special" (click)="searchJob()">Looking for jobs?</button>
   </div>
   
 </ion-content>

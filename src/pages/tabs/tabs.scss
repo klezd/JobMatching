@@ -29,4 +29,18 @@ page-tabs {
         @extend .fa-icons-general;
         content: "\f07c";
     }
+
+    .ion-ios-fa-user::before,
+    .ion-ios-fa-user-outline::before,
+    .ion-md-fa-user::before {
+        @extend .fa-icons-general;
+        content: "\f007";
+    }
+
+    .ion-ios-fa-bell::before,
+    .ion-ios-fa-bell-outline::before,
+    .ion-md-fa-bell::before {
+        @extend .fa-icons-general;
+        content: "\f0f3";
+    }
 }

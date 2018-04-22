@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'add-activity',
@@ -8,7 +8,6 @@ import { NavController, ModalController } from 'ionic-angular';
 export class AddactivityComponent {
 
   constructor(
-    public navCtrl: NavController,
     public modalCtrl: ModalController) {
   }
   addnewActivity() {

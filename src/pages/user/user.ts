@@ -25,7 +25,6 @@ export class UserPage {
   }
   
   ionViewWillEnter() {
-   // this.user = this.userProvider.getLogUser()[0];
   }
 
   public addnewActivity() {
