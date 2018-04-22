@@ -143,7 +143,14 @@ export class AddnewactivityPage {
    
   }
 
-  addNew() {
+  // resize textarea
+  @ViewChild('textarea') textarea: ElementRef;
+  
+  resize() {
+      this.textarea.nativeElement.style.height = this.textarea.nativeElement.scrollHeight + 'px';
+  }
+
+  post() {
     console.log("Add new activity");
     this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner}).present(); 
     //remove owner: this.owner when set with **backend**

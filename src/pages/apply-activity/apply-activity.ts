@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the ApplyActivityPage page.
@@ -14,12 +14,58 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'apply-activity.html',
 })
 export class ApplyActivityPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  activity;
+  message;
+  constructor(  public navCtrl: NavController, 
+                public navParams: NavParams,
+                private alertCtrl: AlertController,
+                private toastCtrl: ToastController) {
+    this.activity = this.navParams.get('activity');    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ApplyActivityPage');
+  createCV(){
+    this.navCtrl.push("CreateCV");
   }
+
+  userCV() {
+    this.navCtrl.push("ViewMyCVs", {toApply: true});
+  }
+
+  uploadCV() {
+    //code to upload CV from device //file PDF or words
+  }
+
+  submit() {
+    this.alertCtrl.create({
+      title: "Apply",
+      message: "Apply to this work?",
+      buttons: [
+        {
+          text: 'Apply',          
+          handler: () => {
+            this.toastCtrl.create({
+              message: 'Your application has sent',
+              position: 'bottom',
+              showCloseButton: true,
+              closeButtonText: "OK"
+            }).present();
+            this.navCtrl.push("IndexPage");
+            //function called
+            this.sendApplication(this.activity);
+          }
+        },
+        {
+          text: 'Continue',
+          role: 'cancel',
+        }
+      ]
+    }).present();
+  }
+
+  sendApplication(activity){
+    //code add here to save to database and increase num of applied
+    //add code also for the owner to see the message, and view/download CV (view if from app, download if from upload)
+  }
+
 
 }

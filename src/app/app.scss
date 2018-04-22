@@ -47,9 +47,9 @@ ion-header {
 //global variables
 
 .link {
-    text-decoration: underline;
-    font-style: italic;
     font-size: 16px;
+    color: white;
+    margin: 0 10px;
 }
 
 .title {
@@ -86,3 +86,24 @@ ion-header {
 .requiredStar {
     color: red !important;
 }
+
+ion-col {
+    vertical-align: middle
+}
+//input
+ion-label[stacked] {
+    font-size: 1.6rem!important;
+    color: #000;
+}
+
+//variables
+[half-block] {
+    display: block;
+    width: 80%;
+    text-align: center;
+}
+
+[decrease-padding] {
+    padding: 12px!important;
+}
+
