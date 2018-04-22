@@ -3,7 +3,11 @@
     <ion-grid>
       <ion-row>
         <ion-col col-2 style="padding-top:10px !important;">
-          <add-activity></add-activity>
+            <ion-buttons>
+              <button ion-button (click)="addnewActivity()">
+                  <ion-icon><i class="fa fa-pencil-square-o"></i></ion-icon>
+              </button>
+            </ion-buttons>
         </ion-col>
         <ion-col col-10>
           <search-bar></search-bar>
@@ -13,6 +17,33 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <button ion-button block color="button-index" (click)="settings()">Settings</button>
-  <button ion-button block color="button-index" (click)="logout()">Logout</button>  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3></ion-col>      
+      <ion-col col-6 align-items-center>
+          <img src="../../assets/imgs/user.png">
+          
+      </ion-col>
+    </ion-row>  
+    
+    <ion-row>
+        <ion-col col-2></ion-col>      
+        <ion-col col-8 align-items-center justify-content-start>            
+            <p class="userName" text-center text-uppercase>Your name</p>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col col-10 align-items-center>
+        <button ion-button block color="button-yellow" (click)="viewProfile()">View my profile</button>
+        <button ion-button block color="button-yellow" (click)="editProfile()">Edit my profile</button>
+        <button ion-button block color="button-red" (click)="viewAllPosts()">View my posts</button>
+        <button ion-button block color="button-red" (click)="editResume()">Edit my resume</button>
+        <button ion-button block color="button-aqua" (click)="settings()">App settings</button>
+        <button ion-button block color="button-aqua" (click)="logout()">Logout</button>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+  </ion-grid>   
 </ion-content>
