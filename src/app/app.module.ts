@@ -16,6 +16,14 @@ import { Users } from '../mocks/providers/users';
 import { Activities } from '../mocks/providers/activities';
 // end fake
 
+// Import firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../config';
+
+// Authentication service
+import { AuthService } from '../services/auth.service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +35,8 @@ import { Activities } from '../mocks/providers/activities';
     ComponentsModule,
     FormsModule, 
     CustomFormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig.config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +49,13 @@ import { Activities } from '../mocks/providers/activities';
     UserProvider,
     //fake data
     Users,
-    Activities
+    Activities,
+    
+    // Firebase
+    AngularFireAuth,
+    
+    // Authentication service
+    AuthService
   ]
 })
 export class AppModule {}

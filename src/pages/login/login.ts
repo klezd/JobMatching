@@ -3,6 +3,15 @@ import { IonicPage, NavController, NavParams, ModalController, ToastController }
 import { Storage } from '@ionic/storage';
 import { User } from '../../model/user.model';
 import { UserProvider} from '../../providers/user/user';
+import { AlertController } from 'ionic-angular';
+
+// Import firebase
+import { firebaseConfig } from '../../config';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
+// Import authentication service
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 @Component({
@@ -10,7 +19,13 @@ import { UserProvider} from '../../providers/user/user';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: User = {username: '', password: '', user_info:{email: ''}  };
+  user: User = {
+    username: '', 
+    password: '', 
+    user_info: {
+      email: ''
+    }  
+  };
   rememberme = false;
 
   constructor(
@@ -19,7 +34,10 @@ export class LoginPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public storage: Storage,
-    private userProvider: UserProvider) {
+    private userProvider: UserProvider,
+    public firebaseAuth: AngularFireAuth,
+    private authService: AuthService,
+    private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -47,18 +65,38 @@ export class LoginPage {
   
   remember : any;
   login() {
-    this.navCtrl.setRoot('Tabs', {user: this.user});
-    console.log(this.user.username);
-    this.isRemember(this.rememberme);
+    let credentials = {
+			username: this.user.username,
+			password: this.user.password
+    };
     
-    this.toastCtrl.create({
-      message: 'Welcome to OmegaJob, ' + this.user.username,
-      duration: 3000,
-      position: 'top'
-    }).present();
+		this.authService.signIn(credentials)
+			.then(
+				() => {
+          this.navCtrl.setRoot('Tabs', {user: this.user});
+          console.log(this.user.username);
+          this.isRemember(this.rememberme);
 
-    this.userProvider.userLogin(this.user);
-    this.storage.set('login', true);
+          this.toastCtrl.create({
+            message: 'Welcome to OmegaJob, ' + this.user.username,
+            duration: 3000,
+            position: 'top'
+          }).present();
+
+          this.userProvider.userLogin(this.user);
+          this.storage.set('login', true);
+        },
+				(error) => {
+          console.error(error.message);
+          let alert = this.alertCtrl.create({
+            title: 'Error!',
+            subTitle: error.message,
+            buttons: ['Close']
+          });
+          alert.present();
+        }
+			);
   }
 
 }
+

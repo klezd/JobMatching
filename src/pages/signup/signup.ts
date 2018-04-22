@@ -6,9 +6,13 @@ import { User } from '../../model/user.model';
 import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { regexValidators } from '../validators/validators';
 import { CustomValidators } from 'ng2-validation';
+import { AlertController } from 'ionic-angular';
 
 import { Users } from '../../mocks/providers/users';
 import { UserProvider } from '../../providers/user/user';
+
+// Import authentication service
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 @Component({
@@ -22,7 +26,9 @@ export class SignupPage {
               public toastCtrl: ToastController,
               private formBuilder: FormBuilder,
               private userProvider: UserProvider,
-              public storage: Storage) {
+              public storage: Storage,
+              private authService: AuthService,
+              private alertCtrl: AlertController) {
       let password = new FormControl('', Validators.compose([
         Validators.pattern(regexValidators.password),
         Validators.required
@@ -64,19 +70,33 @@ export class SignupPage {
         email: this.credentialsForm.controls.email.value, 
       }
     };
+
+    console.log(user);
     
-    this.userProvider.userSignup(user);
-  
-    this.toastCtrl.create({
-      message: 'Welcome to OmegaJob, ' + user.username,
-      duration: 1500,
-      position: 'top'
-    }).present();
-    //set root page
-    this.navCtrl.setRoot('Tabs', {user: user});
-    // in order to keep sign in
-    this.storage.set('rememberLogin', true);
-    this.storage.set('login', true);
+    this.authService.signUp(user)
+    .then(
+      () => {
+        this.toastCtrl.create({
+          message: 'Welcome to OmegaJob, ' + user.username,
+          duration: 1500,
+          position: 'top'
+        }).present();
+        //set root page
+        this.navCtrl.setRoot('Tabs', {user: user});
+        // in order to keep sign in
+        this.storage.set('rememberLogin', true);
+        this.storage.set('login', true);
+      },
+      (error) => {
+        console.error(error);
+        let alert = this.alertCtrl.create({
+          title: 'Error!',
+          subTitle: error.message,
+          buttons: ['Close']
+        });
+        alert.present();
+      }
+    );
   }
 
   login() {

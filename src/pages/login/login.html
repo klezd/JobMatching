@@ -12,7 +12,7 @@
     </ion-item>
     <ion-item no-lines>
       <ion-label>Remember me</ion-label>
-      <ion-checkbox #rememberMe [(ngModel)]="rememberme" name="rememberme" 
+      <ion-checkbox #rememberMe [(ngModel)]="rememberme" name="rememberme"
                     (ionChange)="isRemember(rememberme)"
                     checked="rememberme">
       </ion-checkbox>    
@@ -21,7 +21,7 @@
   </form>
 
   <div padding style="font-size: 18px">
-    Forgot you password? <span (click)="forgotpass()">Reset here</span> <br><br>
+    Forgot your password? <span (click)="forgotpass()">Reset here</span> <br><br>
     Not have an account yet? <span (click)="signup()">Signup here</span>
   </div>
 </ion-content>
