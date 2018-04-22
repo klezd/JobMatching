@@ -82,11 +82,9 @@ export class IndexPage {
   ]
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndexPage');
-    console.log(this.userLogin);
-  }
+    console.log(this.navCtrl.getActiveChildNavs);
+    console.log(this.navCtrl.getActiveChildNav);
 
-  ionViewWillEnter() {
-   
   }
 
   openDetails(activity) {
@@ -96,4 +94,8 @@ export class IndexPage {
   showAll(p) {
     this.navCtrl.push('AllActivitiesPage', {pageName: p.toString()});
   } 
+
+  searchJob(){
+    this.navCtrl.push('looking-for-a-job');
+  }
 }
