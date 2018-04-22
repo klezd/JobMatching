@@ -40,7 +40,9 @@ $tabs-md-tab-icon-size: 35px;
 $toolbar-background: color($colors, theme);
 
 //font family for app
-$font-family-base: "Geogia, Serif";
+$font-family-md-base: "Geogia";
+$font-family-base: "Geogia";
+$font-family-ios-base: "Geogia";
 
 //divider line ion-item in ion-list
 $list-md-border-color: color($colors, divide-line);
