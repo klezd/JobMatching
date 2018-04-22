@@ -1,8 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
-
-import { Activity } from '../../model/activity.model';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 
 /**
@@ -20,10 +17,13 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
 export class AddnewactivityPage {
   @ViewChild('datestart') start: ElementRef;
   @ViewChild('dateend') end: ElementRef;
+  //show alert to confirm
   alert: any;
+  //set to open the page detail with owner ---- *** remove when get data with owner from backend.
+  owner = true;
   dateStart: any;
   dateEnd: any;
-  //modify type for newActivity //
+  //modify type for newActivity //belong_to is set for the current user **backend set this.
   newActivity: {
     activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
     worker_info: {number_of_workers: number, number_of_applies?: number},
@@ -37,7 +37,7 @@ export class AddnewactivityPage {
     period: {from : this.dateStart, end : this.dateEnd},
     tags: [],
   };
-    //for date picker
+ //for date picker
  
   months:string[] = ['January', 'Febuary', 'March',
                     'April', 'May', 'June',
@@ -113,13 +113,13 @@ export class AddnewactivityPage {
         title: "Set date start",
         items: [this.days, this.months, this.years],
       }).then(result => {
-        this.dateStart = result[0] + " " + result[1] + " " + result[2];
+        this.newActivity.period.from = result[0] + " " + result[1] + " " + result[2];
         console.log(this.start); 
       });
 
     } else {
       // You're testing in browser, do nothing or mock the plugins' behaviour.
-      this.dateStart = "02 April 2018";
+      this.newActivity.period.from = "02 April 2018";
     }    
   }
   //pick date for end and return value
@@ -132,17 +132,18 @@ export class AddnewactivityPage {
         title: "Set date",
         items: [this.days, this.months, this.years],
       }).then(result => {
-        this.dateEnd = result[0] + " " + result[1] + " " + result[2];
+        this.newActivity.period.end = result[0] + " " + result[1] + " " + result[2];
       });
     } else {
       // You're testing in a browser so you may want to use another method or run your code on a emulator
-      this.dateEnd = "10 April 2018";
+      this.newActivity.period.end = "10 April 2018";
     }
    
   }
 
   addNew() {
     console.log("Add new activity");
-    this.navCtrl.push('ActivityDetailPage', {activity: this.newActivity} );
+    this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner}).present(); 
+    //remove owner: this.owner when set with **backend**
   }
 }

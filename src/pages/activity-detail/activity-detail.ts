@@ -21,6 +21,7 @@ export class ActivityDetailPage {
     
     //get parsed data
     this.activity = this.navParams.get('activity');
+    this.owner = this.navParams.get('owner'); // remove when set by dtb **backend**
 
     /*this.user = this.storage.get('userlogin');
     console.log(this.activity.belong_to);
