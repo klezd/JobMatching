@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, App } from 'ionic-angular';
 
 /**
  * Generated class for the ViewProfilePage page.
