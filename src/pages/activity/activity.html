@@ -14,5 +14,95 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <div class="all-posts">
+    <p class="title">All my posts</p>
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <h3 class="form-label">{{post.activity_info.title}}</h3>
+            <p>{{post.activity_info.location}}</p>
+            <p>{{post.period.from}}-{{post.period.end}}</p>
+          </ion-col>
+          <ion-col col-4>
+            <img src="{{post.activity_info.img}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>   
+  </div>
+
+  <div class="job-applied">
+    <p class="title">Job I have applied</p>
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <h3 class="form-label bold">{{post.activity_info.title}}</h3>
+            <p>{{post.activity_info.location}}</p>
+            <p>{{post.period.from}}-{{post.period.end}}</p>
+          </ion-col>
+          <ion-col col-4>
+            <img src="{{post.activity_info.img}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>   
+  </div>
+
+  <div class="work-interested">
+    <p class="title">Posts I have interested</p>
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-7>
+            <h3 class="form-label bold">{{post.activity_info.title}}</h3>
+            <p>{{post.activity_info.location}}</p>
+            <p>{{post.period.from}}-{{post.period.end}}</p>
+          </ion-col>
+          <ion-col col-4>
+            <img src="{{post.activity_info.img}}">
+          </ion-col>
+          <ion-col col-1>
+            <span class="favourite"><ion-icon><i class="fa fa-heart"></i></ion-icon></span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>   
+  </div>
+
+  <div class="contact-people">
+    <p class="title">Contact people</p>
+    <ion-card *ngFor="let person of people" (click)="viewProfile(person)">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <h3 class="form-label">{{person.name}}</h3>
+            <p>{{person.email}}</p>
+          </ion-col>
+          <ion-col col-4>
+            <img src="{{person.img}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>   
+  </div>
+
+  <div class="job-done">
+    <p class="title">Works I have done</p>
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <h3 class="form-label">{{post.activity_info.title}}</h3>
+            <p>{{post.activity_info.location}}</p>
+            <p>{{post.period.from}}-{{post.period.end}}</p>
+          </ion-col>
+          <ion-col col-4>
+            <img src="{{post.activity_info.img}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>   
+  </div>
 </ion-content>

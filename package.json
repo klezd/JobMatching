@@ -50,6 +50,7 @@
     "cordova-wheel-selector-plugin": "^1.1.0",
     "firebase": "^4.12.1",
     "font-awesome": "^4.7.0",
+    "ionic": "^3.20.0",
     "ionic-angular": "3.9.2",
     "ionic-tags-input": "^0.1.1",
     "ionicons": "3.0.0",

@@ -1,8 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
-import { DatePicker } from '@ionic-native/date-picker';
-
-
 @IonicPage()
 @Component({
   selector: 'page-addnewactivity',
@@ -25,7 +22,6 @@ export class AddnewactivityPage {
   constructor(  public navCtrl: NavController,
                 private alertCtrl: AlertController,
                 private modalCtrl: ModalController,
-                private picker: DatePicker,
                 private platform: Platform,
                 public navParams: NavParams,
                 private viewCtrl: ViewController,) {
@@ -42,8 +38,9 @@ export class AddnewactivityPage {
   }
   //check if form has changes
   touchForm =false;
-  touch() {
+  touch(f) {
     this.touchForm = true
+    console.log(f.value);
   }
   close() {
     if(this.touchForm){
@@ -71,10 +68,12 @@ export class AddnewactivityPage {
   //upload picture
   uploadPic() {
     let upload = this.modalCtrl.create('ChooseJobPicPage');
-    upload.present();
+    
     upload.onDidDismiss(data => {
       this.newActivity.activity_info.img = data;
     });
+
+    upload.present();
   }
   //modify type for newActivity //belong_to is set for the current user **backend set this.
   newActivity: {
@@ -90,49 +89,6 @@ export class AddnewactivityPage {
     period: {from : null, end : null},
     tags: [],
   };
-  //set default img
-  //pick date for start and return value
-  dateSPicker() {
-    if(this.platform.is('android')){
-      //if on device    
-      this.picker.show({
-        date: new Date(),
-        mode: 'date',
-        androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
-      }).then(
-        date =>  {
-          this.newActivity.period.from = date;
-          console.log(date);
-          console.log(typeof date);
-        },
-        err => {
-          console.log('Error occurred while getting date: ', err);
-          this.newActivity.period.from = "15 April 2018"
-        }
-      );
-    }
-  }
-  //pick date for end and return value
-  dateEPicker() {
-    if(this.platform.is('android')){
-      //if on device 
-      this.picker.show({
-        date: new Date(),
-        mode: 'date',
-        androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
-      }).then(
-        date =>  {
-          this.newActivity.period.end = date;
-          console.log(date);
-          console.log(typeof date);
-        },
-        err => {
-          console.log('Error occurred while getting date: ', err);
-          this.newActivity.period.end = "15 April 2018"
-        }
-      );
-    }
-  }
 
   // resize textarea
   @ViewChild('textarea') textarea: ElementRef;

@@ -66,6 +66,10 @@ ion-header {
     font-size: 17px!important;
 }
 
+.form-label .bold {
+    font-weight: bold;
+}
+
 .activity-title {
     font-size: 16px;
     font-weight: bold;
@@ -90,7 +94,10 @@ ion-header {
 }
 
 ion-col {
-    vertical-align: middle
+    vertical-align: middle;
+}
+ion-row {
+    align-items: center;
 }
 //input
 ion-label[stacked] {

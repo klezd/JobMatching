@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, App } from 'ionic-angular';
 
-/**
- * Generated class for the ViewProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-view-profile',
   templateUrl: 'view-profile.html',
 })
 export class ViewProfilePage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewProfilePage');
+  /**
+   * user is the user whose profile will be display.
+   * beside by [rootParams] = user: user who logged in, this page can be used to view the profile 
+   * of the user whom logged in and the profile of others.
+   */
+  user; //this user is logged in
+  userToBeViewed; //view this user profile'
+  viewOwn = false;
+  
+  ionViewWillEnter() {
+    this.userToBeViewed = this.navParams.get('userToBeViewed');
+    //set mode to view
+    if(this.user == this.userToBeViewed) {
+      this.viewOwn = true;
+    }
   }
-
 }

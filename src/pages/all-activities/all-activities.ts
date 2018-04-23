@@ -75,8 +75,7 @@ export class AllActivitiesPage {
     private modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AllActivitiesPage');
+  ionViewWillEnter() {
     this.pageName = this.navParams.get('pageName');    
   } 
 
