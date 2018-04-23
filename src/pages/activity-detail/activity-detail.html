@@ -2,7 +2,14 @@
   <ion-navbar>
     <ion-grid>
       <ion-row>
-        <ion-col col-6 text-left>
+        <ion-col col-2 text-center>
+          <ion-buttons>
+            <button ion-button (click)="goHome()">
+                <ion-icon><i class="fa fa-home"></i></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col col-4 text-left>
           <ion-title>
             {{activity.activity_info.title}}
           </ion-title>

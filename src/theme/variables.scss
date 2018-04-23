@@ -46,3 +46,8 @@ $font-family-ios-base: "Geogia";
 
 //divider line ion-item in ion-list
 $list-md-border-color: color($colors, divide-line);
+
+//toggle
+$toggle-md-active-color: color($colors, theme);
+$toggle-ios-background-color-on: color($colors, theme);
+$toggle-md-track-background-color-off: color($colors, theme-active);

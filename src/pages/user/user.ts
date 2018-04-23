@@ -35,7 +35,7 @@ export class UserPage {
   }
 
   viewAllPosts() {
-    this.navCtrl.push('ViewPostsPage');
+    this.navCtrl.push('AllActivitiesPage', {pageName: 'View All My Posts'});
   }
 
   viewResume() {

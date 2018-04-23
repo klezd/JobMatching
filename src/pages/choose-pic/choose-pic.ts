@@ -9,13 +9,20 @@ declare var cordova: any;
 
 @IonicPage()
 @Component({
-  selector: 'page-choose-job-pic',
-  templateUrl: 'choose-job-pic.html',
+  selector: 'page-choose-pic',
+  templateUrl: 'choose-pic.html',
 })
-export class ChooseJobPicPage {
+export class ChoosePicPage {
   lastImage: string = null;
   loading: Loading;
+  choosePicForJob = true;
 
+  imageList: any[] = [
+    './assets/imgs/post_images/babysitting.jpg',
+    './assets/imgs/post_images/cleaning.jpg',
+    './assets/imgs/post_images/picking_fruits.jpg',
+  ];
+  
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams, 
                 public viewCtrl: ViewController,
@@ -26,19 +33,15 @@ export class ChooseJobPicPage {
                 public  platform: Platform,
                 public loadingCtrl: LoadingController,
                 private camera: Camera) {
-  }
+    if(!this.choosePicForJob){
+      this.imageList = null;
+    }  
+  }  
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChooseJobPicPage');
+  ionViewWillEnter() {
+    this.choosePicForJob = this.navParams.get("imgJob");    
   }
-
-  imageList: any[] = [
-    './assets/imgs/post_images/babysitting.jpg',
-    './assets/imgs/post_images/cleaning.jpg',
-    './assets/imgs/post_images/picking_fruits.jpg',
-  ];
   
-
   uploadPic(){
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
   }

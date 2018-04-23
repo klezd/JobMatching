@@ -35,6 +35,10 @@ export class AddnewactivityPage {
     if(this.workDone) {
       //if this job has been marked as done so these code will run.
     }
+    //set func for hardware back button
+    this.platform.registerBackButtonAction(function(){
+      this.close();
+    },2);
   }
   //check if form has changes
   touchForm =false;
@@ -67,7 +71,7 @@ export class AddnewactivityPage {
   }
   //upload picture
   uploadPic() {
-    let upload = this.modalCtrl.create('ChooseJobPicPage');
+    let upload = this.modalCtrl.create('ChoosePicPage', {imgJob: true});
     
     upload.onDidDismiss(data => {
       this.newActivity.activity_info.img = data;
@@ -100,7 +104,7 @@ export class AddnewactivityPage {
   post() {
     console.log("Add new activity");
     console.log(this.newActivity.activity_info.img);
-    this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner}).present(); 
+    this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner, fromForm: true}).present(); 
     //remove owner: this.owner when set with **backend**
   }  
 }

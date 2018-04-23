@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
-import { IonicPage, NavParams, NavController, ViewController, ToastController } from 'ionic-angular';
+import { IonicPage, NavParams, NavController, ViewController, ToastController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 @IonicPage()
@@ -13,15 +13,24 @@ export class ActivityDetailPage {
   activity;
   owner = false;
   tags;
+  fromForm = false;
 
   constructor(  public viewCtrl:ViewController, 
                 public navCtrl: NavController,
                 public toastCtrl: ToastController,
                 public navParams: NavParams,
+                public platform: Platform,
                 public storage: Storage) {
     this.activity = this.navParams.get('activity');
     this.tags = this.activity.tags;
     this.owner = this.navParams.get('owner'); // remove when set by dtb **backend** TODO
+    this.fromForm = this.navParams.get('fromForm');
+    if (this.fromForm){
+      //set func for hardware back button to go back home if from after post new post
+      this.platform.registerBackButtonAction(function(){
+        this.navCtrl.setRoot('Tabs');
+      },2);
+    }
   }  
   
   apply() {
@@ -62,5 +71,9 @@ export class ActivityDetailPage {
 
   viewApplications() {
     this.navCtrl.push("AppliedInfoPage", {activity: this.activity});
+  }
+
+  goHome() {
+    this.navCtrl.setRoot('Tabs');
   }
 }

@@ -2,10 +2,7 @@
   <ion-navbar>
     <ion-grid>
       <ion-row>
-        <ion-col col-2 style="padding-top:10px !important;">
-          <add-activity></add-activity>
-        </ion-col>
-        <ion-col col-10>
+        <ion-col>
           <search-bar></search-bar>
         </ion-col>
       </ion-row>
@@ -14,5 +11,59 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <p text-center class="title">SETTINGS</p>
+  <ion-list #settings>
+    <ion-item-group>
+
+      <ion-item-divider class="setting-header" no-lines>
+        <ion-label class="sub-title">
+          NOTIFICATION
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label>Receive notification when new matches</ion-label>
+        <ion-toggle [(ngModel)]="notiInApp" name="notiInApp"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Receive notification by email</ion-label>
+        <ion-toggle [(ngModel)]="notiEmail" name="notiEmail"></ion-toggle>
+      </ion-item>
+
+    </ion-item-group>
+  </ion-list>
+
+  <ion-list class="linkTo">
+    <ion-item no-lines>
+      <h2>About App</h2>
+      <button (click)="go(about)" ion-button clear item-end>
+        <ion-icon name="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>Rate Our App</h2>
+      <button (click)="go(about)" ion-button clear item-end>
+        <ion-icon name="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>Privacy Policy</h2>
+      <button (click)="go(about)" ion-button clear item-end>
+        <ion-icon name="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>Term & Conditions</h2>
+      <button (click)="go(about)" ion-button clear item-end>
+        <ion-icon name="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>Help & Support</h2>
+      <button (click)="go(about)" ion-button clear item-end>
+        <ion-icon name="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>

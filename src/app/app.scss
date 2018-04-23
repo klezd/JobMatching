@@ -49,6 +49,13 @@ ion-header {
     margin: 0 10px;
 }
 
+.link-term {
+    font-size: 15px;
+    color: #ff4000;
+    margin: 0 10px;
+    text-decoration: underline;
+}
+
 .title {
     font-size: 20px;
     font-weight: bold;
@@ -102,7 +109,7 @@ ion-row {
 //input
 ion-label[stacked] {
     font-size: 17px!important;
-    color: #000;
+    color: #000!important;
 }
 
 //variables
@@ -116,3 +123,8 @@ ion-label[stacked] {
     padding: 12px!important;
 }
 
+//scroll bar
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}

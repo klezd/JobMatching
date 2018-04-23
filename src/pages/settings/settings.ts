@@ -28,4 +28,12 @@ export class SettingsPage {
     this.modalCtrl.create('AddnewactivityPage').present();
   }
 
+  //setting var
+  notiInApp = true;
+  notiEmail = false;
+
+  go(sth) {
+    
+  }
+
 }

@@ -33,14 +33,11 @@
     <ion-item no-lines text-wrap>
       <ion-label>
         By checking this box, you agree with our 
-        <span class="link">Term</span> and read our 
-        <span class="link">Data Policy</span>
+        <span class="link-term">Term</span> and 
+        <span class="link-term">Data Policy</span>
       </ion-label>
       <ion-checkbox [(ngModel)]="agreeTerm" [ngModelOptions]="{standalone: true}" ></ion-checkbox>    
     </ion-item>
-    <!--<div *ngIf="!f" class="validator-error">
-    You must agree to term to continue
-    </div>-->
 
     <button ion-button block color="theme" type="submit" [disabled]="!f.valid">Sign up</button>
 

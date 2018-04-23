@@ -1,3 +1,25 @@
 page-settings {
+    p {
+        padding: 0;
+        margin: 0;
+        margin: auto;
+        margin-bottom: 20px;
+    }
 
+    .setting-header {
+        text-transform: uppercase;
+        background: color($colors, button-blue);
+        color: black;
+    }
+
+    .linkTo{
+
+    }
+
+    .linkTo ion-item {
+        border-radius: 20px;
+        background: #d1d1e0;
+        margin-top: 10px;
+        text-align: center;
+    }
 }

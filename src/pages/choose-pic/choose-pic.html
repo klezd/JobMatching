@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <p class="sub-title" text-wrap>Choose an image for your post or upload one from phone:</p>
-  <ion-card *ngFor="let image of imageList" (click)="choose(image)">
+  <ion-card *ngFor="let image of imageList" *ngIf="imageList!=null" (click)="choose(image)">
     <img src="{{image}}"/>
   </ion-card>  
   <br>
