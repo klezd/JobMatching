@@ -9,7 +9,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-8>
-          <ion-title>View My CVs</ion-title>
+          <ion-title>View My Resumes</ion-title>
         </ion-col>
         <ion-col col-2 offset-1 text-right >
             <ion-icon><i class="fa fa-question-circle" (click)="help()"></i></ion-icon>
@@ -20,6 +20,9 @@
 </ion-header>
 
 <ion-content padding>
+  <div >
+   <span (click)="newResume()" class="newResume">Create new resume</span>
+  </div>
     <ion-list>
       <ion-item-sliding *ngFor="let CV of CVs">
         <ion-item>

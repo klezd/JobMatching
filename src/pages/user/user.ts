@@ -43,8 +43,8 @@ export class UserPage {
     this.navCtrl.push('ViewPostsPage');
   }
 
-  editResume() {
-    this.navCtrl.push('EditResumePage');
+  viewResume() {
+    this.navCtrl.push('ViewMyCVs');
   }
 
   logout() {
