@@ -12,5 +12,8 @@ import { ComponentsModule } from '../../components/components.module';
     IonicPageModule.forChild(MessagePage),
     ComponentsModule
   ],
+  exports: [
+    MessagePage
+  ]
 })
 export class MessagePageModule {}

@@ -18,7 +18,8 @@ $colors: (
   button-index:   #120358,
   button-aqua:    aqua,
   button-blue:    #9dc3f6,
-  button-red:     #f68a78
+  button-red:     #f68a78,
+  searchbar: rgb(235, 179, 163),
 );
 
 @import "ionic.theme.default";
@@ -51,3 +52,5 @@ $list-md-border-color: color($colors, divide-line);
 $toggle-md-active-color: color($colors, theme);
 $toggle-ios-background-color-on: color($colors, theme);
 $toggle-md-track-background-color-off: color($colors, theme-active);
+
+

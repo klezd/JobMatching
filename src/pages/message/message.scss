@@ -1,3 +1,10 @@
 page-message {
+    ion-content {
+        padding-top: 0;
+    }
 
+    ion-content p.sub-title {
+        margin-top:0;
+        margin-bottom: 0;
+    }
 }

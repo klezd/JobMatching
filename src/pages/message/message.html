@@ -1,18 +1,33 @@
 <ion-header>
-    <ion-navbar>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-2 style="padding-top:10px !important;">
-            <add-activity></add-activity>
-          </ion-col>
-          <ion-col col-10>
-            <search-bar></search-bar>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-    
-  </ion-content>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 style="padding-top:10px !important;">
+          <add-activity></add-activity>
+        </ion-col>
+        <ion-col col-10>
+          <search-bar></search-bar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p class="sub-title">Search message</p>  
+  <ion-searchbar [(ngModel)]="search" showCancelButton="true" cancelButtonText="Cancel" placeholder="type to search message" class="search-bar" name="search">
+  </ion-searchbar>     
+  <ion-list>
+    <ion-item *ngFor="let message of messages" (click)="goToChat(message)">
+      <ion-avatar item-start>
+        <img src="{{message.image}}">
+      </ion-avatar>
+      <h2>{{message.user}}</h2>
+      <p>{{message.latest_msg}}</p>
+    </ion-item>
+  </ion-list>    
+</ion-content>
+
+<ion-footer padding>
+  <button ion-button block color="button-theme" (click)="sendNew()">Send new message</button>
+</ion-footer>

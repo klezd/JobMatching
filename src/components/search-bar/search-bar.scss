@@ -1,3 +1,5 @@
 search-bar {
-
+    .searchbar-md .searchbar-input {
+        background-color: color($colors, searchbar);
+    }
 }
