@@ -3,8 +3,8 @@
 
   <form #f="ngForm" (ngSubmit)="login()">
     <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input required type="text" name="username" [(ngModel)]="user.username"></ion-input>
+      <ion-label floating>Email</ion-label>
+      <ion-input required type="text" name="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
@@ -21,7 +21,7 @@
   </form>
 
   <div padding style="font-size: 18px">
-    Forgot you password? <span (click)="forgotpass()">Reset here</span> <br><br>
+    Forgot your password? <span (click)="forgotpass()">Reset here</span> <br><br>
     Not have an account yet? <span (click)="signup()">Signup here</span>
   </div>
 </ion-content>

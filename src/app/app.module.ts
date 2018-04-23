@@ -13,6 +13,14 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
+import { DatePicker } from '@ionic-native/date-picker';
+// Import firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../config';
+
+// Authentication service
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +31,7 @@ import { Camera } from '@ionic-native/camera';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ComponentsModule,
+    AngularFireModule.initializeApp(firebaseConfig.config),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,12 +41,20 @@ import { Camera } from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WheelSelector,
+    DatePicker,
     FileTransfer,
     File,
+<<<<<<< HEAD
     Transfer,
     FilePath,
     Camera
+=======
+    Camera,
+    // Firebase
+    AngularFireAuth,    
+    // Authentication service
+    AuthService
+>>>>>>> master
   ]
 })
 export class AppModule {}

@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
+<<<<<<< HEAD
 import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
 import { WheelSelector } from '@ionic-native/wheel-selector';
 
@@ -8,6 +9,10 @@ import { WheelSelector } from '@ionic-native/wheel-selector';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+=======
+import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController } from 'ionic-angular';
+import { DatePicker } from '@ionic-native/date-picker';
+>>>>>>> master
 
 @IonicPage()
 @Component({
@@ -28,6 +33,7 @@ export class AddnewactivityPage {
   owner = true;
   dateStart: any;
   dateEnd: any;
+<<<<<<< HEAD
  //for date picker 
   months:any[] = [{month:'January'}, {month:'Febuary'}, {month:'March'},
                   {month:'April'}, {month:'May'}, {month:'June'},
@@ -86,6 +92,17 @@ export class AddnewactivityPage {
   } 
   
   //set to cannot leave without confirm if any changes.
+=======
+  constructor(  public navCtrl: NavController,
+                private alertCtrl: AlertController,
+                private modalCtrl: ModalController,
+                private picker: DatePicker,
+                private platform: Platform,
+                private viewCtrl: ViewController,) {
+
+  } 
+  //check if form has changes
+>>>>>>> master
   touchForm =false;
   touch() {
     this.touchForm = true
@@ -113,6 +130,7 @@ export class AddnewactivityPage {
       this.viewCtrl.dismiss();
     }    
   }
+<<<<<<< HEAD
   
   //pick date for start and return value
   dateSPicker() {
@@ -160,6 +178,45 @@ export class AddnewactivityPage {
       this.newActivity.activity_info.img = data;
     });
     picture.present();
+=======
+
+  //modify type for newActivity //belong_to is set for the current user **backend set this.
+  newActivity: {
+    activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
+    worker_info: {number_of_workers: number, number_of_applies?: number},
+    belong_to?: any,
+    period?: {from? : any, end? : any},
+    tags?: Array<string>,
+  } = {
+    activity_info: {title: '', location: '', img: '', details: '', requirement: ''},
+    worker_info: {number_of_workers: 0,number_of_applies:0},
+    belong_to: null,
+    period: {from : null, end : null},
+    tags: [],
+  };
+
+  //pick date for start and return value
+  dateSPicker() {
+    this.picker.show({
+      date: new Date(),
+      mode: 'date',
+      androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
+    }).then(
+      date => this.newActivity.period.from = date,
+      err => console.log('Error occurred while getting date: ', err)
+    );
+  }
+  //pick date for end and return value
+  dateEPicker() {
+    this.picker.show({
+      date: new Date(),
+      mode: 'date',
+      androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
+    }).then(
+      date => this.newActivity.period.end = date,
+      err => console.log('Error occurred while getting date: ', err)
+    );
+>>>>>>> master
   }
 
   // resize textarea
