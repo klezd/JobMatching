@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
-
+import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 @Component({
@@ -10,27 +9,36 @@ import { Storage } from '@ionic/storage';
 })
 
 export class SignupPage {
-  user: {username: string, password: string, user_info: { name?: string, phone?: string, email?: string}} 
-  = {username : '', password : '', user_info: { name : '', phone : '', email : ''}};
+  user: {email: string, password: string} = {email : '', password : ''};
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public toastCtrl: ToastController,
-              public storage: Storage) {
+              private authService: AuthService,
+              private alertCtrl: AlertController) {
   }   
   
-  signup(f) {  
-    console.log(f);
-    this.toastCtrl.create({
-      message: 'Welcome to OmegaJob, ' + this.user.username,
-      duration: 1500,
-      position: 'top'
-    }).present();
-    //set root page
-    this.navCtrl.setRoot('Tabs', {user: this.user});
-    // in order to keep sign in
-    this.storage.set('rememberLogin', true);
-    this.storage.set('login', true);
+  signup() {      
+    this.authService.signUp(this.user).then(
+      () => {
+        this.toastCtrl.create({
+          message: 'Welcome to OmegaJob, ' + this.user.email,
+          duration: 1500,
+          position: 'top'
+        }).present();
+        //set root page with the info of user
+        this.navCtrl.setRoot('Tabs', {user: this.user});
+      },
+      (error) => {
+        console.error(error);
+        let alert = this.alertCtrl.create({
+          title: 'Error!',
+          subTitle: error.message,
+          buttons: ['Close']
+        });
+        alert.present();
+      }
+    );  
   }
 
   login() {

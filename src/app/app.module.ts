@@ -7,10 +7,17 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { ComponentsModule } from '../components/components.module';
 //ionic native
-import { WheelSelector } from '@ionic-native/wheel-selector';
 import { FileTransfer} from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
+import { DatePicker } from '@ionic-native/date-picker';
+// Import firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../config';
+
+// Authentication service
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +28,7 @@ import { Camera } from '@ionic-native/camera';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ComponentsModule,
+    AngularFireModule.initializeApp(firebaseConfig.config),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,10 +38,14 @@ import { Camera } from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WheelSelector,
+    DatePicker,
     FileTransfer,
     File,
-    Camera
+    Camera,
+    // Firebase
+    AngularFireAuth,    
+    // Authentication service
+    AuthService
   ]
 })
 export class AppModule {}

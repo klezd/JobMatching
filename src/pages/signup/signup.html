@@ -1,20 +1,11 @@
 <ion-content padding>
   <h1 text-center>SIGN UP</h1>
   
-  <form #f="ngForm" (ngSubmit)="signup(f)">
-
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input required minlength="5" type="text" name="username" [(ngModel)]="user.username" #username="ngModel" >
-      </ion-input>
-    </ion-item>
-    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="validator-error">
-    Please enter username with at least 5 characters.
-    </div>
+  <form #f="ngForm" (ngSubmit)="signup()">
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input required minlength="4" type="email" name="email" [(ngModel)]="user.user_info.email" #email="ngModel">
+      <ion-input required minlength="4" type="email" name="email" [(ngModel)]="user.email" #email="ngModel">
       </ion-input>
     </ion-item>
     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validator-error">
