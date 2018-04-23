@@ -1,18 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-<<<<<<< HEAD
-import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
-import { WheelSelector } from '@ionic-native/wheel-selector';
-
-/**
- * Generated class for the AddnewactivityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-=======
 import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
->>>>>>> master
+
 
 @IonicPage()
 @Component({
@@ -33,66 +22,6 @@ export class AddnewactivityPage {
   owner = true;
   dateStart: any;
   dateEnd: any;
-<<<<<<< HEAD
- //for date picker 
-  months:any[] = [{month:'January'}, {month:'Febuary'}, {month:'March'},
-                  {month:'April'}, {month:'May'}, {month:'June'},
-                  {month:'July'}, {month:'August'}, {month:'September'},
-                  {month:'October'}, {month:'November'}, {month:'December'}];
-  now = new Date();
-  yearCal = this.now.getFullYear();
-  monthNow = this.now.getMonth();
-  monthString = this.months[this.monthNow];
-  dayNow = this.now.getDate();
-  date: any;
-  //modify type for newActivity //belong_to is set for the current user **backend set this.
-  newActivity: {
-    activity_info: {title: string, location: string, img?: any, details: string, requirement?: string},
-    worker_info: {number_of_workers: number, number_of_applies?: number},
-    belong_to?: any,
-    period?: {from? : any, end? : any},
-    tags?: Array<string>,
-  } = {
-    activity_info: {title: '', location: '', img: null, details: '', requirement: ''},
-    worker_info: {number_of_workers: 0,number_of_applies:0},
-    belong_to: null,
-    period: {from : this.dateStart, end : this.dateEnd},
-    tags: [],
-  };
-  constructor(  public navCtrl: NavController,
-                private alertCtrl: AlertController,
-                private modalCtrl: ModalController,
-                private picker: WheelSelector,
-                public navParams: NavParams,
-                private platform: Platform,
-                private viewCtrl: ViewController,) {
-    
-    let i = 0;
-    let years:any[] = [];
-    let days:any[] = [];
-
-    while (i<20) {
-      years.push({"year": this.yearCal.toString()});
-      this.yearCal ++;
-      i ++;
-    }
-    this.yearCal = this.now.getFullYear();
-    for(i = 1; i<31; i++) {
-     days.push({"day": i.toString()});
-    }
-     
-    let date = {days: days, months: this.months, years: years};
-    this.date = date;
-    console.log(this.date);
-    if(this.navParams.get('activity')!=null){
-      //if != null, so this is in edit mode
-      this.editMode = true;
-      this.newActivity = this.navParams.get('activity');
-    }
-  } 
-  
-  //set to cannot leave without confirm if any changes.
-=======
   constructor(  public navCtrl: NavController,
                 private alertCtrl: AlertController,
                 private modalCtrl: ModalController,
@@ -102,7 +31,6 @@ export class AddnewactivityPage {
 
   } 
   //check if form has changes
->>>>>>> master
   touchForm =false;
   touch() {
     this.touchForm = true
@@ -130,56 +58,6 @@ export class AddnewactivityPage {
       this.viewCtrl.dismiss();
     }    
   }
-<<<<<<< HEAD
-  
-  //pick date for start and return value
-  dateSPicker() {
-    if (this.platform.is('cordova')||this.platform.is('android')) {
-      // You're on a device, call the native plugins.
-      console.log("click");
-      this.picker.show({
-        title: "Set date start",
-        items: [this.date.day, this.date.months, this.date.years],
-        positiveButtonText: "Ok",
-        negativeButtonText: "Cancel",
-      }).then(result => {
-        this.newActivity.period.from = result[0].day + " " + result[1].month + " " + result[2].year;
-        console.log(this.start); 
-      });
-
-    } else {
-      // You're testing in browser, do nothing or mock the plugins' behaviour.
-      this.newActivity.period.from = "02 April 2018";
-    }    
-  }
-  //pick date for end and return value
-  dateEPicker() {
-    if (this.platform.is('cordova')||this.platform.is('android')) {
-      // You're on a mobile device "IOS ANDROID WINDOWS" 
-      // now you can call your native plugins
-      console.log("click");
-      this.picker.show({
-        title: "Set date end",
-        items: [this.date.days, this.date.months,this.date.years],
-        positiveButtonText: "Ok",
-        negativeButtonText: "Cancel"
-      }).then(result => {
-        this.newActivity.period.end = result[0].day + " " + result[1].month + " " + result[2].year;
-      });
-    } else {
-      // You're testing in a browser so you may want to use another method or run your code on a emulator
-      this.newActivity.period.end = "10 April 2018";
-    }   
-  }
-
-  uploadPic() {
-    let picture = this.modalCtrl.create("choose-pic"); //is the choose-job-pic page
-    picture.onDidDismiss((data)=>{
-      this.newActivity.activity_info.img = data;
-    });
-    picture.present();
-=======
-
   //modify type for newActivity //belong_to is set for the current user **backend set this.
   newActivity: {
     activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
@@ -194,7 +72,6 @@ export class AddnewactivityPage {
     period: {from : null, end : null},
     tags: [],
   };
-
   //pick date for start and return value
   dateSPicker() {
     this.picker.show({
@@ -216,7 +93,6 @@ export class AddnewactivityPage {
       date => this.newActivity.period.end = date,
       err => console.log('Error occurred while getting date: ', err)
     );
->>>>>>> master
   }
 
   // resize textarea
