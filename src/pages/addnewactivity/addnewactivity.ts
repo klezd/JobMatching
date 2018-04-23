@@ -74,25 +74,43 @@ export class AddnewactivityPage {
   };
   //pick date for start and return value
   dateSPicker() {
-    this.picker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
-    }).then(
-      date => this.newActivity.period.from = date,
-      err => console.log('Error occurred while getting date: ', err)
-    );
+    if(this.platform.is('cordova')||this.platform.is('android')){
+      //if on device 
+      this.picker.show({
+        date: new Date(),
+        mode: 'date',
+        androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
+      }).then(
+        date =>  {
+          this.newActivity.period.from = date;
+          console.log(date);
+          console.log(typeof date);
+        },
+        err => console.log('Error occurred while getting date: ', err)
+      );
+    } else {
+      this.newActivity.period.from = "15 April 2018"
+    }
   }
   //pick date for end and return value
   dateEPicker() {
-    this.picker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
-    }).then(
-      date => this.newActivity.period.end = date,
-      err => console.log('Error occurred while getting date: ', err)
-    );
+    if(this.platform.is('cordova')||this.platform.is('android')){
+      //if on device 
+      this.picker.show({
+        date: new Date(),
+        mode: 'date',
+        androidTheme: this.picker.ANDROID_THEMES.THEME_HOLO_DARK
+      }).then(
+        date =>  {
+          this.newActivity.period.end = date;
+          console.log(date);
+          console.log(typeof date);
+        },
+        err => console.log('Error occurred while getting date: ', err)
+      );
+    } else {
+      this.newActivity.period.end = "28 April 2018"
+    }
   }
 
   // resize textarea
