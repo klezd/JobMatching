@@ -19,6 +19,6 @@
   <br>
   <button ion-button color="button-theme" (click)="uploadPic()">Upload picture from device</button>
   <button ion-button color="button-theme" (click)="takePic()">Take new picture</button>
-  <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
-  <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+  <img src="{{pathForImage(lastImage)}}" style="width: 200px" [hidden]="lastImage === null">
+  <button ion-button color="button-theme" [hidden]="lastImage === null" (click)="choose(pathForImage(lastImage))">Save</button>
 </ion-content>

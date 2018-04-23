@@ -59,7 +59,11 @@
       <ion-item>
         <ion-label stacked> Tag </ion-label>
         <ion-input (change)="touch()" [(ngModel)]="newActivity.tags" name="tags"></ion-input>
-      </ion-item>      
+      </ion-item>  
+      <ion-item>
+        <ion-label>Mark as done</ion-label>
+        <ion-toggle [(ngModel)]="workDone"></ion-toggle>
+      </ion-item>    
     </form>
     <div *ngIf="!editMode">
       <img *ngIf="newActivity.activity_info.img!=null" src="{{newActivity.activity_info.img}}"/>
@@ -67,7 +71,7 @@
         <p class="form-label">Upload image</p>
         <ion-row>
           <ion-col col-6>
-              <button ion-button color="theme" (click)="uploadPic()">Choose image</button>
+              <button ion-button color="button-theme" (click)="uploadPic()">Choose image</button>
           </ion-col>
           <ion-col col-5 offset-1>
             <input [(ngModel)]="newActivity.activity_info.img" type="text" name="img">

@@ -21,6 +21,9 @@ export class AddnewactivityPage {
   alert: any;
   //set edit mode to parse data if true
   editMode = false;
+  //work done, mark as done 
+  //(when user clicked this, the work is marked as done and no more apply available)
+  workDone = false;
   //set to open the page detail with owner ---- *** remove when get data with owner from backend.
   owner = true;
   dateStart: any;
@@ -113,7 +116,7 @@ export class AddnewactivityPage {
   
   //pick date for start and return value
   dateSPicker() {
-    if (this.platform.is('cordova')) {
+    if (this.platform.is('cordova')||this.platform.is('android')) {
       // You're on a device, call the native plugins.
       console.log("click");
       this.picker.show({
@@ -133,7 +136,7 @@ export class AddnewactivityPage {
   }
   //pick date for end and return value
   dateEPicker() {
-    if (this.platform.is('cordova')) {
+    if (this.platform.is('cordova')||this.platform.is('android')) {
       // You're on a mobile device "IOS ANDROID WINDOWS" 
       // now you can call your native plugins
       console.log("click");
