@@ -1,27 +1,25 @@
 <ion-content padding>
   <h1 text-center>LOGIN </h1>
 
-  <form #f="ngForm" (ngSubmit)="login()">
+  <form #f="ngForm">
     <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input required type="text" name="username" [(ngModel)]="user.username"></ion-input>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" #email></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input required type="password" name="password" [(ngModel)]="user.password"></ion-input>
+      <ion-input type="password" #password></ion-input>
     </ion-item>
     <ion-item no-lines>
       <ion-label>Remember me</ion-label>
-      <ion-checkbox #rememberMe [(ngModel)]="rememberme" name="rememberme" 
-                    (ionChange)="isRemember(rememberme)"
-                    checked="rememberme">
+      <ion-checkbox [(ngModel)]="rememberme" name="rememberme">
       </ion-checkbox>    
     </ion-item>
-    <button ion-button block  color="theme" type="submit" [disabled]="!f.valid">Login</button>
+    <button ion-button block  color="theme" type="submit" [disabled]="!f.valid" (click)="login()">Login</button>
   </form>
 
   <div padding style="font-size: 18px">
     Forgot you password? <span (click)="forgotpass()">Reset here</span> <br><br>
-    Not have an account yet? <span (click)="signup()">Signup here</span>
+    Don't have an account yet? <span (click)="signup()">Sign up here</span>
   </div>
 </ion-content>

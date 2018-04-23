@@ -1,72 +1,36 @@
 <ion-content padding>
   <h1 text-center>SIGN UP</h1>
   
-  <form [formGroup]="credentialsForm" (ngSubmit)="signup()">
-
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input required type="text" name="username"
-                 [formControl]="credentialsForm.controls['username']">
-      </ion-input>
-    </ion-item>
-    <div *ngIf="!credentialsForm.controls.username.valid && submitted" class="validator-error">
-    Please enter username with at least 5 characters.
-    </div>
+  <form #f="ngForm">
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input required type="email" name="email" 
-                 [formControl]="credentialsForm.controls['email']">
+      <ion-input type="text" #email>
       </ion-input>
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.email.valid &&
-        (credentialsForm.controls.email.dirty || submitted)" class="validator-error">
-      Please enter a valid email.
-    </div>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input required type="password" name="password"
-                  [formControl]="credentialsForm.controls['password']" >
+      <ion-input type="password" #password>
       </ion-input>
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.password.valid &&
-                (credentialsForm.controls.password.dirty || submitted)"
-        class="validator-error">
-      Passwords should be at least 8 characters long and contain one number, one character and one special character.
-    </div>
-    
-    
-
-    <ion-item>
-      <ion-label floating>Confirm Password</ion-label>
-      <ion-input required type="password" name="cfpassword" 
-                [formControl]="credentialsForm.controls['cfpassword']"
-                >
-      </ion-input>
-    </ion-item>
-    <div *ngIf="credentialsForm.controls.cfpassword.errors?.equalTo" class="validator-error">
-        You must to type the same password
-    </div>
 
     <ion-item no-lines text-wrap>
       <ion-label>
-        By checking this box, you agree with our 
-        <span class="link">Term</span> and read our 
-        <span class="link">Data Policy</span>
+        By checking this box, you agree with our terms and data policy
       </ion-label>
-      <ion-checkbox [formControl]="credentialsForm.controls['checkbox']"></ion-checkbox>    
+      <ion-checkbox [(ngModel)]="agreeTerm" [ngModelOptions]="{standalone: true}" ></ion-checkbox>    
     </ion-item>
-    <div *ngIf="!credentialsForm.controls.checkbox.valid" class="validator-error">
+    <!--<div *ngIf="!f" class="validator-error">
     You must agree to term to continue
-    </div>
+    </div>-->
 
-    <button ion-button block color="theme" type="submit" [disabled]="!credentialsForm.valid">Sign up</button>
+    <button ion-button block color="theme" type="submit" [disabled]="!f.valid" (click)="signup()">Sign up</button>
 
   </form>
   
   <div padding style="font-size: 18px">
-    Already had an account? <span (click)="login()">Login here</span>
+    Owned an account? <span (click)="login()">Login here</span>
   </div>
 </ion-content>
     

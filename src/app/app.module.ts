@@ -4,17 +4,17 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
-import { MyApp } from './app.component';
-import { UserProvider } from '../providers/user/user';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation';
-import { ComponentsModule } from '../components/components.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+//ionic native
+import { WheelSelector } from '@ionic-native/wheel-selector';
+import { FileTransfer} from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
 
-//fake data
-import { Users } from '../mocks/providers/users';
-import { Activities } from '../mocks/providers/activities';
-// end fake
+import { MyApp } from './app.component';
+import { ComponentsModule } from '../components/components.module';
+import { FIREBASE_CONFIG } from "../app/app.firebase.config";
 
 @NgModule({
   declarations: [
@@ -24,10 +24,9 @@ import { Activities } from '../mocks/providers/activities';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule,
     ComponentsModule,
-    FormsModule, 
-    CustomFormsModule,
-    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,10 +36,11 @@ import { Activities } from '../mocks/providers/activities';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider,
-    //fake data
-    Users,
-    Activities
+    WheelSelector,
+    FileTransfer,
+    File,
+    Camera,
+
   ]
 })
 export class AppModule {}
