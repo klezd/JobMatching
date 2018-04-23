@@ -7,10 +7,7 @@ import { Camera } from '@ionic-native/camera';
 
 declare var cordova: any;
 
-@IonicPage({
-  segment: 'choose-pic',
-  name: 'choose-pic'
-})
+@IonicPage()
 @Component({
   selector: 'page-choose-job-pic',
   templateUrl: 'choose-job-pic.html',

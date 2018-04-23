@@ -43,6 +43,7 @@ import { AuthService } from '../services/auth.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DatePicker,
     FilePath,
+    Transfer,
     FileTransfer,
     File,
     Camera,

@@ -10,12 +10,11 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, A
 export class UserPage {
  user: any;
   
-  constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    public viewCtrl: ViewController,
-    public modalCtrl: ModalController,
-    public app: App) {
+  constructor(  public navCtrl: NavController, 
+                public navParams: NavParams,
+                public viewCtrl: ViewController,
+                public modalCtrl: ModalController,
+                public app: App) {
   }
   
   ionViewWillEnter() {
@@ -25,10 +24,6 @@ export class UserPage {
 
   public addnewActivity() {
     this.modalCtrl.create('AddnewactivityPage').present();
-  }
-  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserPage');
   }
 
   viewProfile() {
@@ -54,6 +49,4 @@ export class UserPage {
   settings() {
     this.navCtrl.push('SettingsPage');
   }
- 
-
 }

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 
-@IonicPage({
-  segment: "view-my-CVs",
-})
+@IonicPage()
 @Component({
   selector: 'page-view-my-cvs',
   templateUrl: 'view-my-CVs.html',

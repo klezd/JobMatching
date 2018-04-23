@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController } from 'ionic-angular';
+import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
 
 
@@ -27,9 +27,19 @@ export class AddnewactivityPage {
                 private modalCtrl: ModalController,
                 private picker: DatePicker,
                 private platform: Platform,
+                public navParams: NavParams,
                 private viewCtrl: ViewController,) {
-
   } 
+
+  ionViewWillEnter() {
+    if(this.navParams.get('activity')!=null){
+      this.editMode = true;
+      this.newActivity = this.navParams.get('activity');
+    }
+    if(this.workDone) {
+      //if this job has been marked as done so these code will run.
+    }
+  }
   //check if form has changes
   touchForm =false;
   touch() {
@@ -58,12 +68,13 @@ export class AddnewactivityPage {
       this.viewCtrl.dismiss();
     }    
   }
+  //upload picture
   uploadPic() {
-    let upload = this.modalCtrl.create('choose-pic');
+    let upload = this.modalCtrl.create('ChooseJobPicPage');
+    upload.present();
     upload.onDidDismiss(data => {
       this.newActivity.activity_info.img = data;
     });
-    upload.present();
   }
   //modify type for newActivity //belong_to is set for the current user **backend set this.
   newActivity: {
@@ -73,17 +84,17 @@ export class AddnewactivityPage {
     period?: {from? : any, end? : any},
     tags?: Array<string>,
   } = {
-    activity_info: {title: '', location: '', img: '', details: '', requirement: ''},
+    activity_info: {title: '', location: '', img: './assets/imgs/logo.png', details: '', requirement: ''},
     worker_info: {number_of_workers: 0,number_of_applies:0},
     belong_to: null,
     period: {from : null, end : null},
     tags: [],
   };
+  //set default img
   //pick date for start and return value
   dateSPicker() {
-    this.picker.show({
-    if(this.platform.is('cordova')||this.platform.is('android')){
-      //if on device 
+    if(this.platform.is('android')){
+      //if on device    
       this.picker.show({
         date: new Date(),
         mode: 'date',
@@ -94,15 +105,16 @@ export class AddnewactivityPage {
           console.log(date);
           console.log(typeof date);
         },
-        err => console.log('Error occurred while getting date: ', err)
+        err => {
+          console.log('Error occurred while getting date: ', err);
+          this.newActivity.period.from = "15 April 2018"
+        }
       );
-    } else {
-      this.newActivity.period.from = "15 April 2018"
     }
   }
   //pick date for end and return value
   dateEPicker() {
-    if(this.platform.is('cordova')||this.platform.is('android')){
+    if(this.platform.is('android')){
       //if on device 
       this.picker.show({
         date: new Date(),
@@ -114,10 +126,11 @@ export class AddnewactivityPage {
           console.log(date);
           console.log(typeof date);
         },
-        err => console.log('Error occurred while getting date: ', err)
+        err => {
+          console.log('Error occurred while getting date: ', err);
+          this.newActivity.period.end = "15 April 2018"
+        }
       );
-    } else {
-      this.newActivity.period.end = "28 April 2018"
     }
   }
 
@@ -127,7 +140,7 @@ export class AddnewactivityPage {
   resize() {
       this.textarea.nativeElement.style.height = this.textarea.nativeElement.scrollHeight + 'px';
   }
-
+  //post / save edit
   post() {
     console.log("Add new activity");
     console.log(this.newActivity.activity_info.img);
