@@ -42,19 +42,14 @@ import { AuthService } from '../services/auth.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DatePicker,
+    FilePath,
     FileTransfer,
     File,
-<<<<<<< HEAD
-    Transfer,
-    FilePath,
-    Camera
-=======
     Camera,
     // Firebase
     AngularFireAuth,    
     // Authentication service
     AuthService
->>>>>>> master
   ]
 })
 export class AppModule {}
