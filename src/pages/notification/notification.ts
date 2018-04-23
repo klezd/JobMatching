@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-/**
- * Generated class for the NotificationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-notification',
@@ -29,4 +22,10 @@ export class NotificationPage {
     console.log('ionViewDidLoad NotificationPage');
   }
 
+  iconList = {like: "fa fa-2x fa-heart", accept: "fa fa-2x fa-calendar-check-o", sendRequest: "fa fa-2x fa-clipboard", offer: "fa fa-2x fa-commenting"};
+  
+  notiList = [{user: "Matt", action: "like", stuff: "post about new cleaning job", icon: this.iconList.like}, 
+              {user: "Lucy", action: "offer", stuff: "a intern place in Tampere", icon: this.iconList.offer}, 
+              {user: "Josh", action: "accept", stuff: "your request to babysitter in Helsinki", icon: this.iconList.accept}, 
+              {user: "Kim", action: "request", stuff: "to do your cleaning post in Helsinki", icon: this.iconList.sendRequest}, ]
 }

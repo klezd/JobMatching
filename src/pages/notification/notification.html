@@ -14,5 +14,12 @@
   </ion-header>
   
   <ion-content padding>
-    
+    <ion-list>
+      <ion-item *ngFor="let noti of notiList">
+        <ion-avatar item-start>
+          <span><ion-icon><i class="{{noti.icon}}"></i></ion-icon></span>
+        </ion-avatar>
+        <p text-wrap>{{noti.user}} {{noti.action}} {{noti.stuff}}</p>
+      </ion-item>
+    </ion-list>
   </ion-content>

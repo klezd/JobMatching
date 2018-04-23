@@ -33,4 +33,8 @@ export class MessagePage {
 
     msg.present();
   }
+
+  sendNew() {
+    
+  }
 }
