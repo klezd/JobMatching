@@ -58,11 +58,11 @@
       </ion-item>
       <ion-item>
         <ion-label stacked> Tag </ion-label>
-        <ion-input (change)="touch()" [(ngModel)]="newActivity.tags" name="tags"></ion-input>
+        <ion-input (change)="touch()" type="text" [(ngModel)]="newActivity.tags" name="tags"></ion-input>
       </ion-item>  
       <ion-item>
         <ion-label>Mark as done</ion-label>
-        <ion-toggle [(ngModel)]="workDone"></ion-toggle>
+        <ion-toggle [(ngModel)]="workDone" name="wordDone"></ion-toggle>
       </ion-item>    
     </form>
     <div *ngIf="!editMode">

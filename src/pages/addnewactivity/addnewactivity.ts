@@ -58,6 +58,13 @@ export class AddnewactivityPage {
       this.viewCtrl.dismiss();
     }    
   }
+  uploadPic() {
+    let upload = this.modalCtrl.create('choose-pic');
+    upload.onDidDismiss(data => {
+      this.newActivity.activity_info.img = data;
+    });
+    upload.present();
+  }
   //modify type for newActivity //belong_to is set for the current user **backend set this.
   newActivity: {
     activity_info: {title: string, location: string, img?: string, details: string, requirement?: string},
