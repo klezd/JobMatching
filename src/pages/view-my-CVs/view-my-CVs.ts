@@ -75,4 +75,11 @@ export class ViewMyCVs {
   edit(CV){
     this.navCtrl.push('CreateCV', {CV: CV});
   }
+
+  newResume() {
+    this.navCtrl.push('CreateCV');
+  }
+  
 }
+
+
