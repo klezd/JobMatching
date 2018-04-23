@@ -40,11 +40,7 @@ export class ChooseJobPicPage {
     './assets/imgs/post_images/cleaning.jpg',
     './assets/imgs/post_images/picking_fruits.jpg',
   ];
-  choose(img){
-    console.log(img);
-    let data = img;
-    this.viewCtrl.dismiss(data);
-  }
+  
 
   uploadPic(){
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
@@ -151,5 +147,11 @@ export class ChooseJobPicPage {
       this.loading.dismissAll()
       this.presentToast('Error while uploading file.');
     });
+  }
+  //get data img src back to prev page.
+  choose(img){
+    console.log(img);
+    let data = img;
+    this.viewCtrl.dismiss(data);
   }
 }
