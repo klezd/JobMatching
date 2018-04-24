@@ -21,7 +21,6 @@ export class SearchJob {
   ionViewWillEnter() {
     
   }
-
   /**
    * set result to display result after search (search with result at the same page)
    */

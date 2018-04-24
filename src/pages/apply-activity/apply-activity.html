@@ -13,13 +13,12 @@
   </div>
   <div padding>
     <ion-buttons>
-        <button ion-button color="button-index" half-block (click)="createCV()">Create new resum</button>
-        <button ion-button color="button-index" half-block (click)="userCV()">Use own resume</button>
-        <button ion-button color="button-index" half-block (click)="uploadCV()">Upload your CV here</button>        
-    </ion-buttons>    
-  </div>
-  <div *ngIf="hasCV">
-    uploaded CV: {{CV.CVname}}
+      <button ion-button color="button-index" half-block (click)="createCV()">Create new resum</button>
+      <button ion-button color="button-index" half-block (click)="userCV()">Use own resume</button>
+      <button ion-button color="button-index" half-block (click)="uploadCV()">Upload your CV here</button>        
+    </ion-buttons>   
+    <p *ngIf="CVurl!=null">{{CVurl}}</p> 
+    <p *ngIf="chosenCV!=null">You have chosen CV: {{chosenCV.CV_name}}</p> 
   </div>
   <form #f="ngForm" (ngSubmit)="submit()">
     <ion-item no-lines>

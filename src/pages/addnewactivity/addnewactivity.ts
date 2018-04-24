@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
@@ -6,8 +6,12 @@ import { Platform, IonicPage, NavController, AlertController, ViewController, Mo
   templateUrl: 'addnewactivity.html',
 })
 export class AddnewactivityPage {
-  @ViewChild('datestart') start: ElementRef;
-  @ViewChild('dateend') end: ElementRef;
+  tags = ['Ionic', 'Angular', 'TypeScript'];
+  addTags(val) {
+    console.log(this.tags);
+    this.tags.push(val);
+    console.log(this.tags);
+  }
   //show alert to confirm
   alert: any;
   //set edit mode to parse data if true
@@ -25,6 +29,10 @@ export class AddnewactivityPage {
                 private platform: Platform,
                 public navParams: NavParams,
                 private viewCtrl: ViewController,) {
+    //set func for hardware back button
+    this.platform.registerBackButtonAction(function(){
+      this.close();
+    },2);
   } 
 
   ionViewWillEnter() {
@@ -34,11 +42,7 @@ export class AddnewactivityPage {
     }
     if(this.workDone) {
       //if this job has been marked as done so these code will run.
-    }
-    //set func for hardware back button
-    this.platform.registerBackButtonAction(function(){
-      this.close();
-    },2);
+    }    
   }
   //check if form has changes
   touchForm =false;
@@ -87,19 +91,13 @@ export class AddnewactivityPage {
     period?: {from? : any, end? : any},
     tags?: Array<string>,
   } = {
-    activity_info: {title: '', location: '', img: './assets/imgs/logo.png', details: '', requirement: ''},
+    activity_info: {title: '', location: '', img: './assets/imgs/OmegaJob.png', details: '', requirement: ''},
     worker_info: {number_of_workers: 0,number_of_applies:0},
     belong_to: null,
     period: {from : null, end : null},
     tags: [],
   };
 
-  // resize textarea
-  @ViewChild('textarea') textarea: ElementRef;
-  
-  resize() {
-      this.textarea.nativeElement.style.height = this.textarea.nativeElement.scrollHeight + 'px';
-  }
   //post / save edit
   post() {
     console.log("Add new activity");

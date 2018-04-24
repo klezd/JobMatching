@@ -18,5 +18,6 @@ export class Tabs {
 
   constructor(public navParams: NavParams) {
     this.user = navParams.data.user;
+    this.myIndex = this.navParams.get('index') || 0;
   }
 }

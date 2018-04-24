@@ -84,7 +84,6 @@ export class IndexPage {
     console.log('ionViewDidLoad IndexPage');
     console.log(this.navCtrl.getActiveChildNavs);
     console.log(this.navCtrl.getActiveChildNav);
-
   }
 
   openDetails(activity) {

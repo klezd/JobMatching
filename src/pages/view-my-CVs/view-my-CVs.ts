@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -19,7 +19,6 @@ export class ViewMyCVs {
    * CVchosen is use to get the CVchosen (if the user wanna choose CV again)
    */
   forApply = false;
-  CVchosen: any;
   /**
    * TODO
    * CV list here with just demo name. Any info list to CV_info (user will create new CV with name of
@@ -39,19 +38,18 @@ export class ViewMyCVs {
 
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
+                private viewCtrl: ViewController,
                 public alertCtrl: AlertController) {
-
   }
 
   ionViewWillEnter() {
+    //if user go to this page from apply job.
     this.navParams.get('toApply') == true ? this.forApply=true : this.forApply=false;
-    this.navParams.get('CV') != null ? this.CVchosen = this.navParams.get('CV') : this.CVchosen = null;
   }
 
   choose(CV) {
     //TODO save the selected CV and then back to parent page
-    this.navCtrl.pop();
-    this.CVchosen = CV;
+    this.viewCtrl.dismiss(CV);
   }
 
   help() {
@@ -61,10 +59,9 @@ export class ViewMyCVs {
       buttons: ['OK']
     }).present();
   }
-
+  
   /**
-   * edit CV will go to createCV page with the information
-   * 
+   * edit CV will go to createCV page with the information 
    */
   view(CV) {
     this.navCtrl.push('ViewCV', {CV: CV});
