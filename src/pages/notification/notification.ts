@@ -22,7 +22,7 @@ export class NotificationPage {
     console.log('ionViewDidLoad NotificationPage');
   }
 
-  iconList = {like: "fa fa-2x fa-heart", accept: "fa fa-2x fa-calendar-check-o", sendRequest: "fa fa-2x fa-clipboard", offer: "fa fa-2x fa-commenting"};
+  iconList = {like: "fa fa-lg fa-heart", accept: "fa fa-lg fa-calendar-check-o", sendRequest: "fa fa-lg fa-clipboard", offer: "fa fa-lg fa-commenting"};
   
   notiList = [{user: "Matt", action: "like", stuff: "post about new cleaning job", icon: this.iconList.like}, 
               {user: "Lucy", action: "offer", stuff: "a intern place in Tampere", icon: this.iconList.offer}, 

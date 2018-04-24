@@ -7,18 +7,16 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { ComponentsModule } from '../components/components.module';
 //ionic native
-import { WheelSelector } from '@ionic-native/wheel-selector';
 import { FileTransfer} from '@ionic-native/file-transfer';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
-import { DatePicker } from '@ionic-native/date-picker';
+import { IonTagsInputModule } from 'ionic-tags-input';
 // Import firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
-
 // Authentication service
 import { AuthService } from '../services/auth.service';
 
@@ -31,6 +29,7 @@ import { AuthService } from '../services/auth.service';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ComponentsModule,
+    IonTagsInputModule,
     AngularFireModule.initializeApp(firebaseConfig.config),
   ],
   bootstrap: [IonicApp],
@@ -41,12 +40,12 @@ import { AuthService } from '../services/auth.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DatePicker,
     FilePath,
     Transfer,
     FileTransfer,
     File,
     Camera,
+    IonTagsInputModule,
     // Firebase
     AngularFireAuth,    
     // Authentication service

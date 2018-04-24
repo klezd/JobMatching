@@ -18,9 +18,10 @@ export class ChoosePicPage {
   choosePicForJob = true;
 
   imageList: any[] = [
+    './assets/imgs/OmegaJob.png',
     './assets/imgs/post_images/babysitting.jpg',
     './assets/imgs/post_images/cleaning.jpg',
-    './assets/imgs/post_images/picking_fruits.jpg',
+    './assets/imgs/post_images/picking_fruits.jpg',   
   ];
   
   constructor(  public navCtrl: NavController, 
