@@ -35,11 +35,13 @@ export class ActivityDetailPage {
       },2);
     }
   }  
-
+  
   ionViewDidLoad() {
     //show map after the page load
     console.log(this.map);
+    console.log(this.map.nativeElement);
     this.locationService.showLocation(this.activity.activity_info.location, this.map.nativeElement);
+    this.map.nativeElement.classList.add('shown');
   }
   
   apply() {

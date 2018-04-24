@@ -16,7 +16,7 @@
 <ion-content padding>
   <div class="all-posts">
     <p class="title">All my posts</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post, true)">
       <ion-grid>
         <ion-row>
           <ion-col col-8>
@@ -34,7 +34,7 @@
 
   <div class="job-applied">
     <p class="title">Applied jobs</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false)">
       <ion-grid>
         <ion-row>
           <ion-col col-8>
@@ -52,7 +52,7 @@
 
   <div class="work-interested">
     <p class="title">Interested jobs</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false)">
       <ion-grid>
         <ion-row>
           <ion-col col-7>
@@ -90,7 +90,7 @@
 
   <div class="job-done">
     <p class="title">Old jobs</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post)">
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false)">
       <ion-grid>
         <ion-row>
           <ion-col col-8>

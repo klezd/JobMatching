@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, ContentChild, ViewChildren } from '@angular/core';
-import { IonicPage, NavParams, Tabs } from 'ionic-angular';
+import { IonicPage, NavParams, Tabs, NavController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -13,7 +13,7 @@ export class TabsPage {
   tab3Root = 'ActivityPage';
   tab4Root = 'UserPage';
   tab5Root = 'NotificationPage';
-  myIndex: number;
+  myIndex: any;
   folder = "fa-folder";
 
   @ViewChild('tab2') tab2: Tabs;
@@ -22,7 +22,7 @@ export class TabsPage {
   ionViewDidEnter() {
   }
 
-  constructor(public navParams: NavParams) {
+  constructor(public navParams: NavParams, public navCtrl: NavController) {
     this.user = navParams.data.user;
     if(this.myIndex == 1) {
       this.folder = "fa-folder-open"
@@ -36,5 +36,6 @@ export class TabsPage {
 
   tabInfo(tab) {
     this.folder = "fa-folder";
+    tab.goToRoot();
   }
 }

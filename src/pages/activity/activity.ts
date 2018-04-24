@@ -38,12 +38,13 @@ export class ActivityPage {
     private modalCtrl: ModalController) {
   }
 
-  public viewPost(post) {
-    this.modalCtrl.create('ActivityDetailPage', {activity: post, owner:true})
+  public viewPost(post, bool:boolean) {
+    this.modalCtrl.create('ActivityDetailPage', {activity: post, owner:bool}).present();
   }
 
   public viewProfile(person) {
-    this.modalCtrl.create('ViewProfilePage', {userToBeViewed: person});
+    let profile = this.modalCtrl.create('ViewProfilePage', {userToBeViewed: person});
+    profile.present();
   }
 
 }

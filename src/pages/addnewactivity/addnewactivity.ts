@@ -6,10 +6,11 @@ import { Platform, IonicPage, NavController, AlertController, ViewController, Mo
   templateUrl: 'addnewactivity.html',
 })
 export class AddnewactivityPage {
-  tags = ['Ionic', 'Angular', 'TypeScript'];
+  tags = [];
   addTags(val) {
     console.log(this.tags);
     this.tags.push(val);
+    this.newActivity.tags.push(val);
     console.log(this.tags);
   }
   //show alert to confirm
