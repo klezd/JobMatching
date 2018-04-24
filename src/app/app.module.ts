@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { ComponentsModule } from '../components/components.module';
+import { HttpModule } from '@angular/http';
 //ionic native
 import { FileTransfer} from '@ionic-native/file-transfer';
 import { Transfer } from '@ionic-native/transfer';
@@ -18,8 +19,9 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
-// Authentication service
+// Services
 import { AuthService } from '../services/auth.service';
+import { LocationService } from '../services/locations.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { AuthService } from '../services/auth.service';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     ComponentsModule,
+    HttpModule,
     IonTagsInputModule,
     AngularFireModule.initializeApp(firebaseConfig.config),
   ],
@@ -51,7 +54,8 @@ import { AuthService } from '../services/auth.service';
     // Firebase
     AngularFireAuth,    
     // Authentication service
-    AuthService
+    AuthService,
+    LocationService,
   ]
 })
 export class AppModule {}

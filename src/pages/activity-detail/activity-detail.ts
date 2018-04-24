@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { IonicPage, NavParams, NavController, ViewController, ToastController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { LocationService } from '../../services/locations.service';
 
 @IonicPage()
 @Component({
@@ -9,6 +10,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ActivityDetailPage {
   @ViewChild('favourite') favourite: ElementRef;
+  @ViewChild('map') map: ElementRef;
   user: any;
   activity;
   owner = false;
@@ -19,6 +21,7 @@ export class ActivityDetailPage {
                 public navCtrl: NavController,
                 public toastCtrl: ToastController,
                 public navParams: NavParams,
+                private locationService: LocationService,
                 public platform: Platform,
                 public storage: Storage) {
     this.activity = this.navParams.get('activity');
@@ -32,6 +35,12 @@ export class ActivityDetailPage {
       },2);
     }
   }  
+
+  ionViewDidLoad() {
+    //show map after the page load
+    console.log(this.map);
+    this.locationService.showLocation(this.activity.activity_info.location, this.map.nativeElement);
+  }
   
   apply() {
     this.navCtrl.push('ApplyActivityPage', {activity: this.activity});

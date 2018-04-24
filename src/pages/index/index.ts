@@ -63,7 +63,7 @@ export class IndexPage {
     {
         activity_info: {
             title: 'Design logo for a startup company',
-            location: 'Oulu',
+            location: 'Helsinki',
             img: 'https://picsum.photos/200',
             details: 'Design logo for a new startup',
             requirement: 'no requirement',
