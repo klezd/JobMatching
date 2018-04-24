@@ -9,7 +9,11 @@ page-activity-detail {
         margin: 0 10px;
     }
 
-    .map{
-        
+    #map{
+        width: 90%;
+        display: block;
+        margin: auto;
+        height: 200px;   
+        min-height: 0;
     }
 }
