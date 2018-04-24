@@ -13,9 +13,10 @@
   </div>
   <div padding>
     <ion-buttons>
-        <button ion-button color="button-index" half-block (click)="createCV()">Create new resum</button>
-        <button ion-button color="button-index" half-block (click)="userCV()">Use own resume</button>
-        <button ion-button color="button-index" half-block (click)="uploadCV()">Upload your CV here</button>        
+      <button ion-button color="button-index" half-block (click)="createCV()">Create new resum</button>
+      <button ion-button color="button-index" half-block (click)="userCV()">Use own resume</button>
+      <button ion-button color="button-index" half-block (click)="uploadCV()">Upload your CV here</button>        
+      <p *ngIf="CVurl!=null">{{CVurl}}</p>  
     </ion-buttons>    
   </div>
   <div *ngIf="hasCV">

@@ -25,11 +25,13 @@ export class ApplyActivityPage {
   userCV() {
     this.navCtrl.push("ViewMyCVs", {toApply: true});
   }
-
+  CVurl;
   uploadCV() {
     //code to upload CV from device //file PDF or words
     this.fileChooser.open()
-      .then(uri => console.log(uri))
+      .then(uri => {console.log(uri);
+        this.CVurl = uri;
+      })
       .catch(e => console.log(e));
   }
 
