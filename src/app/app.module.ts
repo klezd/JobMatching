@@ -21,6 +21,7 @@ import { firebaseConfig } from '../config';
 
 // Authentication service
 import { AuthService } from '../services/auth.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthService } from '../services/auth.service';
     IonicStorageModule.forRoot(),
     ComponentsModule,
     AngularFireModule.initializeApp(firebaseConfig.config),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase} from 'angularfire2/database'
+import { Profile } from '../user/profile';
 
 /**
  * Generated class for the EditProfilePage page.
@@ -14,12 +17,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'edit-profile.html',
 })
 export class EditProfilePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  profile = {} as Profile
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              private afAuth: AngularFireAuth,
+              private afDatabase: AngularFireDatabase) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EditProfilePage');
+  saveProfile() {
+    this.afAuth.authState.subscribe(auth => {
+      this.afDatabase.list(`profile/${auth.uid}`).push(this.profile)
+        .then(() => this.navCtrl.setRoot('UserPage'))
+    })
   }
-
 }

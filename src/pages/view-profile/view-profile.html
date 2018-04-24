@@ -26,7 +26,9 @@
         <ion-row>
             <ion-col col-2></ion-col>      
             <ion-col col-8 align-items-center justify-content-start>            
-                <p class="userName" text-center text-uppercase>Your name</p>
+                <p class="userName" text-center text-uppercase>First Name:{{(profileData) | async?.firstName)}}</p>
+                <p class="userName" text-center text-uppercase>Last Name:{{(profileData) | async?.lasttName)}}</p>
+                <p class="userName" text-center text-uppercase>Phone Number{{(profileData) | async?.phoneName)}}</p>
             </ion-col>
         </ion-row>
 
