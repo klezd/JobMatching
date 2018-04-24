@@ -46,5 +46,35 @@
   <div padding style="font-size: 18px">
     Already had an account? <span (click)="login()">Login here</span>
   </div>
+
+  <div padding class="signIcon"  text-center>
+    
+    <ion-buttons>
+      <ion-row>
+        <ion-col col-4>
+          <button ion-button (click)="facebook()">
+            <ion-icon>
+              <i class="fa fa-facebook-square"></i>
+            </ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button (click)="google()">
+            <ion-icon>
+              <i class="fa fa-google-plus-square"></i>
+            </ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button (click)="linked()">
+            <ion-icon>
+              <i class="fa fa-linkedin"></i>
+            </ion-icon>
+          </button>
+        </ion-col>        
+      </ion-row>
+    </ion-buttons>  
+
+  </div>
 </ion-content>
     

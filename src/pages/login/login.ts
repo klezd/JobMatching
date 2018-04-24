@@ -77,4 +77,16 @@ export class LoginPage {
     );
   }
 
+  facebook() {
+
+  }
+
+  google() {
+
+  }
+
+  linked() {
+    
+  }
+
 }

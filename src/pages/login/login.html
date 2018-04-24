@@ -24,4 +24,34 @@
     Forgot your password? <span (click)="forgotpass()">Reset here</span> <br><br>
     Not have an account yet? <span (click)="signup()">Signup here</span>
   </div>
+
+  <div padding class="signIcon" text-center>
+  
+    <ion-buttons>
+      <ion-row>
+        <ion-col col-4>
+          <button ion-button (click)="facebook()">
+            <ion-icon>
+              <i class="fa fa-facebook-square"></i>
+            </ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button (click)="google()">
+            <ion-icon>
+              <i class="fa fa-google-plus-square"></i>
+            </ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button (click)="linked()">
+            <ion-icon>
+              <i class="fa fa-linkedin"></i>
+            </ion-icon>
+          </button>
+        </ion-col>        
+      </ion-row>
+    </ion-buttons>  
+      
+  </div>
 </ion-content>

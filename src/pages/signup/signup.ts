@@ -45,4 +45,16 @@ export class SignupPage {
     this.navCtrl.push('LoginPage');
   }
 
+  facebook() {
+
+  }
+
+  google() {
+
+  }
+
+  linked() {
+    
+  }
+
 }
