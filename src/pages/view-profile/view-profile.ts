@@ -25,4 +25,24 @@ export class ViewProfilePage {
       this.viewOwn = true;
     }
   }
+
+  message() {
+    this.navCtrl.push('MessagePage');
+  }
+
+  changePass() {
+    this.navCtrl.push('');
+  }
+
+  recentContacts() {
+    this.navCtrl.push('');
+  }
+
+  payment() {
+
+  }
+
+  editProfile() {
+    this.navCtrl.push('EditProfilePage');
+  }
 }

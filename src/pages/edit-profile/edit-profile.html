@@ -6,22 +6,72 @@
 
 
 <ion-content padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3></ion-col>      
+            <ion-col col-6 align-items-center>
+                <img src="../../assets/imgs/user.png">              
+            </ion-col>
+            <ion-col col-2  align-self-start>
+                <button ion-button icon-only round color="button-special" small block
+                (click)="uploadPic()">
+                  <ion-icon name="md-image"></ion-icon>
+                </button>
+                <!--the img will be changed format later, form to edit profile picture goes here-->
+            </ion-col>
+          </ion-row>  
+          
+          <ion-row>
+              <ion-col col-2></ion-col>      
+              <ion-col col-8>            
+                  <p class="userName" text-center text-uppercase>Your name</p>
+              </ion-col>
+              <ion-col col-2>
+                  
+              </ion-col>
+          </ion-row>
+    </ion-grid>
+  
+    <ion-list>
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <!-- NB: IMPORTANT!!! This field can't be modified by user!!! -->
+  
+        <ion-item>
+          <ion-label>Phone number</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Location</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Address</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Postcode</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+  
+    </ion-list>
+
   <ion-grid>
-    <ion-row>
-      <ion-col col-3></ion-col>      
-      <ion-col col-6 align-items-center>
-          <img src="{{profilePic}}">                
-      </ion-col>
-    </ion-row>  
-    
-    <ion-row>
-      <ion-col col-2></ion-col>      
-      <ion-col col-8 align-items-center justify-content-start>            
-        <button ion-button color="button-yellow" (click)="uploadPic()">Upload Profile Picture</button>
-      </ion-col>
+    <ion-row justify-content-center>      
+        <button ion-button quarter-block align-items-center color="button-yellow" (click)="save()">Save</button>
     </ion-row>
-
-  </ion-grid>
-
-  <!--the img will be changed format later, form to edit profile picture goes here-->
+  </ion-grid> 
+  
 </ion-content>
+
+

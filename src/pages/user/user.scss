@@ -6,19 +6,19 @@ page-user {
 
     .button-md {
         text-transform: capitalize;
-        margin-bottom: 4%;
+        margin-bottom: 5%;
         font-size: 17px;     
     }
 
     .button-ios {
         text-transform: capitalize;
-        margin-bottom: 4%;
+        margin-bottom: 5%;
         font-size: 17px;     
     }
 
     .button-wp {
         text-transform: capitalize;
-        margin-bottom: 4%;
+        margin-bottom: 5%;
         font-size: 17px;     
     }
 
@@ -26,6 +26,10 @@ page-user {
         margin-top: 0;
         font-size: 25px;
         font-weight: lighter;
+    }
+
+    ion-icon {
+        margin-right: 10%;
     }
 }
 
