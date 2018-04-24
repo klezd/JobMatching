@@ -35,4 +35,8 @@ export class CreateCV {
     }
   }
 
+  save() {
+    this.navCtrl.push("ViewCV", {CV: this.CV});
+  }
+
 }

@@ -35,7 +35,7 @@ export class UserPage {
   }
 
   viewAllPosts() {
-    this.navCtrl.push('AllActivitiesPage', {pageName: 'View All My Posts'});
+    this.modalCtrl.create('AllActivitiesPage', {pageName: 'View All My Posts'}).present();
   }
 
   viewResume() {

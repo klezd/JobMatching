@@ -20,6 +20,9 @@ export class ViewProfilePage {
   
   ionViewWillEnter() {
     this.userToBeViewed = this.navParams.get('userToBeViewed');
+    if(this.navParams.get('viewOwner')!=null){
+      this.viewOwn = true;
+    }
     //set mode to view
     if(this.user == this.userToBeViewed) {
       this.viewOwn = true;

@@ -4,7 +4,7 @@ ion-header {
         font-size: 35px;
     }
     i {
-        color: color($colors, icon);
+        color: color($colors, icon)!important;
     }
     button {
         margin: auto

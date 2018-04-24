@@ -36,9 +36,7 @@ export class EditProfilePage {
   }
 
   save() {
-    
+    this.navCtrl.push("ViewProfilePage", {viewOwn: true});
   }
-
-  
 
 }

@@ -192,7 +192,7 @@
         <ion-item>
             <ion-label>English</ion-label>
             <ion-checkbox color="button-blue"></ion-checkbox>                    
-            <ion-select [(ngModel)]="level">
+            <ion-select [(ngModel)]="Elevel">
                     <ion-option value="communication">Communication Level</ion-option>
                     <ion-option value="inter">Intermediate Level</ion-option>
                     <ion-option value="fluency">Fluency Level</ion-option>
@@ -203,7 +203,7 @@
         <ion-item>
             <ion-label>Finnish</ion-label>
             <ion-checkbox color="button-blue"></ion-checkbox>                    
-            <ion-select [(ngModel)]="level">
+            <ion-select [(ngModel)]="Flevel">
                     <ion-option value="communication">Communication Level</ion-option>
                     <ion-option value="inter">Intermediate Level</ion-option>
                     <ion-option value="fluency">Fluency Level</ion-option>
@@ -214,7 +214,7 @@
         <ion-item>
             <ion-label>Swedish</ion-label>
             <ion-checkbox color="button-blue"></ion-checkbox>                    
-            <ion-select [(ngModel)]="level">
+            <ion-select [(ngModel)]="Slevel">
                     <ion-option value="communication">Communication Level</ion-option>
                     <ion-option value="inter">Intermediate Level</ion-option>
                     <ion-option value="fluency">Fluency Level</ion-option>
@@ -225,7 +225,7 @@
         <ion-item>
             <ion-label>German</ion-label>
             <ion-checkbox color="button-blue"></ion-checkbox>                    
-            <ion-select [(ngModel)]="level">
+            <ion-select [(ngModel)]="Glevel">
                     <ion-option value="communication">Communication Level</ion-option>
                     <ion-option value="inter">Intermediate Level</ion-option>
                     <ion-option value="fluency">Fluency Level</ion-option>
@@ -236,7 +236,7 @@
         <ion-item>
             <ion-label>Spanish</ion-label>
             <ion-checkbox color="button-blue"></ion-checkbox>                    
-            <ion-select [(ngModel)]="level">
+            <ion-select [(ngModel)]="SPlevel">
                     <ion-option value="communication">Communication Level</ion-option>
                     <ion-option value="inter">Intermediate Level</ion-option>
                     <ion-option value="fluency">Fluency Level</ion-option>
@@ -246,7 +246,7 @@
 
         <ion-item>           
             <ion-input type="text" placeholder="Other"></ion-input>           
-            <ion-select [(ngModel)]="level">
+            <ion-select [(ngModel)]="Olevel">
                 <ion-option value="communication">Communication Level</ion-option>
                 <ion-option value="inter">Intermediate Level</ion-option>
                 <ion-option value="fluency">Fluency Level</ion-option>
@@ -336,7 +336,7 @@
     </ion-list>
 
     <div padding>
-        <button ion-button color="button-red" block>Save</button>
+        <button ion-button color="button-red" quarter-block (click)="save()">Save</button>
     </div>
 
 </ion-content>

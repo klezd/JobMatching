@@ -6,4 +6,17 @@ page-notification {
         padding-top:5px;
         padding-left:5px;
     }
+    i.color-red {
+        color: color($colors, button-red)!important;
+    }
+    i.color-yellow {
+        color: color($colors, button-yellow) !important;
+    }
+    i.color-aqua {
+        color: color($colors, button-aqua) !important;
+    }
+    i.color-blue {
+        color: color($colors, button-blue) !important;
+    }
+    
 }
