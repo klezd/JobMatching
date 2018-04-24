@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-
-/**
- * Generated class for the ApplyActivityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FileChooser } from '@ionic-native/file-chooser';
 
 @IonicPage()
 @Component({
@@ -19,6 +13,7 @@ export class ApplyActivityPage {
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
                 private alertCtrl: AlertController,
+                private fileChooser: FileChooser,
                 private toastCtrl: ToastController) {
     this.activity = this.navParams.get('activity');    
   }
@@ -33,6 +28,9 @@ export class ApplyActivityPage {
 
   uploadCV() {
     //code to upload CV from device //file PDF or words
+    this.fileChooser.open()
+      .then(uri => console.log(uri))
+      .catch(e => console.log(e));
   }
 
   submit() {

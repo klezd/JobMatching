@@ -13,6 +13,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 import { IonTagsInputModule } from 'ionic-tags-input';
+import { FileChooser } from '@ionic-native/file-chooser';
 // Import firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -43,6 +44,7 @@ import { AuthService } from '../services/auth.service';
     FilePath,
     Transfer,
     FileTransfer,
+    FileChooser,
     File,
     Camera,
     IonTagsInputModule,
