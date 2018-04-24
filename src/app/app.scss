@@ -67,6 +67,10 @@ ion-header {
     text-transform: uppercase;
 }
 
+.sub-title .bold {
+    font-weight: bold;
+}
+
 .form-label {
     font-weight: normal;
     font-size: 17px!important;
@@ -128,14 +132,9 @@ ion-label[stacked] {
   display: none;
 }
 
-button {
-    color: black!important;
-}
-
 [quarter-block] {
     display: block;
     width: 50%;
     text-align: center;
     margin-bottom: 3%;
-
 }

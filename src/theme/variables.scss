@@ -8,18 +8,18 @@ $app-direction: ltr;
 @import "ionic.globals";
 
 $colors: (
-  primary:        #000000,
-  divide-line:    #f0b6e5,
-  theme-active:   rgb(235, 179, 163),
-  theme:          #f27847,
-  icon:           #1a0480,
-  button-yellow:  #f6c278,
-  button-special: #8373d1,
-  button-index:   #120358,
-  button-aqua:    aqua,
-  button-blue:    #9dc3f6,
-  button-red:     #f68a78,
-  searchbar: #f6a788,
+  primary:        (base:#000000, contrast: #fff),
+  divide-line:    (base: #f0b6e5, contrast: #000),
+  theme-active:   (base: rgb(235, 179, 163),contrast: #000),
+  theme:          (base: #f27847, contrast: #000),
+  icon:            (base: #1a0480 ,contrast: #ffffff),
+  button-yellow:  (base:#f6c278, contrast: #000),
+  button-special:(base: #8373d1, contrast: #000),
+  button-index:   (base: #120358 ,contrast: #ffffff),
+  button-aqua:    (base:aqua, contrast: #000),
+  button-blue:    (base:#9dc3f6, contrast: #000),
+  button-red:     (base:#f68a78, contrast: #000),
+  searchbar: (base:#f6a788, contrast: #000),
 );
 
 @import "ionic.theme.default";

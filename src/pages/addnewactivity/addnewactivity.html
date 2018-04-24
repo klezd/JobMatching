@@ -52,10 +52,10 @@
         <ion-input required (change)="touch(f)" [(ngModel)]="newActivity.activity_info.requirement" type="text" name="requirement"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label text-wrap fixed style="color: #000">Number of workers needed <span class="requiredStar">(*)</span></ion-label>
+        <ion-label text-wrap fixed slack>Number of workers needed <span class="requiredStar">(*)</span></ion-label>
         <ion-input required (change)="touch(f)" [(ngModel)]="newActivity.worker_info.number_of_workers" type="number" pattern="[0-9]*" name="numOfWork"></ion-input>
       </ion-item>
-      <ion-item no-lines><ion-label>Working period <span class="requiredStar">(*)</span> </ion-label> </ion-item>
+      <ion-item no-lines><ion-label slack>Working period <span class="requiredStar">(*)</span> </ion-label> </ion-item>
       <ion-item>
         <ion-label>
           From

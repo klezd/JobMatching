@@ -31,18 +31,18 @@ export class ViewProfilePage {
   }
 
   changePass() {
-    this.navCtrl.push('');
+   // this.navCtrl.push('');
   }
 
   recentContacts() {
-    this.navCtrl.push('');
+   // this.navCtrl.push('');
   }
 
   payment() {
 
   }
 
-  editProfile() {
+  editProfile(){
     this.navCtrl.push('EditProfilePage');
   }
 }

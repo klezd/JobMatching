@@ -30,26 +30,26 @@
   <p class="title" text-center>{{activity.activity_info.title}}</p>
   <img class="img-detail" src="{{activity.activity_info.img}}">
   <div>
-    <p class="sub-title">DESCRIPTION</p>
+    <p class="sub-title bold">DESCRIPTION</p>
     <p>{{activity.activity_info.details}}</p>
-    <p class="sub-title">LOCATION</p>
+    <p class="sub-title bold">LOCATION</p>
     <p>{{activity.activity_info.location}}</p>
     <!--TODO code add to view on map-->
     <div class="map"></div>
-    <p class="sub-title">REQUIREMENT</p>
+    <p class="sub-title bold">REQUIREMENT</p>
     <p>{{activity.activity_info.requirement}}</p>
-    <p class="sub-title">PERIOD</p>
+    <p class="sub-title bold">PERIOD</p>
     <p>{{activity.period.from}} - {{activity.period.end}}</p>
-    <p class="sub-title">Number of workers needed</p>
+    <p class="sub-title bold">Number of workers needed</p>
     <p>{{activity.worker_info.number_of_workers}}</p>
   </div>
   <div *ngIf="owner">
-    <p class="sub-title">Number of workers applied</p>
+    <p class="sub-title bold">Number of workers applied</p>
     <p>{{activity.worker_info.number_of_applies}}</p>
     <button ion-button color="button-special" (click)="viewApplications()">View applications</button>
   </div>
   <div>
-    <p class="sub-title">Tags</p>
+    <p class="sub-title bold">Tags</p>
 
     <span *ngFor="let tag of tags"> 
       <ion-badge color="icon">{{tag}}</ion-badge>

@@ -11,7 +11,11 @@ page-addnewactivity {
         width: 50%;
         height: 50%;
     }
-    ion-label[slacked] {
+    ion-label[stacked] {
         font-weight: bold;
+    }
+    ion-label[slack] {
+        font-weight: bold;
+        color: black!important;
     }
 }

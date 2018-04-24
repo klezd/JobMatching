@@ -45,6 +45,7 @@ export class ChoosePicPage {
   }  
 
   ionViewWillEnter() {
+    this.getFromLib = false;
     this.choosePicForJob = this.navParams.get("imgJob");    
     if(this.choosePicForJob) {
       this.url = ""; /*TODO add url to upload img for post of JOB*/
@@ -55,12 +56,10 @@ export class ChoosePicPage {
   
   uploadPic(){
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-    this.getFromLib = true;
   }
 
   takePic() {
     this.takePicture(this.camera.PictureSourceType.CAMERA);
-    this.getFromLib = true;
   }
 
   public takePicture(sourceType) {
@@ -87,8 +86,10 @@ export class ChoosePicPage {
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
       }
+      this.getFromLib = true;
     }, (err) => {
       this.presentToast('Error while selecting image.');
+      this.getFromLib = false;
     });
   }
   
