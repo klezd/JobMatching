@@ -16,7 +16,12 @@ export class ChoosePicPage {
   lastImage: string = null;
   loading: Loading;
   choosePicForJob = true;
-
+  //var for the destination url to upload img, declare in ionViewWillEnter(){}
+  url;
+  //declare this var to make sure if the user choose to upload then system can be able to upload to
+  //server, if false, then user chooses a picture from application.
+  getFromLib = false;
+  //have only on page choose pic for post
   imageList: any[] = [
     './assets/imgs/OmegaJob.png',
     './assets/imgs/post_images/babysitting.jpg',
@@ -41,14 +46,21 @@ export class ChoosePicPage {
 
   ionViewWillEnter() {
     this.choosePicForJob = this.navParams.get("imgJob");    
+    if(this.choosePicForJob) {
+      this.url = ""; /*TODO add url to upload img for post of JOB*/
+    } else {
+      this.url = ""; /*TODO add url to upload img for post of USER*/
+    }
   }
   
   uploadPic(){
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+    this.getFromLib = true;
   }
 
   takePic() {
     this.takePicture(this.camera.PictureSourceType.CAMERA);
+    this.getFromLib = true;
   }
 
   public takePicture(sourceType) {
@@ -117,7 +129,7 @@ export class ChoosePicPage {
 
   public uploadImage() {
     // Destination URL
-    var url = "";
+    var url = this.url;
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
@@ -151,8 +163,9 @@ export class ChoosePicPage {
   }
   //get data img src back to prev page.
   choose(img){
-    console.log(img);
-    let data = img;
-    this.viewCtrl.dismiss(data);
+    if(this.getFromLib){
+      this.uploadImage();
+    }
+    this.viewCtrl.dismiss(img);
   }
 }

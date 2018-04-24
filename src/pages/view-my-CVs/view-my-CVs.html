@@ -1,9 +1,4 @@
-<!--
-  Generated template for the ViewMyCVsPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-grid>
@@ -23,31 +18,39 @@
   <div >
    <span (click)="newResume()" class="newResume">Create new resume</span>
   </div>
-    <ion-list>
-      <ion-item-sliding *ngFor="let CV of CVs">
-        <ion-item>
-          <ion-row *ngIf="forApply">
-            <ion-col col-6>
-              <span class="sub-title" text-wrap>{{CV.CV_name}}</span>
-            </ion-col>
-            <ion-col col-6 text-right>
-              <button ion-button decrease-padding color="button-theme" (click)="choose(CV)">Choose</button>    
-            </ion-col>
-          </ion-row>
-          <ion-row *ngIf="!forApply" >
+  <ion-list>
+    <ion-item-sliding *ngFor="let CV of CVs">
+      <ion-item>
+
+        <ion-row *ngIf="forApply">
+          <ion-col col-6>
             <span class="sub-title" text-wrap>{{CV.CV_name}}</span>
-          </ion-row>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="button-red" (click)="view(CV)">
-            <ion-icon><i class="fa fa-info-circle"></i></ion-icon>
-            View
-          </button>
-          <button ion-button color="button-red" (click)="edit(CV)">
-            <ion-icon><i class="fa fa-pencil"></i></ion-icon>
-            Edit
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
+          </ion-col>
+          <ion-col col-6 text-right>
+            <button ion-button decrease-padding color="button-theme" (click)="choose(CV)">Choose</button>    
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!forApply" >
+          <span class="sub-title" text-wrap>{{CV.CV_name}}</span>
+        </ion-row>
+
+      </ion-item>
+
+      <ion-item-options side="right">
+
+        <button ion-button color="button-red" (click)="view(CV)">
+          <ion-icon><i class="fa fa-info-circle"></i></ion-icon>
+          View
+        </button>
+
+        <button ion-button color="button-red" (click)="edit(CV)">
+          <ion-icon><i class="fa fa-pencil"></i></ion-icon>
+          Edit
+        </button>
+        
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

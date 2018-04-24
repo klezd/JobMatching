@@ -2,4 +2,8 @@ page-apply-activity {
     ion-textarea {
         border: 1px solid color($colors, primary);
     }
+    p {
+        margin: 0 auto !important;
+        font-size: 16px;
+    }
 }
