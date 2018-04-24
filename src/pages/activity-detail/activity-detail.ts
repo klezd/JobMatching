@@ -28,7 +28,7 @@ export class ActivityDetailPage {
     if (this.fromForm){
       //set func for hardware back button to go back home if from after post new post
       this.platform.registerBackButtonAction(function(){
-        this.navCtrl.setRoot('Tabs');
+        this.navCtrl.setRoot('TabsPage');
       },2);
     }
   }  
@@ -74,6 +74,6 @@ export class ActivityDetailPage {
   }
 
   goHome() {
-    this.navCtrl.setRoot('Tabs');
+    this.navCtrl.setRoot('TabsPage');
   }
 }

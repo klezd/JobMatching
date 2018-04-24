@@ -30,6 +30,13 @@ page-tabs {
         content: "\f07c";
     }
 
+    .ion-ios-fa-folder::before,
+    .ion-ios-fa-folder-outline::before,
+    .ion-md-fa-folder::before {
+        @extend .fa-icons-general;
+        content: "\f07b";
+    }
+
     .ion-ios-fa-user::before,
     .ion-ios-fa-user-outline::before,
     .ion-md-fa-user::before {

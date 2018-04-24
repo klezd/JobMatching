@@ -1,8 +1,8 @@
 <ion-tabs  #Tabs>
-  <ion-tab [root]="tab1Root" tabIcon="fa-home" [rootParams]="user"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="fa-folder-open" [rootParams]="user" ></ion-tab> 
-  <ion-tab [root]="tab2Root" tabIcon="fa-envelope" [rootParams]="user"></ion-tab>
-  <ion-tab [root]="tab5Root" tabIcon="fa-bell" [rootParams]="user" ></ion-tab>
-  <ion-tab [root]="tab4Root" tabIcon="fa-user" [rootParams]="user" ></ion-tab>  
+  <ion-tab [root]="tab1Root" tabIcon="fa-home" [rootParams]="user" #tab1 (ionSelect)="tabInfo(tab1)" ></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="{{folder}}" [rootParams]="user" #tab2 (ionSelect)="changeIcon()"></ion-tab> 
+  <ion-tab [root]="tab2Root" tabIcon="fa-envelope" [rootParams]="user" #tab3 (ionSelect)="tabInfo(tab3)" ></ion-tab>
+  <ion-tab [root]="tab5Root" tabIcon="fa-bell" [rootParams]="user" #tab4 (ionSelect)="tabInfo(tab4)"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="fa-user" [rootParams]="user" #tab5 (ionSelect)="tabInfo(tab5)"></ion-tab>  
 </ion-tabs>
   

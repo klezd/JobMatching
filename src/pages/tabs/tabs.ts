@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavParams } from 'ionic-angular';
-
+import { Component, ViewChild, ElementRef, ContentChild, ViewChildren } from '@angular/core';
+import { IonicPage, NavParams, Tabs } from 'ionic-angular';
 
 @IonicPage()
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html',
 })
-export class Tabs {
+export class TabsPage {
   user: any;
   tab1Root = 'IndexPage';
   tab2Root = 'MessagePage';
@@ -15,9 +14,27 @@ export class Tabs {
   tab4Root = 'UserPage';
   tab5Root = 'NotificationPage';
   myIndex: number;
+  folder = "fa-folder";
+
+  @ViewChild('tab2') tab2: Tabs;
+  @ViewChildren('tab2') tabs2: Tabs;
+  @ContentChild('tab2') tab2s: Tabs;
+  ionViewDidEnter() {
+  }
 
   constructor(public navParams: NavParams) {
     this.user = navParams.data.user;
-    this.myIndex = this.navParams.get('index') || 0;
+    if(this.myIndex == 1) {
+      this.folder = "fa-folder-open"
+    } else {
+      this.folder = "fa-folder"
+    }
+  }
+  changeIcon() {
+    this.folder = "fa-folder-open"
+  }
+
+  tabInfo(tab) {
+    this.folder = "fa-folder";
   }
 }

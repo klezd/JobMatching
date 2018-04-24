@@ -58,7 +58,7 @@ export class LoginPage {
 
     this.authService.signIn(credentials).then(
       () => {
-        this.navCtrl.setRoot('Tabs', {user: this.user});
+        this.navCtrl.setRoot('TabsPage', {user: this.user});
         this.toastCtrl.create({
           message: 'Welcome to OmegaJob, ' + this.user.email,
           duration: 3000,

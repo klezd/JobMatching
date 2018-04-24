@@ -152,7 +152,7 @@ export class ApplyActivityPage {
               showCloseButton: true,
               closeButtonText: "OK"
             }).present();
-            this.navCtrl.setRoot("Tabs", {index: 2});
+            this.navCtrl.setRoot("TabsPage", {index: 1});
             //function called
             this.sendApplication(this.activity);
           }

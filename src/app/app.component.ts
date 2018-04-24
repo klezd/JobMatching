@@ -27,11 +27,11 @@ export class MyApp {
       splashScreen.hide();
       this.loader.dismiss();
       
-      //code for set root page (here I am set the root page is Tabs which can be
+      //code for set root page (here I am set the root page is TabsPage which can be
       // understood as user already logged in).
     
       if(this.remember && this.login) {
-        this.rootPage = 'Tabs';
+        this.rootPage = 'TabsPage';
       } else {
         this.rootPage = 'Introduction';        
       }

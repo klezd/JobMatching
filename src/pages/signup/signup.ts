@@ -27,7 +27,7 @@ export class SignupPage {
           position: 'top'
         }).present();
         //set root page with the info of user
-        this.navCtrl.setRoot('Tabs', {user: this.user});
+        this.navCtrl.setRoot('TabsPage', {user: this.user});
       },
       (error) => {
         console.error(error);
