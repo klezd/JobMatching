@@ -24,7 +24,7 @@
           <ion-row>
               <ion-col col-2></ion-col>      
               <ion-col col-8>            
-                  <p class="userName" text-center text-uppercase>Your name</p>
+                <p class="userName" text-center text-uppercase>{{ profile.displayName }}</p>
               </ion-col>
               <ion-col col-2>
                   
@@ -33,42 +33,36 @@
     </ion-grid>
   
     <ion-list>
-        <ion-item>
-          <ion-label>Username</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label floating>Display Name</ion-label>
+        <ion-input [(ngModel)]="profile.displayName"></ion-input>
+      </ion-item>
   
-        <ion-item>
-          <ion-label>Email</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <!-- NB: IMPORTANT!!! This field can't be modified by user!!! -->
-  
-        <ion-item>
-          <ion-label>Phone number</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-  
-        <ion-item>
-          <ion-label>Location</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-  
-        <ion-item>
-          <ion-label>Address</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-  
-        <ion-item>
-          <ion-label>Postcode</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-  
+      <ion-item>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input [(ngModel)]="profile.phoneNumber"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Location</ion-label>
+        <ion-input [(ngModel)]="profile.location"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input [(ngModel)]="profile.address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Postcode</ion-label>
+        <ion-input [(ngModel)]="profile.postcoder"></ion-input>
+      </ion-item>
+ 
     </ion-list>
 
   <ion-grid>
     <ion-row justify-content-center>      
-        <button ion-button quarter-block align-items-center color="button-yellow" (click)="save()">Save</button>
+        <button ion-button quarter-block align-items-center color="button-yellow" (click)="saveProfile()">Save</button>
     </ion-row>
   </ion-grid> 
   

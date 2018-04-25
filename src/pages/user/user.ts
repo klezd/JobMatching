@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, App } from 'ionic-angular';
 
+// Import firebase
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
+import { Profile } from './profile';
 
 @IonicPage()
 @Component({
@@ -8,18 +13,24 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, A
   templateUrl: 'user.html',
 })
 export class UserPage {
- user: any;
-  
-  constructor(  public navCtrl: NavController, 
-                public navParams: NavParams,
-                public viewCtrl: ViewController,
-                public modalCtrl: ModalController,
-                public app: App) {
+  user: any;
+  profile = {} as Profile
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public modalCtrl: ModalController,
+    public app: App
+  ) {
+    console.log("Step 1");
+    this.user = firebase.auth().currentUser;
   }
-  
+
   ionViewWillEnter() {
-    this.user = this.navParams.get('user');
-    console.log(this.user);
+    console.log("Step 2");
+    this.profile.displayName = this.user.displayName;
+    this.profile.phoneNumber = this.user.phoneNumber;
   }
 
   public addnewActivity() {

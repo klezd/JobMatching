@@ -22,6 +22,7 @@ import { firebaseConfig } from '../config';
 // Services
 import { AuthService } from '../services/auth.service';
 import { LocationService } from '../services/locations.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LocationService } from '../services/locations.service';
     HttpModule,
     IonTagsInputModule,
     AngularFireModule.initializeApp(firebaseConfig.config),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
+import { Profile } from '../user/profile';
+
+// Import firebase
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase} from 'angularfire2/database'
+import * as firebase from 'firebase/app';
 /**
  * Generated class for the EditProfilePage page.
  *
@@ -14,11 +20,19 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
   templateUrl: 'edit-profile.html',
 })
 export class EditProfilePage {
+  user: any;
+  profile = {} as Profile;
   profilePic = "./assets/imgs/user.png";
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl: ModalController) {
+      this.user = firebase.auth().currentUser; console.log('user: ', this.user);
+      this.profile.displayName = this.user.displayName;
+      this.profile.phoneNumber = this.user.phoneNumber;
+      this.profile.phoneNumber = this.user.location;
+      this.profile.phoneNumber = this.user.address;
+      this.profile.phoneNumber = this.user.postcode;
   }
 
   ionViewDidLoad() {
@@ -35,8 +49,18 @@ export class EditProfilePage {
     upload.present();
   }
 
-  save() {
-    this.navCtrl.push("ViewProfilePage", {viewOwn: true});
+  saveProfile() {
+    this.user.updateProfile({
+      displayName: this.profile.displayName,
+      location: this.profile.location,
+      address: this.profile.location,
+      postcode: this.profile.postcode
+    }).then(function() {
+      console.log('Your profile has been updated successfully.');
+    }).catch(function(error) {
+      console.error('Server error!');
+    });
+
   }
 
 }
