@@ -14,6 +14,7 @@ export class ViewProfilePage {
    * beside by [rootParams] = user: user who logged in, this page can be used to view the profile 
    * of the user whom logged in and the profile of others.
    */
+  //TODO
   user:  {name: string, phone: string, email: string, location: string, address: string, postcode: number}
     = {name : 'Loc Tran', phone: '012345678', email: 'loc@omega.com', location: 'Oulu', address: 'Välkyllä', postcode: 90130};
   userToBeViewed; //view this user profile'

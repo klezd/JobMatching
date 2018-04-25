@@ -17,15 +17,16 @@ import { Storage } from '@ionic/storage';
 export class CreateCV {
   editMode = false;
   forApply = false;
-  CV: { CV_name: string, CV_info: {name: string, img: string,} } = { CV_name: '', CV_info: {name: '', img: ''} };
+  //TODO
+  CV: { CV_name: string, CV_info: {name: string, img: string} } = { CV_name: '', CV_info: {name: '', img: ''} };
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateCvPage');
-
   }
+  
   ionViewWillEnter() {
     //set the CV data if it exists to parse to the form
     //any different for edit page add *ngIf="editMode", that item will appear

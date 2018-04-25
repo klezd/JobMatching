@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'index.html',
 })
 export class IndexPage {
-
+    //user login to the system
   userLogin: any;
   
   constructor(public navCtrl: NavController, 

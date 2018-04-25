@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 })
 export class AllActivitiesPage {
   pageName: string = '';
-
+     //TODO
   activitiesList = [
     {
         activity_info: {

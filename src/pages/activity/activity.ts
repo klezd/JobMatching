@@ -16,6 +16,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class ActivityPage {
 
   //give data later, give with same name pls. 
+  //TODO
   posts = [{
     activity_info: {title: 'House Keeper',location: 'Oulu',img: 'https://picsum.photos/200',details: 'Keeping house clean for 2 weeks',requirement: 'no requirement',},
     worker_info: {number_of_workers: 1,number_of_applies: 3},                

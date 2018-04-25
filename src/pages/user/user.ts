@@ -8,14 +8,15 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, A
   templateUrl: 'user.html',
 })
 export class UserPage {
+  //TODO
   user = {name : 'Loc Tran', phone: '012345678', email: 'loc@omega.com', location: 'Oulu', address: 'Välkyllä', postcode: 90130};
 
-  
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
                 public viewCtrl: ViewController,
                 public modalCtrl: ModalController,
                 public app: App) {
+
   }
   
   ionViewWillEnter() {

@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
   templateUrl: 'edit-profile.html',
 })
 export class EditProfilePage {
+  //TODO
   profilePic = "./assets/imgs/user.png";
 
   user:  {name: string, phone: string, email: string, location: string, address: string, postcode: number}
