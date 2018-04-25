@@ -14,13 +14,17 @@ $colors: (
   theme:          (base: #f27847, contrast: #000),
   icon:            (base: #1a0480 ,contrast: #ffffff),
   button-yellow:  (base:#f6c278, contrast: #000),
+<<<<<<< HEAD
   button-special:(base: #8373d1, contrast: #fff),
+=======
+  button-special:(base: #8373d1, contrast: "fff"),
+>>>>>>> origin/master
   button-index:   (base: #120358 ,contrast: #ffffff),
   button-aqua:    (base:aqua, contrast: #000),
   button-blue:    (base:#9dc3f6, contrast: #000),
   button-theme:    (base:#9dc3f6, contrast: #000),
   button-red:     (base:#f68a78, contrast: #000),
-  searchbar: (base:#f6a788, contrast: #000),
+  searchbar:  #f6a788,
 );
 
 @import "ionic.theme.default";

@@ -24,6 +24,7 @@ export class TabsPage {
 
   constructor(public navParams: NavParams, public navCtrl: NavController) {
     this.user = navParams.data.user;
+    this.myIndex =  this.navParams.get('index') || 0;
     if(this.myIndex == 1) {
       this.folder = "fa-folder-open"
     } else {

@@ -38,8 +38,8 @@ export class ActivityPage {
     private modalCtrl: ModalController) {
   }
 
-  public viewPost(post, bool:boolean) {
-    this.modalCtrl.create('ActivityDetailPage', {activity: post, owner:bool}).present();
+  public viewPost(post, owner:boolean, favourite?: boolean) {
+    this.modalCtrl.create('ActivityDetailPage', {activity: post, owner:owner, favourite: favourite}).present();
   }
 
   public viewProfile(person) {

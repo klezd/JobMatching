@@ -29,19 +29,25 @@ export class ActivityDetailPage {
     this.owner = this.navParams.get('owner'); // remove when set by dtb **backend** TODO
     this.fromForm = this.navParams.get('fromForm');
     if (this.fromForm){
-      //set func for hardware back button to go back home if from after post new post
+      //set func for hardware back button to go back home if from after post new post or edit post
       this.platform.registerBackButtonAction(function(){
-        this.navCtrl.setRoot('TabsPage');
+        this.navCtrl.setRoot('TabsPage', {index: 1});
       },2);
     }
   }  
-  
+  favouriteJob = false;
   ionViewDidLoad() {
     //show map after the page load
-    console.log(this.map);
-    console.log(this.map.nativeElement);
     this.locationService.showLocation(this.activity.activity_info.location, this.map.nativeElement);
     this.map.nativeElement.classList.add('shown');
+    //show heart if it is the interested job
+    if(this.navParams.get('favourite')!=null && this.navParams.get('favourite')==true) {
+      this.favouriteJob = this.navParams.get('favourite');
+    }
+    if(this.favouriteJob==true&&this.favourite.nativeElement.classList!=null) {
+      this.favourite.nativeElement.classList.add('fa-heart');
+      this.favourite.nativeElement.classList.remove('fa-heart-o');
+    }
   }
   
   apply() {
@@ -53,7 +59,6 @@ export class ActivityDetailPage {
   }
 
   addtoFavourite() {
-    console.log(this.favourite.nativeElement.classList);
     var fav = this.favourite.nativeElement.classList;
     if (fav.contains('fa-heart-o')) {
       //TODO code to add to favourite list
