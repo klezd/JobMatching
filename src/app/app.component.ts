@@ -12,8 +12,8 @@ import { Storage } from '@ionic/storage';
 export class MyApp {
   rootPage:any = 'Introduction';
   loader: any;  
-  remember=false;
-  login=false;
+  remember=true;
+  login=true;
 
   constructor(platform: Platform,
      statusBar: StatusBar,

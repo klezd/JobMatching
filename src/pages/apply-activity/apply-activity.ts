@@ -165,7 +165,7 @@ export class ApplyActivityPage {
           }
         },
         {
-          text: 'Continue',
+          text: 'Cancel',
           role: 'cancel',
         }
       ]

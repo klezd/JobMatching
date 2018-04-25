@@ -16,7 +16,7 @@
 
 <ion-content padding>
   <div class="title">Top Search</div>
-  <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
+  <ion-card *ngFor="let activity of activitiesTopSearch" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
         <ion-col col-7>
@@ -38,7 +38,7 @@
   <br>
 
   <div class="title">Newest Post</div>
-  <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
+  <ion-card *ngFor="let activity of activitiesNewest" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
         <ion-col col-7 >
@@ -59,7 +59,7 @@
   <br>
 
   <div class="title">Near Me</div>
-  <ion-card *ngFor="let activity of activitiesInd" (click)="openDetails(activity)">
+  <ion-card *ngFor="let activity of activitiesNear" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
         <ion-col col-7>
