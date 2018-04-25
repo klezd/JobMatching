@@ -18,6 +18,7 @@ export class ApplyActivityPage {
   loading: Loading;
   //TODO declare url destination for upload file (CV)
   url;
+  chosenCV;
 
   constructor(  public navCtrl: NavController, 
                 public modalCtrl: ModalController,
@@ -33,11 +34,15 @@ export class ApplyActivityPage {
     this.activity = this.navParams.get('activity');    
   }
 
-  createCV(){
-    this.navCtrl.push("CreateCV");
+  ionViewWillEnter() {
+    if(this.navParams.get('CV')!=null) {
+      this.chosenCV = this.navParams.get('CV');
+    }
   }
 
-  chosenCV;
+  createCV(){
+    this.navCtrl.push("CreateCV");
+  }  
 
   userCV() {
     let chooseCV = this.modalCtrl.create("ViewMyCVs", {toApply: true});

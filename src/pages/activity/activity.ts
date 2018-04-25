@@ -39,7 +39,7 @@ export class ActivityPage {
   }
 
   public viewPost(post, owner:boolean, favourite?: boolean) {
-    this.modalCtrl.create('ActivityDetailPage', {activity: post, owner:owner, favourite: favourite}).present();
+    this.modalCtrl.create('ActivityDetailPage', {activity: post, owner: owner, favourite: favourite}).present();
   }
 
   public viewProfile(person) {
