@@ -17,7 +17,8 @@ import { Storage } from '@ionic/storage';
 export class CreateCV {
   editMode = false;
   forApply = false;
-
+  CV: { CV_name: string, CV_info: {name: string, img: string,} } = { CV_name: '', CV_info: {name: '', img: ''} };
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
