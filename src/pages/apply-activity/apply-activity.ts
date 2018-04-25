@@ -38,6 +38,8 @@ export class ApplyActivityPage {
     if(this.navParams.get('CV')!=null) {
       this.chosenCV = this.navParams.get('CV');
     }
+    this.navParams.get('msg') != null ? this.message= this.navParams.get('msg') : {};    
+
   }
 
   createCV(){
@@ -45,7 +47,7 @@ export class ApplyActivityPage {
   }  
 
   userCV() {
-    let chooseCV = this.modalCtrl.create("ViewMyCVs", {toApply: true});
+    let chooseCV = this.modalCtrl.create("ViewMyCVs", {toApply: true, activity: this.activity, msg: this.message});
 
     chooseCV.onDidDismiss(chosenCV => {
       this.chosenCV = chosenCV;

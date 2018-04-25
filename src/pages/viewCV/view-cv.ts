@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, Nav, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -9,10 +9,11 @@ import { IonicPage, NavController, NavParams, ViewController, Nav, ModalControll
 export class ViewCV {
   CV: any;
   chooseBtn=false;
+  activityToApply;
+  msgApply;
 
   constructor(  public navCtrl: NavController, 
                 public viewCtrl: ViewController,
-                private nav: Nav,
                 public modalCtrl: ModalController,
                 public navParams: NavParams) {
   }
@@ -26,15 +27,13 @@ export class ViewCV {
     if(this.navParams.get('apply')!=null){
       this.chooseBtn = this.navParams.get('apply');
     }
+
+    this.navParams.get('activity') != null ? this.activityToApply= this.navParams.get('activity') : {};
+    this.navParams.get('msg') != null ? this.msgApply= this.navParams.get('msg') : {};    
+
   }
 
   choose(CV) {
-    let goApply = this.modalCtrl.create('', {CV: CV});
-    goApply.present();
-
-    setTimeout(() => {
-      // Close modal
-      this.viewCtrl.dismiss();
-    }, 500);
+    this.navCtrl.push('ApplyActivityPage', {CV: CV, activity: this.activityToApply, msg: this.msgApply});
   }
 }

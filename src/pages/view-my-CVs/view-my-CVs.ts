@@ -35,6 +35,8 @@ export class ViewMyCVs {
       CV_info: {name: 'Jamse Smith', img: ''}
     }
   ];
+  activityToApply;
+  message;
 
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
@@ -46,6 +48,8 @@ export class ViewMyCVs {
   ionViewWillEnter() {
     //if user go to this page from apply job.
     this.navParams.get('toApply') == true ? this.forApply=true : this.forApply=false;
+    this.navParams.get('activity') != null ? this.activityToApply= this.navParams.get('activity') : {};
+    this.navParams.get('msg') != null ? this.message= this.navParams.get('msg') : {};    
   }
 
   choose(CV) {
@@ -66,7 +70,7 @@ export class ViewMyCVs {
    */
   view(CV) {
     if(this.forApply){
-      let viewCV = this.modalCtrl.create('ViewCV', {CV: CV, apply: this.forApply});
+      let viewCV = this.modalCtrl.create('ViewCV', {CV: CV, apply: this.forApply, activity: this.activityToApply, msg: this.message});
       viewCV.present();
     } else {
       this.navCtrl.push('ViewCV', {CV: CV});
