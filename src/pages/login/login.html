@@ -1,8 +1,11 @@
-<ion-content padding>
-  <h1 text-center>LOGIN </h1>
+<ion-content padding style ="background: linear-gradient(#c3d2f5, white)"  class="starter-form">
+  <div class="logo-holder">
+    <img src="./assets/imgs/Logo_slogan.png" alt="">
+  </div>
+  <h1 text-center>Login</h1>
 
-  <form #f="ngForm" (ngSubmit)="login()">
-    <ion-item>
+  <form #f="ngForm" (ngSubmit)="login()" text-center>
+    <ion-item >
       <ion-label floating>Email</ion-label>
       <ion-input required type="text" name="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
@@ -20,38 +23,34 @@
     <button ion-button block  color="theme" type="submit" [disabled]="!f.valid">Login</button>
   </form>
 
-  <div padding style="font-size: 18px">
-    Forgot your password? <span (click)="forgotpass()">Reset here</span> <br><br>
-    Not have an account yet? <span (click)="signup()">Signup here</span>
+  <div padding text-center >
+    <span class="link-black" (click)="forgotpass()">Forgot password?</span> <br><br>
+    <span class="link-black" (click)="signup()">Sign up</span>
   </div>
 
   <div padding class="signIcon" text-center>
-  
-    <ion-buttons>
-      <ion-row>
-        <ion-col col-4>
-          <button ion-button (click)="facebook()">
-            <ion-icon>
-              <i class="fa fa-facebook-square"></i>
-            </ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button (click)="google()">
-            <ion-icon>
-              <i class="fa fa-google-plus-square"></i>
-            </ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button (click)="linked()">
-            <ion-icon>
-              <i class="fa fa-linkedin"></i>
-            </ion-icon>
-          </button>
-        </ion-col>        
-      </ion-row>
-    </ion-buttons>  
-      
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button (click)="facebook()" icon-only clear>
+          <ion-icon>
+            <i class="fa fa-2x fa-facebook-square"></i>
+          </ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button (click)="google()" icon-only clear>
+          <ion-icon>
+            <i class="fa fa-2x fa-google-plus-square"></i>
+          </ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button (click)="linked()" icon-only clear>
+          <ion-icon>
+            <i class="fa fa-2x fa-linkedin"></i>
+          </ion-icon>
+        </button>
+      </ion-col>        
+    </ion-row>     
   </div>
 </ion-content>

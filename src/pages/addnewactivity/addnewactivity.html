@@ -86,9 +86,9 @@
       </div>    
     </div>
     <div padding *ngIf="!editMode">
-      <button ion-button block color="theme" type="submit" (click)="post()" [disabled]="!f.valid">POST</button>
+      <button ion-button block color="button-aqua" type="submit" (click)="post()" [disabled]="!f.valid">POST</button>
     </div>
     <div padding *ngIf="editMode">
-      <button ion-button block color="theme" type="submit" (click)="post()" [disabled]="!f.valid">SAVE</button>
+      <button ion-button block color="button-aqua" type="submit" (click)="post()" [disabled]="!f.valid">SAVE</button>
     </div>
   </ion-content>

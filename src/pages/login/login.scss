@@ -1,3 +1,22 @@
 page-login {
-
+    h1 {
+        margin-top: 5px;
+        font-weight: bold;
+    }
+    form  {
+        background-color: rgba(255,255,255,0)!important;
+        ion-item {
+            background-color: rgba(255,255,255,0)!important;
+        }
+        div {
+            background-color: rgba(255,255,255,0)!important;
+        }
+    }
+    ion-checkbox {
+        margin: 0;
+        padding: 0;
+    }
+    .checkbox-inner {
+        border-color: black!important;
+    }
 }

@@ -1,9 +1,25 @@
 page-intro {
   button {
     box-shadow: 1px 1px 1px rgba(189, 189, 189,0.5) !important;
+    z-index: 110;
+  }
+  .button-field {
+    z-index: 105;
+    position: absolute;
+    top: 75%;
+    width: 100%;
+    position: fixed;
+  }
+  ion-slide {
+    z-index: 101;
+    position: relative;
+    height: 100% !important;
+  }
+  ion-slides {
+    height: 100% !important;
+  }
+ 
+  img {
   }
 }
 
-.slide-zoom {
-  margin-top: 80%;
-}

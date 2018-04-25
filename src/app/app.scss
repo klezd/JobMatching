@@ -49,6 +49,12 @@ ion-header {
     margin: 0 10px;
 }
 
+.link-black {
+    font-size: 16px;
+    color: color($colors, icon);
+    text-decoration: underline;
+}
+
 .link-term {
     font-size: 15px;
     color: #ff4000;
@@ -109,6 +115,22 @@ ion-col {
 ion-row {
     align-items: center;
 }
+.signIcon {
+    i.fa-facebook-square {
+        color: #3b5998;
+    }
+    i.fa-google-plus-square {
+        color: #DB4437;
+    }
+    i.fa-linkedin {
+        color: #0077B5;
+    }
+}
+.signIcon {
+    ion-col button {
+        min-height: 50px;
+    }
+}
 //input
 ion-label[stacked] {
     font-size: 17px!important;
@@ -137,4 +159,32 @@ ion-label[stacked] {
     width: 50%;
     text-align: center;
     margin-bottom: 3%;
+}
+
+.logo-holder img{
+    height: 125px;
+    margin: auto;
+    display: block;
+}
+
+//login, sign up, reset pass, forgot pass
+.starter-form {
+    background: linear-gradient(#c3d2f5, white)!important;
+    form  {
+        background-color: rgba(255,255,255,0)!important;
+        ion-item {
+            background-color: rgba(255,255,255,0)!important;
+        }
+        div {
+            background-color: rgba(255,255,255,0)!important;
+        }
+    }
+
+    ion-checkbox {
+        margin: 0;
+        padding: 0;
+    }
+    .checkbox-inner {
+        border-color: black!important;
+    }
 }

@@ -101,8 +101,6 @@ export class AddnewactivityPage {
 
   //post / save edit
   post() {
-    console.log("Add new activity");
-    console.log(this.newActivity.activity_info.img);
     this.modalCtrl.create('ActivityDetailPage', {activity: this.newActivity, owner: this.owner, fromForm: true}).present(); 
     //remove owner: this.owner when set with **backend**
   }  

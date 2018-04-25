@@ -80,6 +80,7 @@ export class IndexPage {
         tags: ['design', 'logo', 'startup']  
     },    
   ]
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndexPage');
     console.log(this.navCtrl.getActiveChildNavs);

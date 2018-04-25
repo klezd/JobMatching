@@ -1,18 +1,21 @@
-<ion-slides pager="true" >
-
-  <ion-slide style="background-image: url('https://picsum.photos/500/1500/?blur&gravity=east'); background-repeat: no-repeat; background-size: 100%;" padding>
-    <button ion-button block color="button-index" (click)="login()">Login</button>
-    <button ion-button block  color="button-index" (click)="signup()">Signup</button>
-  </ion-slide>
-
-  <ion-slide style="background-image: url('https://picsum.photos/500/1500/?blur&gravity=west'); background-repeat: no-repeat; background-size: 100%;" padding>
-    <button ion-button block  color="button-index" (click)="login()">Login</button>
-    <button ion-button block  color="button-index" (click)="signup()">Signup</button>
-  </ion-slide>
-
-  <ion-slide style="background-image: url('https://picsum.photos/500/1500/?blur&gravity=north'); background-repeat: no-repeat; background-size: 100%;" padding>
-    <button ion-button block color="button-index"  (click)="login()">Login</button>
-    <button ion-button block  color="button-index" (click)="signup()">Signup</button>
-  </ion-slide>
-
-<ion-slides>
+<ion-content>
+    <ion-slides pager="true" autoplay="2000" loop="true" >
+        <ion-slide>
+          <img src="./assets/banners/banner1.jpg">
+        </ion-slide>
+      
+        <ion-slide>
+            <img src="./assets/banners/banner2.jpg">
+        </ion-slide>
+      
+        <ion-slide>
+            <img src="./assets/banners/banner3.jpg">
+        </ion-slide>       
+    </ion-slides>
+</ion-content>
+<ion-footer>
+    <div padding class="button-field">
+        <button ion-button block color="button-index" (click)="login()">Login</button>
+        <button ion-button block  color="button-index" (click)="signup()">Signup</button>
+    </div>
+</ion-footer>
