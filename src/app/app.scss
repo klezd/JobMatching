@@ -161,6 +161,9 @@ ion-label[stacked] {
     margin-bottom: 3%;
 }
 
+[quarter-block] .center {
+    margin:auto;
+}
 .logo-holder img{
     height: 125px;
     margin: auto;
@@ -179,12 +182,20 @@ ion-label[stacked] {
             background-color: rgba(255,255,255,0)!important;
         }
     }
-
+    ion-item {
+        background-color: rgba(255,255,255,0)!important;
+    }
     ion-checkbox {
         margin: 0;
         padding: 0;
     }
     .checkbox-inner {
         border-color: black!important;
+    }
+    h1 {
+        font-size: 2.8rem;
+        font-style: italic;
+        font-weight: bold;
+        color: #120358;
     }
 }

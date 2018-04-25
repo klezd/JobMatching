@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ViewCvPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, ViewController, Nav, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,8 +8,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ViewCV {
   CV: any;
+  chooseBtn=false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(  public navCtrl: NavController, 
+                public viewCtrl: ViewController,
+                private nav: Nav,
+                public modalCtrl: ModalController,
+                public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -25,5 +23,18 @@ export class ViewCV {
 
   ionViewWillEnter() {
     this.CV = this.navParams.get('CV');
+    if(this.navParams.get('apply')!=null){
+      this.chooseBtn = this.navParams.get('apply');
+    }
+  }
+
+  choose(CV) {
+    let goApply = this.modalCtrl.create('', {CV: CV});
+    goApply.present();
+
+    setTimeout(() => {
+      // Close modal
+      this.viewCtrl.dismiss();
+    }, 500);
   }
 }

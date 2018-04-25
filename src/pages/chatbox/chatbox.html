@@ -1,6 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{chats.user}}</ion-title>
+    <ion-row>
+      <ion-col col-5 offset-1 text-left>
+        <span>{{chats.user}}</span>
+      </ion-col>
+      <ion-col offset-2 col-4 text-right>
+        <button ion-button clear icon-only (click)="goBack()">
+          <ion-icon ios="ios-backspace" md="md-backspace" name="backspace">
+          </ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 

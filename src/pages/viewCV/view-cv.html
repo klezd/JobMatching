@@ -1,10 +1,16 @@
 
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>View CV</ion-title>
-  </ion-navbar>
-
+    <ion-row>
+        <ion-col col-5 offset-1 text-left>
+            <span>VIEW CV</span>
+        </ion-col>
+        <ion-col offset-2 col-4 text-right>
+            <button ion-button clear icon-only (click)="choose({{CV}})">
+                <ion-icon ios="ios-backspace" md="md-backspace" name="backspace">
+                </ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
 </ion-header>
 
 

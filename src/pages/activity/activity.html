@@ -34,7 +34,7 @@
 
   <div class="job-applied">
     <p class="title">Applied jobs</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false)">
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false, false)"> 
       <ion-grid>
         <ion-row>
           <ion-col col-8>
@@ -52,7 +52,7 @@
 
   <div class="work-interested">
     <p class="title">Interested jobs</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false)">
+    <ion-card *ngFor="let post of posts" (click)="viewPost(post, false, true)"><!--viewPost(post, owner, favourite)-->
       <ion-grid>
         <ion-row>
           <ion-col col-7>
