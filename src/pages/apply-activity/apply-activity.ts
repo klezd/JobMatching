@@ -43,7 +43,7 @@ export class ApplyActivityPage {
   }
 
   createCV(){
-    this.navCtrl.push("CreateCV");
+    this.navCtrl.push("CreateCV", {toApply: true, activity: this.activity, msg: this.message});
   }  
 
   userCV() {

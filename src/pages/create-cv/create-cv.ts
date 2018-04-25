@@ -17,6 +17,7 @@ import { Storage } from '@ionic/storage';
 export class CreateCV {
 
   editMode = false;
+  forApply = false;
 
   CV: { CV_name: string, CV_info: {name: string, img: string,} } = { CV_name: '', CV_info: {name: '', img: ''} }
 
@@ -25,6 +26,7 @@ export class CreateCV {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateCvPage');
+
   }
   ionViewWillEnter() {
     //set the CV data if it exists to parse to the form
