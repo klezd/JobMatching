@@ -1,0 +1,23 @@
+page-activity-detail {
+    img {
+        margin: auto;
+        display: block;
+        height: 175px;
+        width: 75%;
+    }
+    .favourite {
+        margin: 0 10px;
+    }
+
+    #map{
+        width: 90%;
+        display: block;
+        margin: auto;
+        max-height: 200px; 
+        min-height: 0;  
+    }
+
+    .shown{
+        height: 200px;
+    }
+}
