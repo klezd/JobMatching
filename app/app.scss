@@ -1,0 +1,140 @@
+
+ion-header {
+    ion-icon {
+        font-size: 35px;
+    }
+    i {
+        color: color($colors, icon)!important;
+    }
+    button {
+        margin: auto
+    }
+    ion-col {
+        text-align: center;
+    }
+    ion-grid, ion-col {
+        padding: 0 !important;
+    }
+}
+
+//change color for tab when changing tab 
+.tabbar {
+	a.tab-button[aria-selected=true]{
+        color: color($colors, icon);
+        background-color: color($colors, theme-active);
+        border-top: solid 1px black;                
+		.tab-button-icon {
+			color: color($colors, icon);
+		}
+    }
+}
+.tabbar {
+    a.tab-button {
+        border-right: solid 1px black;   
+        .tab-button-icon {
+            text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
+            display: block;
+		}  
+    }
+    a.tab-button:nth-of-type(5) {
+        border-right: 0;    
+    }
+}
+
+//global variables
+
+.link {
+    font-size: 16px;
+    color: white;
+    margin: 0 10px;
+}
+
+.link-term {
+    font-size: 15px;
+    color: #ff4000;
+    margin: 0 10px;
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;    
+}
+
+.sub-title {
+    font-size: 17px;    
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold!important;
+}
+
+.form-label {
+    font-weight: normal;
+    font-size: 17px!important;
+}
+
+.form-label .bold {
+    font-weight: bold;
+}
+
+.activity-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: color($colors, primary) !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.right-nav-content {
+    padding: 20px;
+    text-align: right;
+}
+
+.text-on-nav {
+    padding: 20px;    
+    font-size: 20px !important;    
+}
+
+.requiredStar {
+    color: red !important;
+}
+
+ion-col {
+    vertical-align: middle;
+}
+ion-row {
+    align-items: center;
+}
+//input
+ion-label[stacked] {
+    font-size: 17px!important;
+    color: #000!important;
+}
+
+//variables
+[half-block] {
+    display: block;
+    width: 80%;
+    text-align: center;
+}
+
+[decrease-padding] {
+    padding: 12px!important;
+}
+
+//scroll bar
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+[quarter-block] {
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 3%;
+}

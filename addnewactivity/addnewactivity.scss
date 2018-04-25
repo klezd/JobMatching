@@ -1,0 +1,21 @@
+page-addnewactivity {
+    input {
+        outline: none;
+        border: none;
+        width: 80%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    img {
+        width: 50%;
+        height: 50%;
+    }
+    ion-label[stacked] {
+        font-weight: bold;
+    }
+    ion-label[slack] {
+        font-weight: bold;
+        color: black!important;
+    }
+}
