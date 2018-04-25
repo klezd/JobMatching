@@ -38,6 +38,7 @@ export class ViewMyCVs {
 
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
+                public modalCtrl: ModalController,
                 private viewCtrl: ViewController,
                 public alertCtrl: AlertController) {
   }
@@ -64,7 +65,12 @@ export class ViewMyCVs {
    * edit CV will go to createCV page with the information 
    */
   view(CV) {
-    this.navCtrl.push('ViewCV', {CV: CV});
+    if(this.forApply){
+      let viewCV = this.modalCtrl.create('ViewCV', {CV: CV, apply: this.forApply});
+      viewCV.present();
+    } else {
+      this.navCtrl.push('ViewCV', {CV: CV});
+    }
   }
 
   edit(CV){
