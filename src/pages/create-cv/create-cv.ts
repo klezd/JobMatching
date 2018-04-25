@@ -35,6 +35,7 @@ export class CreateCV {
       this.CV = this.navParams.get('CV'); 
       this.editMode = true;
     }
+    
   }
 
   save() {

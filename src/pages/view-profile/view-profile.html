@@ -12,7 +12,7 @@
       <ion-row>
           <ion-col col-3></ion-col>      
           <ion-col col-6 align-items-center>
-              <img src="../../assets/imgs/user.png">              
+              <img src="./assets/imgs/user.png">              
           </ion-col>
           <ion-col col-2>
               
@@ -24,7 +24,7 @@
             <ion-col col-8>            
                 <p class="userName" text-center text-uppercase>Your name</p>
             </ion-col>
-            <ion-col col-2  align-self-start>
+            <ion-col col-2  align-self-start *ngIf="viewOwn">
                 <button ion-button icon-only round color="button-special" small block
                 (click)="editProfile()">
                   <ion-icon name="md-create"></ion-icon>
