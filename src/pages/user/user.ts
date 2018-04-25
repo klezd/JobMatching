@@ -8,7 +8,8 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, A
   templateUrl: 'user.html',
 })
 export class UserPage {
- user: any;
+  user = {name : 'Loc Tran', phone: '012345678', email: 'loc@omega.com', location: 'Oulu', address: 'Välkyllä', postcode: 90130};
+
   
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
@@ -18,7 +19,6 @@ export class UserPage {
   }
   
   ionViewWillEnter() {
-    this.user = this.navParams.get('user');
     console.log(this.user);
   }
 
@@ -27,11 +27,11 @@ export class UserPage {
   }
 
   viewProfile() {
-    this.navCtrl.push('ViewProfilePage');
+    this.navCtrl.push('ViewProfilePage', {user: this.user, viewOwn: true});
   }
 
   editProfile() {
-    this.navCtrl.push('EditProfilePage');
+    this.navCtrl.push('EditProfilePage', {user: this.user});
   }
 
   viewAllPosts() {

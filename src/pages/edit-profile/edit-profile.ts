@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-/**
- * Generated class for the EditProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,9 +10,16 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class EditProfilePage {
   profilePic = "./assets/imgs/user.png";
 
+  user:  {name: string, phone: string, email: string, location: string, address: string, postcode: number}
+    = {name : 'Loc Tran', phone: '012345678', email: 'loc@omega.com', location: 'Oulu', address: 'Välkyllä', postcode: 90130};
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl: ModalController) {
+  }
+  
+  ionViewWillEnter() {
+    this.user = this.navParams.get('user');
   }
 
   ionViewDidLoad() {
@@ -36,7 +37,7 @@ export class EditProfilePage {
   }
 
   save() {
-    this.navCtrl.push("ViewProfilePage", {viewOwn: true});
+    this.navCtrl.push("ViewProfilePage", {viewOwn: true, userToBeViewed: this.user});
   }
 
 }

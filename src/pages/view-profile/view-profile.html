@@ -22,7 +22,7 @@
         <ion-row>
             <ion-col col-2></ion-col>      
             <ion-col col-8>            
-                <p class="userName" text-center text-uppercase>Your name</p>
+                <p class="userName" text-center text-uppercase>{{user.name}}</p>
             </ion-col>
             <ion-col col-2  align-self-start *ngIf="viewOwn">
                 <button ion-button icon-only round color="button-special" small block
@@ -36,33 +36,33 @@
   <ion-list>
       <ion-item>
         <ion-label>Username</ion-label>
-        <ion-input type="text" disabled="true"></ion-input>
+        <ion-input type="text" disabled="true" [(ngModel)]="user.name" name="name"></ion-input>
       </ion-item>
 
       <ion-item *ngIf="viewOwn">
         <ion-label>Email</ion-label>
-        <ion-input type="text" disabled="true"></ion-input>
+        <ion-input type="text" disabled="true" [(ngModel)]="user.email" name="email"></ion-input>
       </ion-item>
       <!-- NB: IMPORTANT!!! This field can't be modified by user!!! -->
 
       <ion-item *ngIf="viewOwn">
         <ion-label>Phone number</ion-label>
-        <ion-input type="text" disabled="true"></ion-input>
+        <ion-input type="text" disabled="true" [(ngModel)]="user.phone" name="phone"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Location</ion-label>
-        <ion-input type="text" disabled="true"></ion-input>
+        <ion-input type="text" disabled="true" [(ngModel)]="user.location" name="location"></ion-input>
       </ion-item>
 
       <ion-item *ngIf="viewOwn">
         <ion-label>Address</ion-label>
-        <ion-input type="text" disabled="true"></ion-input>
+        <ion-input type="text" disabled="true" [(ngModel)]="user.address" name="address"></ion-input>
       </ion-item>
 
       <ion-item *ngIf="viewOwn">
         <ion-label>Postcode</ion-label>
-        <ion-input type="text" disabled="true"></ion-input>
+        <ion-input type="text" disabled="true" [(ngModel)]="user.postcode" name="postcode"></ion-input>
       </ion-item>
 
   </ion-list>

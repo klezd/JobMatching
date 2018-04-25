@@ -14,19 +14,22 @@ export class ViewProfilePage {
    * beside by [rootParams] = user: user who logged in, this page can be used to view the profile 
    * of the user whom logged in and the profile of others.
    */
-  user; //this user is logged in
+  user:  {name: string, phone: string, email: string, location: string, address: string, postcode: number}
+    = {name : 'Loc Tran', phone: '012345678', email: 'loc@omega.com', location: 'Oulu', address: 'Välkyllä', postcode: 90130};
   userToBeViewed; //view this user profile'
   viewOwn = false;
   
   ionViewWillEnter() {
     this.userToBeViewed = this.navParams.get('userToBeViewed');
-    if(this.navParams.get('viewOwner')!=null){
+    /*if(this.navParams.get('viewOwner')!=null){
       this.viewOwn = true;
     }
     //set mode to view
     if(this.user == this.userToBeViewed) {
       this.viewOwn = true;
-    }
+    }*/
+
+    this.navParams.get('viewOwn') != null ? this.viewOwn = this.navParams.get('viewOwn') : {};
   }
 
   message() {
@@ -46,6 +49,6 @@ export class ViewProfilePage {
   }
 
   editProfile(){
-    this.navCtrl.push('EditProfilePage');
+    this.navCtrl.push('EditProfilePage', {user: this.user});
   }
 }

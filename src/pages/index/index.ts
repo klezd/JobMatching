@@ -86,7 +86,7 @@ export class IndexPage {
         activity_info: {
             title: 'House Keeper',
             location: 'Oulu',
-            img: './assets/',
+            img: './assets/post_images/babysitting.jpg',
             details: 'Keeping house clean for 2 weeks',
             requirement: 'no requirement',
         },
