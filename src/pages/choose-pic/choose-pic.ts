@@ -23,10 +23,10 @@ export class ChoosePicPage {
   getFromLib = false;
   //have only on page choose pic for post
   imageList: any[] = [
-    './assets/imgs/OmegaJob.png',
-    './assets/imgs/post_images/babysitting.jpg',
-    './assets/imgs/post_images/cleaning.jpg',
-    './assets/imgs/post_images/picking_fruits.jpg',   
+    'https://firebasestorage.googleapis.com/v0/b/jobmatching-dfb1a.appspot.com/o/default%20img%2FOmegaJob.png?alt=media&token=3e04e77c-c4af-4ab6-9fed-c464ee271ae9',
+    'https://firebasestorage.googleapis.com/v0/b/jobmatching-dfb1a.appspot.com/o/default%20img%2Fbabysitting.jpg?alt=media&token=75282d78-75bc-4044-a1f7-ed22f7c45680',
+    'https://firebasestorage.googleapis.com/v0/b/jobmatching-dfb1a.appspot.com/o/default%20img%2Fcleaning.jpg?alt=media&token=019b6e84-df85-4a09-943b-7a67b25337f9',
+    'https://firebasestorage.googleapis.com/v0/b/jobmatching-dfb1a.appspot.com/o/default%20img%2Fpicking_fruits.jpg?alt=media&token=0683aa27-f5ca-4d58-9649-ceeab24cb2dc',   
   ];
   
   constructor(  public navCtrl: NavController, 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
@@ -7,11 +7,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'intro.html',
 })
 export class Introduction {
+  @ViewChild('slides') slides: ElementRef;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  exist;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroPage');
+  }
+
+  omegaAutoPlay() {
+    clearTimeout(this.exist);
+    this.exist = setTimeout(this.slides.startAutoplay.bind(this.slides), 2000);
   }
 
   login() {

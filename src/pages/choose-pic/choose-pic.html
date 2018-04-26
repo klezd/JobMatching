@@ -19,5 +19,12 @@
   <br>
   <img src="{{pathForImage(lastImage)}}" style="width: 200px" [hidden]="lastImage === null">
   <br>
-  <button ion-button color="button-theme" [hidden]="lastImage === null" (click)="choose(pathForImage(lastImage))">Save</button>
+  <!--if exists-->
+  <div *ngIf="imgLink!=null">
+    <p *ngIf="imgCorrectPath!=null">img correct path: {{imgCorrectPath}}</p>
+    <p *ngIf="imgCurrentPath!=null"> img current path: {{imgCurrentPath}}</p>
+    <p *ngIf="imgNewName!=null">img new name: {{imgNewName}} </p>
+    <p *ngIf="imgLink!=null">img link: {{imgLink}}</p>
+  </div>
+  <button ion-button color="button-theme" [hidden]="lastImage === null" (click)="choose(this.lastImage)">Save</button>
 </ion-content>
