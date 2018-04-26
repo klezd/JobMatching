@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Job } from '../../models/job';
+import { JobService } from '../../services/job.service';
 
 /**
  * Generated class for the ActivityPage page.

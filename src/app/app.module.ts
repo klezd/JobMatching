@@ -23,6 +23,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 // Services
 import { AuthService } from '../services/auth.service';
 import { LocationService } from '../services/locations.service';
+import { JobService } from '../services/job.service';
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [

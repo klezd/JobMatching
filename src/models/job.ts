@@ -9,4 +9,6 @@ export interface Job {
     applyee: number;
     imgUrl: string;
     ref: string;
+    userID: string;
+    tags: string [];
 }

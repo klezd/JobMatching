@@ -49,21 +49,11 @@ export class AddnewactivityPage {
     });
     alert.present();
   }
+  
   createJob(job: Job) {
-    this.afDb.list('/Jobs').push({
-      title: this.job.title,
-      location: this.job.location,
-      dateStart: this.job.dateStart,
-      dateEnd: this.job.dateEnd,
-      describe: this.job.describe,
-      require: this.job.require,
-      employee: this.job.employee,
-      ref: this.jobRef
-      
-    }).then( result => {
-      result.showAlert('A job is posted.');
-    })
+    this.jobRef.createJob(job);
   }
+  
   ionViewWillEnter() {
     if(this.navParams.get('activity')!=null){
       this.editMode = true;

@@ -16,16 +16,16 @@
 <ion-content padding>
   <div class="all-posts">
     <p class="title">All my posts</p>
-    <ion-card *ngFor="let post of posts" (click)="viewPost(post, true)">
+    <ion-card *ngFor="let job of jobs" (click)="viewPost(job, true)">
       <ion-grid>
         <ion-row>
           <ion-col col-8>
-            <h3 class="form-label">{{post.activity_info.title}}</h3>
-            <p>{{post.activity_info.location}}</p>
-            <p>{{post.period.from}}-{{post.period.end}}</p>
+            <h3 class="form-label">{{job.title}}</h3>
+            <p>{{job.location}}</p>
+            <p>{{job.dateStart}}-{{job.dateEnd}}</p>
           </ion-col>
           <ion-col col-4>
-            <img src="{{post.activity_info.img}}">
+            <img src="{{job.imgUrl}}">
           </ion-col>
         </ion-row>
       </ion-grid>
