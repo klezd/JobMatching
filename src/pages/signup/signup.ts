@@ -22,7 +22,7 @@ export class SignupPage {
     this.authService.signUp(this.user).then(
       () => {
         this.toastCtrl.create({
-          message: 'Welcome to OmegaJob, ' + this.user.email,
+          message: 'Successfully signing up to Omega',
           duration: 1500,
           position: 'top'
         }).present();

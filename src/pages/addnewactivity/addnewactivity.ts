@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 import { Platform, IonicPage, NavController, AlertController, ViewController, ModalController, NavParams } from 'ionic-angular';
+import { Job } from './../../models/job';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { JobService } from '../../services/job.service';
+
 @IonicPage()
 @Component({
   selector: 'page-addnewactivity',
   templateUrl: 'addnewactivity.html',
 })
 export class AddnewactivityPage {
+  job = {} as Job;
   tags = [];
   addTags(val) {
     console.log(this.tags);
     this.tags.push(val);
-    this.newActivity.tags.push(val);
+    //this.newActivity.tags.push(val);
     console.log(this.tags);
   }
   //show alert to confirm
@@ -24,7 +29,8 @@ export class AddnewactivityPage {
   owner = true;
   dateStart: any;
   dateEnd: any;
-  constructor(  public navCtrl: NavController,
+  constructor( private afDb: AngularFireDatabase, private jobRef: JobService,
+    public navCtrl: NavController,
                 private alertCtrl: AlertController,
                 private modalCtrl: ModalController,
                 private platform: Platform,
@@ -34,8 +40,30 @@ export class AddnewactivityPage {
     this.platform.registerBackButtonAction(function(){
       this.close();
     },2);
-  } 
-
+  }
+  showAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: 'Omega says',
+      subTitle: message,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  createJob(job: Job) {
+    this.afDb.list('/Jobs').push({
+      title: this.job.title,
+      location: this.job.location,
+      dateStart: this.job.dateStart,
+      dateEnd: this.job.dateEnd,
+      describe: this.job.describe,
+      require: this.job.require,
+      employee: this.job.employee,
+      ref: this.jobRef
+      
+    }).then( result => {
+      result.showAlert('A job is posted.');
+    })
+  }
   ionViewWillEnter() {
     if(this.navParams.get('activity')!=null){
       this.editMode = true;

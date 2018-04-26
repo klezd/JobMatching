@@ -19,6 +19,7 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 // Services
 import { AuthService } from '../services/auth.service';
 import { LocationService } from '../services/locations.service';
@@ -35,6 +36,7 @@ import { LocationService } from '../services/locations.service';
     HttpModule,
     IonTagsInputModule,
     AngularFireModule.initializeApp(firebaseConfig.config),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
