@@ -25,17 +25,17 @@
     <form #f="ngForm">
       <ion-item>
         <ion-label stacked>Title <span class="requiredStar">(*)</span></ion-label>
-        <ion-input required (change)="touch(f)" [(ngModel)]="newActivity.activity_info.title" type="text" name="title"></ion-input>
+        <ion-input required (change)="touch(f)" [(ngModel)]="job.title" type="text" name="title"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label stacked>Description <span class="requiredStar">(*)</span> </ion-label>
-        <ion-textarea required (change)="touch(f)" type="text" name="details" [(ngModel)]="newActivity.activity_info.details" #textarea="ngModel"></ion-textarea>
+        <ion-textarea required (change)="touch(f)" type="text" name="details" [(ngModel)]="job.describe" #textarea="ngModel"></ion-textarea>
       </ion-item>
 
       <ion-item>
         <ion-label stacked>Location <span class="requiredStar">(*)</span> </ion-label>
-        <ion-select [(ngModel)]="newActivity.activity_info.location" 
+        <ion-select [(ngModel)]="job.location" 
                     name="location" required 
                     (change)="touch(f)"
                     okText="Choose" cancelText="Back">
@@ -49,24 +49,24 @@
 
       <ion-item>
         <ion-label stacked>Requirement <span class="requiredStar">(*)</span></ion-label>
-        <ion-input required (change)="touch(f)" [(ngModel)]="newActivity.activity_info.requirement" type="text" name="requirement"></ion-input>
+        <ion-input required (change)="touch(f)" [(ngModel)]="job.require" type="text" name="requirement"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label text-wrap fixed slack>Number of workers needed <span class="requiredStar">(*)</span></ion-label>
-        <ion-input required (change)="touch(f)" [(ngModel)]="newActivity.worker_info.number_of_workers" type="number" pattern="[0-9]*" name="numOfWork"></ion-input>
+        <ion-input required (change)="touch(f)" [(ngModel)]="job.employee" type="number" pattern="[0-9]*" name="numOfWork"></ion-input>
       </ion-item>
       <ion-item no-lines><ion-label slack>Working period <span class="requiredStar">(*)</span> </ion-label> </ion-item>
       <ion-item>
         <ion-label>
           From
         </ion-label>
-        <ion-datetime required displayFormat="MMM DD, YYYY" name="from" (change)="touch(f)" [(ngModel)]="newActivity.period.from" pickerFormat="MMMM DD YYYY"></ion-datetime>
+        <ion-datetime required displayFormat="MMM DD, YYYY" name="from" (change)="touch(f)" [(ngModel)]="job.dateStart" pickerFormat="MMMM DD YYYY"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>
           To
         </ion-label>
-        <ion-datetime required displayFormat="MMM DD, YYYY" name="to" (change)="touch(f)" [(ngModel)]="newActivity.period.end" pickerFormat="MMMM DD YYYY"></ion-datetime>
+        <ion-datetime required displayFormat="MMM DD, YYYY" name="to" (change)="touch(f)" [(ngModel)]="job.dateEnd" pickerFormat="MMMM DD YYYY"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label stacked> Tag </ion-label>
@@ -82,11 +82,11 @@
       <img *ngIf="newActivity.activity_info.img!=null" src="{{newActivity.activity_info.img}}"/>
       <div class="img-upload">
         <button ion-button color="button-yellow" (click)="uploadPic()">Choose image</button>
-        <input (change)="touch()" [(ngModel)]="newActivity.activity_info.img" type="text" name="img" #img>
+        <input (change)="touch()" [(ngModel)]="job.imgUrl" type="text" name="img" #img>
       </div>    
     </div>
     <div padding *ngIf="!editMode">
-      <button ion-button block color="button-aqua" type="submit" (click)="post()" [disabled]="!f.valid">POST</button>
+      <button ion-button block color="button-aqua" type="submit" (click)="createJob(job)" [disabled]="!f.valid">POST</button>
     </div>
     <div padding *ngIf="editMode">
       <button ion-button block color="button-aqua" type="submit" (click)="post()" [disabled]="!f.valid">SAVE</button>
