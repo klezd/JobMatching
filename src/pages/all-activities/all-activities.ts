@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 })
 export class AllActivitiesPage {
   pageName: string = '';
+  postList: any[];
      //TODO
   activitiesList = [
     {
@@ -76,7 +77,8 @@ export class AllActivitiesPage {
   }
 
   ionViewWillEnter() {
-    this.pageName = this.navParams.get('pageName');    
+    this.pageName = this.navParams.get('pageName');  
+    this.postList = this.navParams.get('activityList')  
   } 
 
   openDetails(activity) {

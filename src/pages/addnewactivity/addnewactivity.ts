@@ -49,6 +49,7 @@ export class AddnewactivityPage {
     });
     alert.present();
   }
+
   createJob(job: Job) {
     this.afDb.list('/Jobs').push({
       title: this.job.title,
@@ -62,12 +63,14 @@ export class AddnewactivityPage {
       
     }).then( result => {
       result.showAlert('A job is posted.');
+      this.modalCtrl.create('ActivityDetailPage', {activity: job, owner: this.owner, fromForm: true}).present(); 
     })
   }
+  
   ionViewWillEnter() {
     if(this.navParams.get('activity')!=null){
       this.editMode = true;
-      this.newActivity = this.navParams.get('activity');
+      this.job = this.navParams.get('activity');
     }
     if(this.workDone) {
       //if this job has been marked as done so these code will run.

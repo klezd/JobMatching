@@ -9,17 +9,17 @@
 
 <ion-content padding>
   <p class="title">{{pageName}}</p>
-  <ion-card *ngFor="let activity of activitiesList" (click)="openDetails(activity)">
+  <ion-card *ngFor="let activity of postList" (click)="openDetails(activity)">
     <ion-grid>
       <ion-row>
         <ion-col col-8>
-            <p class="activity-title">{{activity.activity_info.title}}</p>
-          <p>{{activity.activity_info.location}}</p>
-          <p>From: {{activity.period.from}}</p>
-          <p>To: {{activity.period.end}}</p>
+            <p class="activity-title">{{activity.title}}</p>
+          <p>{{activity.location}}</p>
+          <p>From: {{activity.dateStart}}</p>
+          <p>To: {{activity.dateEnd}}</p>
         </ion-col>
         <ion-col col-4>
-          <img src="{{activity.activity_info.img}}">
+          <img src="{{activity.imgUrl}}">
         </ion-col>
       </ion-row>
     </ion-grid>

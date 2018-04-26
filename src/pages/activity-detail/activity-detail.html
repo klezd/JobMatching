@@ -11,7 +11,7 @@
         </ion-col>
         <ion-col col-4 text-left>
           <ion-title>
-            {{activity.activity_info.title}}
+            {{job.title}}
           </ion-title>
         </ion-col>
         <ion-col col-6 text-right>
@@ -27,25 +27,25 @@
 </ion-header>
 
 <ion-content padding>
-  <p class="title" text-center>{{activity.activity_info.title}}</p>
+  <p class="title" text-center>{{job.title}}</p>
   <img class="img-detail" src="{{activity.activity_info.img}}">
   <div>
     <p class="sub-title bold">DESCRIPTION</p>
-    <p>{{activity.activity_info.details}}</p>
+    <p>{{job.details}}</p>
     <p class="sub-title bold">LOCATION</p>
-    <p>{{activity.activity_info.location}}</p>
+    <p>{{job.location}}</p>
     <!--TODO code add to view on map-->
     <div id="map" #map></div>
     <p class="sub-title bold">REQUIREMENT</p>
-    <p>{{activity.activity_info.requirement}}</p>
+    <p>{{job.requirement}}</p>
     <p class="sub-title bold">PERIOD</p>
-    <p>{{activity.period.from}} - {{activity.period.end}}</p>
+    <p>{{job.dayStart}} - {{job.dateEnd}}</p>
     <p class="sub-title bold">Number of workers needed</p>
-    <p>{{activity.worker_info.number_of_workers}}</p>
+    <p>{{job.employee}</p>
   </div>
   <div *ngIf="owner">
     <p class="sub-title bold">Number of workers applied</p>
-    <p>{{activity.worker_info.number_of_applies}}</p>
+    <p>{{job.applyee}}</p>
     <button ion-button color="button-special" (click)="viewApplications()">View applications</button>
   </div>
   <div>

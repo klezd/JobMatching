@@ -3,10 +3,10 @@ export interface Job {
     location: string;
     dateStart: Date;
     dateEnd: Date;
-    describe: string;
+    describe?: string;
     require: string;
-    employee: number;
-    applyee: number;
+    employee?: number;
+    applyee?: number;
     imgUrl: string;
-    ref: string;
+    ref?: string;
 }

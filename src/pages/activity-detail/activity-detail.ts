@@ -11,6 +11,7 @@ import { LocationService } from '../../services/locations.service';
 export class ActivityDetailPage {
   @ViewChild('favourite') favourite: ElementRef;
   @ViewChild('map') map: ElementRef;
+
   user: any;
   activity;
   owner = false;
@@ -38,8 +39,9 @@ export class ActivityDetailPage {
   favouriteJob = false;
   ionViewDidLoad() {
     //show map after the page load
-    this.locationService.showLocation(this.activity.activity_info.location, this.map.nativeElement);
+    this.locationService.showLocation(this.activity.location, this.map.nativeElement);
     this.map.nativeElement.classList.add('shown');
+    
     //show heart if it is the interested job
     if(this.navParams.get('favourite')!=null && this.navParams.get('favourite')==true) {
       this.favouriteJob = this.navParams.get('favourite');
