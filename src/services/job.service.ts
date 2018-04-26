@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { UserService } from '../services/user.service';
 import { Job } from '../models/job';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable()
 export class JobService {
     
     public fireAuth: any;
     public jobRef: any;
+    jobs: AngularFireList<Job[]> = null
 
-    constructor (private afDb: AngularFireDatabase) {
+    constructor (private afDb: AngularFireDatabase, private UserService) {
         this.fireAuth = firebase.auth();
         this.jobRef = firebase.database().ref('Jobs');
+        this.jobs = this.afDb.list('Jobs');
     }
 
     createJob(job: Job) {
